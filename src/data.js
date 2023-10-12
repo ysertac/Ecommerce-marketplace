@@ -1,3 +1,7 @@
+import banner1 from "../src/assets/b1.jpg";
+import banner2 from "../src/assets/b2.jpg";
+import banner3 from "../src/assets/b3.jpg";
+
 export const data = {
   header1: {
     mobile: {
@@ -52,5 +56,8 @@ export const data = {
       { icon: <i class="fa-solid fa-cart-shopping"></i>, count: 0 },
       { icon: <i class="fa-regular fa-heart"></i>, count: 0 },
     ],
+  },
+  hero: {
+    carousel: [banner1, banner2, banner3],
   },
 };

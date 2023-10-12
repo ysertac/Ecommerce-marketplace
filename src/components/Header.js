@@ -38,7 +38,7 @@ const Header = () => {
           <nav>
             {data.header2.navbar.map((link) => (
               <NavLink
-                className="pl-4 text-sm font-bold leading-6 text-[#737373]"
+                className="ml-4 text-sm font-bold leading-6 text-[#737373]"
                 to={link.path}
               >
                 {link.name}

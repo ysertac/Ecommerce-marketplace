@@ -61,7 +61,194 @@ export const data = {
     carousel: [banner1, banner2, banner3],
   },
   pageContent: {
-    header: "EDITOR'S PICK",
+    header1: "EDITOR'S PICK",
+    header2: { header: "BESTSELLER PRODUCTS", text: "Featured Products" },
     links: ["MEN", "WOMEN", "ACCESSORIES", "KIDS"],
+    products: [
+      {
+        image: "https://picsum.photos/240/430?random1",
+        name: "Product",
+        price: { first: "$16.48", discount: "$6.48" },
+        colors: [
+          {
+            name: "blue",
+            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "green",
+            icon: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "orange",
+            icon: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "dark",
+            icon: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          },
+        ],
+      },
+      {
+        image: "https://picsum.photos/240/430?random2",
+        name: "Product",
+        price: { first: "$16.48", discount: "$6.48" },
+        colors: [
+          {
+            name: "blue",
+            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "green",
+            icon: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "orange",
+            icon: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "dark",
+            icon: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          },
+        ],
+      },
+      {
+        image: "https://picsum.photos/240/430?random3",
+        name: "Product",
+        price: { first: "$16.48", discount: "$6.48" },
+        colors: [
+          {
+            name: "blue",
+            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "green",
+            icon: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "orange",
+            icon: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "dark",
+            icon: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          },
+        ],
+      },
+      {
+        image: "https://picsum.photos/240/430?random4",
+        name: "Product",
+        price: { first: "$16.48", discount: "$6.48" },
+        colors: [
+          {
+            name: "blue",
+            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "green",
+            icon: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "orange",
+            icon: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "dark",
+            icon: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          },
+        ],
+      },
+      {
+        image: "https://picsum.photos/240/430?random5",
+        name: "Product",
+        price: { first: "$16.48", discount: "$6.48" },
+        colors: [
+          {
+            name: "blue",
+            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "green",
+            icon: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "orange",
+            icon: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "dark",
+            icon: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          },
+        ],
+      },
+      {
+        image: "https://picsum.photos/240/430?random6",
+        name: "Product",
+        price: { first: "$16.48", discount: "$6.48" },
+        colors: [
+          {
+            name: "blue",
+            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "green",
+            icon: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "orange",
+            icon: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "dark",
+            icon: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          },
+        ],
+      },
+      {
+        image: "https://picsum.photos/240/430?random7",
+        name: "Product",
+        price: { first: "$16.48", discount: "$6.48" },
+        colors: [
+          {
+            name: "blue",
+            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "green",
+            icon: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "orange",
+            icon: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "dark",
+            icon: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          },
+        ],
+      },
+      {
+        image: "https://picsum.photos/240/430?random8",
+        name: "Product",
+        price: { first: "$16.48", discount: "$6.48" },
+        colors: [
+          {
+            name: "blue",
+            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "green",
+            icon: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "orange",
+            icon: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          },
+          {
+            name: "dark",
+            icon: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          },
+        ],
+      },
+    ],
   },
 };

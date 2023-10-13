@@ -2,7 +2,14 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        standart: "1440px",
+      },
+      colors: {
+        general: "#252B42",
+      },
+    },
   },
   plugins: [],
 };

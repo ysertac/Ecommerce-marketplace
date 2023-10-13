@@ -2,10 +2,10 @@ import { data } from "../data";
 
 const ProductList = () => {
   return (
-    <div className="flex w-[1050px] mx-auto flex-wrap justify-between content-between h-[1200px]">
+    <div className="flex w-[73%] mx-auto flex-wrap justify-between content-around h-[1600px]">
       {data.pageContent.products.map((product) => (
         <div>
-          <img src={product.image} />
+          <img src={product.image} className="w-80" />
           <p className="text-center text-[#252B42] text-base leading-6 font-bold pt-5">
             {product.name}
           </p>

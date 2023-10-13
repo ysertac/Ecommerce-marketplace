@@ -45,7 +45,7 @@ const Header = () => {
               </NavLink>
             ))}
           </nav>
-          <div className="font-bold text-sm leading-6 text-[#23A6F0]">
+          <div className="font-bold text-sm leading-6 text-primaryColor">
             <span>{data.header2.auth.icon}</span>{" "}
             <span>{data.header2.auth.login}</span> /{" "}
             <span>{data.header2.auth.register}</span>

@@ -66,8 +66,14 @@ export const data = {
     },
 
     otherIcons: [
-      { icon: <i class="fa-solid fa-magnifying-glass"></i>, count: "" },
-      { icon: <i class="fa-solid fa-cart-shopping"></i>, count: 0 },
+      {
+        icon: <i class="fa-solid fa-magnifying-glass"></i>,
+        count: "",
+      },
+      {
+        icon: <i class="fa-solid fa-cart-shopping"></i>,
+        count: 0,
+      },
       { icon: <i class="fa-regular fa-heart"></i>, count: 0 },
     ],
   },
@@ -86,7 +92,7 @@ export const data = {
         colors: [
           {
             name: "blue",
-            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+            icon: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
           },
           {
             name: "green",
@@ -109,7 +115,7 @@ export const data = {
         colors: [
           {
             name: "blue",
-            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+            icon: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
           },
           {
             name: "green",
@@ -132,7 +138,7 @@ export const data = {
         colors: [
           {
             name: "blue",
-            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+            icon: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
           },
           {
             name: "green",
@@ -155,7 +161,7 @@ export const data = {
         colors: [
           {
             name: "blue",
-            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+            icon: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
           },
           {
             name: "green",
@@ -178,7 +184,7 @@ export const data = {
         colors: [
           {
             name: "blue",
-            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+            icon: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
           },
           {
             name: "green",
@@ -201,7 +207,7 @@ export const data = {
         colors: [
           {
             name: "blue",
-            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+            icon: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
           },
           {
             name: "green",
@@ -224,7 +230,7 @@ export const data = {
         colors: [
           {
             name: "blue",
-            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+            icon: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
           },
           {
             name: "green",
@@ -247,7 +253,7 @@ export const data = {
         colors: [
           {
             name: "blue",
-            icon: <div className="bg-[#23A6F0] w-4 h-4 rounded-full"></div>,
+            icon: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
           },
           {
             name: "green",
@@ -281,17 +287,17 @@ export const data = {
           name: "Loudest à la Madison #1 (L'integral)",
           bottomText: `We focus on ergonomics and meeting you where you work. It's only a keystroke away.`,
           date: {
-            icon: <i class="fa-regular fa-clock"></i>,
+            icon: <i class="fa-regular fa-clock text-primaryColor"></i>,
             value: "dd/month/yyyy",
           },
           comment: {
-            icon: <i class="fa-solid fa-chart-simple"></i>,
+            icon: <i class="fa-solid fa-chart-simple text-[#23856D]"></i>,
             number: 0,
             text: "comments",
           },
           learnMore: {
             text: "Learn More",
-            icon: <i class="fa-solid fa-angle-right"></i>,
+            icon: <i class="fa-solid fa-angle-right text-primaryColor"></i>,
           },
         },
         {
@@ -300,17 +306,17 @@ export const data = {
           name: "Loudest à la Madison #2 (L'integral)",
           bottomText: `We focus on ergonomics and meeting you where you work. It's only a keystroke away.`,
           date: {
-            icon: <i class="fa-regular fa-clock"></i>,
+            icon: <i class="fa-regular fa-clock text-primaryColor"></i>,
             value: "dd/month/yyyy",
           },
           comment: {
-            icon: <i class="fa-solid fa-chart-simple"></i>,
+            icon: <i class="fa-solid fa-chart-simple text-[#23856D]"></i>,
             number: 0,
             text: "comments",
           },
           learnMore: {
             text: "Learn More",
-            icon: <i class="fa-solid fa-angle-right"></i>,
+            icon: <i class="fa-solid fa-angle-right text-primaryColor"></i>,
           },
         },
         {
@@ -319,20 +325,59 @@ export const data = {
           name: "Loudest à la Madison #3 (L'integral)",
           bottomText: `We focus on ergonomics and meeting you where you work. It's only a keystroke away.`,
           date: {
-            icon: <i class="fa-regular fa-clock"></i>,
+            icon: <i class="text-primaryColor fa-regular fa-clock"></i>,
             value: "dd/month/yyyy",
           },
           comment: {
-            icon: <i class="fa-solid fa-chart-simple"></i>,
+            icon: <i class="fa-solid fa-chart-simple text-[#23856D]"></i>,
             number: 0,
             text: "comments",
           },
           learnMore: {
             text: "Learn More",
-            icon: <i class="fa-solid fa-angle-right"></i>,
+            icon: <i class="fa-solid fa-angle-right text-primaryColor"></i>,
           },
         },
       ],
     },
+  },
+  footer: {
+    blocks: [
+      {
+        header: "Company Info",
+        contents: ["About Us", "Carrier", "We are hiring", "Blog"],
+      },
+      {
+        header: "Legal",
+        contents: ["About Us", "Carrier", "We are hiring", "Blog"],
+      },
+      {
+        header: "Features",
+        contents: [
+          "Business Marketing",
+          "User Analytic",
+          "Live Chat",
+          "Unlimited Support",
+        ],
+      },
+      {
+        header: "Resources",
+        contents: ["IOS & Android", "Watch a Demo", "Customers", "API"],
+      },
+    ],
+    getInTouch: {
+      header: "Get In Touch",
+      input: {
+        email: {
+          type: "email",
+          placeHolder: "Your Email",
+        },
+        submit: {
+          type: "submit",
+          value: "Subscribe",
+        },
+      },
+    },
+    copyRight: "Made With Love By Turkiye All Right Reserved",
   },
 };

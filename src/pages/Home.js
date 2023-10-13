@@ -1,3 +1,4 @@
+import Footer from "../layouts/Footer";
 import Header from "../layouts/Header";
 import Hero from "../layouts/Hero";
 import PageContent from "../layouts/PageContent";
@@ -14,6 +15,9 @@ const Home = () => {
       <section>
         <PageContent />
       </section>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };

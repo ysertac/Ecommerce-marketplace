@@ -104,20 +104,20 @@ const PageContent = () => {
         </h2>
         <div className="flex w-[73%] justify-between mx-auto">
           {data.pageContent.pageContent5.items.map((item) => (
-            <div>
+            <div className="border-2">
               <img className="w-[450px]" src={item.img} />
-              <div className="w-60 flex justify-between text-[#737373] my-3">
+              <div className="w-60 flex justify-between text-[#737373] my-3 ml-5">
                 {item.topText.map((text) => (
                   <a>{text}</a>
                 ))}
               </div>
-              <h2 className="text-xl text-general font-normal w-80">
+              <h2 className="text-xl text-general font-normal w-80 ml-5">
                 {item.name}
               </h2>
-              <p className="w-80 text-[#737373] font-normal text-sm my-2">
+              <p className="w-80 text-[#737373] font-normal text-sm my-2 ml-5 pt-2">
                 {item.bottomText}
               </p>
-              <div className="flex justify-between w-96 py-3">
+              <div className="flex justify-between w-96 pt-5 ml-5">
                 <span>
                   {item.date.icon} {item.date.value}
                 </span>
@@ -125,7 +125,7 @@ const PageContent = () => {
                   {item.comment.icon} {item.comment.number} {item.comment.text}
                 </span>
               </div>
-              <div className="text-sm leading-6 font-bold">
+              <div className="text-sm leading-6 font-bold py-7 ml-5">
                 {item.learnMore.text} {item.learnMore.icon}
               </div>
             </div>

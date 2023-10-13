@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
+import PageContent from "../components/PageContent";
 
 const Home = () => {
   return (
@@ -9,6 +10,9 @@ const Home = () => {
       </header>
       <section>
         <Hero />
+      </section>
+      <section>
+        <PageContent />
       </section>
     </>
   );

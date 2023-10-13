@@ -4,14 +4,7 @@ import { data } from "../data";
 
 const Hero = () => {
   return (
-    <Carousel
-      autoPlay
-      infiniteLoop
-      showThumbs={false}
-      stopOnHover
-      centerMode
-      centerSlidePercentage={100}
-    >
+    <Carousel autoPlay infiniteLoop showThumbs={false} stopOnHover>
       {data.hero.carousel.map((img) => (
         <div>
           <img src={img} className="h-[85vh]" />

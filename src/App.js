@@ -1,7 +1,10 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import ProductList from "./pages/ProductList";
+import Product from "./pages/Product";
+import About from "./pages/About";
+import Team from "./pages/Team";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -11,7 +14,16 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/products">
-          <ProductList />
+          <Product />
+        </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
+        <Route exact path="/team">
+          <Team />
+        </Route>
+        <Route exact path="/contact">
+          <Contact />
         </Route>
       </Switch>
     </div>

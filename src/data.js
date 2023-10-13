@@ -39,10 +39,10 @@ export const data = {
     brand: "Bandage",
     navbar: [
       { name: "Home", path: "/" },
-      { name: "Shop", path: "/Products" },
-      { name: "About", path: "/" },
-      { name: "Blog", path: "/" },
-      { name: "Contact", path: "/" },
+      { name: "Shop", path: "/products" },
+      { name: "About", path: "/about" },
+      { name: "Team", path: "/team" },
+      { name: "Contact", path: "/contact" },
       { name: "Pages", path: "/" },
     ],
     auth: {
@@ -59,5 +59,9 @@ export const data = {
   },
   hero: {
     carousel: [banner1, banner2, banner3],
+  },
+  pageContent: {
+    header: "EDITOR'S PICK",
+    links: ["MEN", "WOMEN", "ACCESSORIES", "KIDS"],
   },
 };

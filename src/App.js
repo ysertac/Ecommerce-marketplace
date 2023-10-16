@@ -1,10 +1,10 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Product from "./pages/Product";
 import About from "./pages/About";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
+import Products from "./pages/Products";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/products">
-          <Product />
+          <Products />
         </Route>
         <Route exact path="/about">
           <About />

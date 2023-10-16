@@ -31,7 +31,7 @@ const Header = () => {
       <div>
         <div className="flex justify-between items-center w-[1439px] mx-auto py-5">
           <div className="font-bold text-sm leading-6">
-            <h2 className="text-2xl font-bold leading-8">
+            <h2 className="text-2xl font-bold leading-8 text-general">
               {data.header2.brand}
             </h2>
           </div>

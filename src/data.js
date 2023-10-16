@@ -381,3 +381,44 @@ export const data = {
     copyRight: "Made With Love By Turkiye All Right Reserved",
   },
 };
+
+export const productListData = {
+  shop: {
+    header: {
+      left: "Shop",
+      right: { first: "Home", second: "Shop" },
+    },
+    main: [
+      {
+        class:
+          "bg-[url('./assets/productlist/plfp1.png')] bg-cover w-[270px] h-[295px] bg-no-repeat flex justify-center items-center",
+        content1: "CLOTHS",
+        content2: "5 Items",
+      },
+      {
+        class:
+          "bg-[url('./assets/productlist/plfp2.png')] bg-cover w-[270px] h-[295px] bg-no-repeat flex justify-center items-center",
+        content1: "CLOTHS",
+        content2: "5 Items",
+      },
+      {
+        class:
+          "bg-[url('./assets/productlist/plfp3.png')] bg-cover w-[270px] h-[295px] bg-no-repeat flex justify-center items-center",
+        content1: "CLOTHS",
+        content2: "5 Items",
+      },
+      {
+        class:
+          "bg-[url('./assets/productlist/plfp4.png')] bg-cover w-[270px] h-[295px] bg-no-repeat flex justify-center items-center",
+        content1: "CLOTHS",
+        content2: "5 Items",
+      },
+      {
+        class:
+          "bg-[url('./assets/productlist/plfp5.png')] bg-cover w-[270px] h-[295px] bg-no-repeat flex justify-center items-center",
+        content1: "CLOTHS",
+        content2: "5 Items",
+      },
+    ],
+  },
+};

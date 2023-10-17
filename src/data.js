@@ -15,6 +15,18 @@ import pccar2 from "./assets/pccar2.png";
 import pc51 from "./assets/pc51.png";
 import pc52 from "./assets/pc52.png";
 import pc53 from "./assets/pc53.png";
+import plsp1 from "./assets/productlist/plsp1.jpg";
+import plsp2 from "./assets/productlist/plsp2.jpg";
+import plsp3 from "./assets/productlist/plsp3.jpg";
+import plsp4 from "./assets/productlist/plsp4.jpg";
+import plsp5 from "./assets/productlist/plsp5.jpg";
+import plsp6 from "./assets/productlist/plsp6.jpg";
+import plsp7 from "./assets/productlist/plsp7.jpg";
+import plsp8 from "./assets/productlist/plsp8.jpg";
+import plsp9 from "./assets/productlist/plsp9.jpg";
+import plsp10 from "./assets/productlist/plsp10.jpg";
+import plsp11 from "./assets/productlist/plsp11.jpg";
+import plsp12 from "./assets/productlist/plsp12.jpg";
 
 export const data = {
   header1: {
@@ -381,7 +393,7 @@ export const data = {
     copyRight: "Made With Love By Turkiye All Right Reserved",
   },
 };
-
+const secondPartHeaderCounter = 12;
 export const productListData = {
   shop: {
     header: {
@@ -418,6 +430,173 @@ export const productListData = {
           "bg-[url('./assets/productlist/plfp5.png')] bg-cover w-[270px] h-[295px] bg-no-repeat flex justify-center items-center",
         content1: "CLOTHS",
         content2: "5 Items",
+      },
+    ],
+  },
+  secondPart: {
+    header: {
+      left: {
+        text: `Showing all ${secondPartHeaderCounter} results`,
+      },
+      views: {
+        text: "Views:",
+        options: [
+          <i class="fa-brands fa-windows w-[14px]"></i>,
+          <i class="fa-solid fa-list w-[14px]"></i>,
+        ],
+      },
+      buttons: [
+        {
+          text: "Popularity",
+          icon: <i class="fa-solid fa-angle-down text-secondaryColor"></i>,
+        },
+        "Filter",
+      ],
+    },
+    content: [
+      {
+        img: plsp1,
+        header: "Graphic Design",
+        header2: "English Department",
+        price: { full: "$16.48", discount: "$6.48" },
+        colors: {
+          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
+          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+        },
+      },
+      {
+        img: plsp2,
+        header: "Graphic Design",
+        header2: "English Department",
+        price: { full: "$16.48", discount: "$6.48" },
+        colors: {
+          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
+          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+        },
+      },
+      {
+        img: plsp3,
+        header: "Graphic Design",
+        header2: "English Department",
+        price: { full: "$16.48", discount: "$6.48" },
+        colors: {
+          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
+          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+        },
+      },
+      {
+        img: plsp4,
+        header: "Graphic Design",
+        header2: "English Department",
+        price: { full: "$16.48", discount: "$6.48" },
+        colors: {
+          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
+          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+        },
+      },
+      {
+        img: plsp5,
+        header: "Graphic Design",
+        header2: "English Department",
+        price: { full: "$16.48", discount: "$6.48" },
+        colors: {
+          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
+          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+        },
+      },
+      {
+        img: plsp6,
+        header: "Graphic Design",
+        header2: "English Department",
+        price: { full: "$16.48", discount: "$6.48" },
+        colors: {
+          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
+          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+        },
+      },
+      {
+        img: plsp7,
+        header: "Graphic Design",
+        header2: "English Department",
+        price: { full: "$16.48", discount: "$6.48" },
+        colors: {
+          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
+          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+        },
+      },
+      {
+        img: plsp8,
+        header: "Graphic Design",
+        header2: "English Department",
+        price: { full: "$16.48", discount: "$6.48" },
+        colors: {
+          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
+          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+        },
+      },
+      {
+        img: plsp9,
+        header: "Graphic Design",
+        header2: "English Department",
+        price: { full: "$16.48", discount: "$6.48" },
+        colors: {
+          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
+          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+        },
+      },
+      {
+        img: plsp10,
+        header: "Graphic Design",
+        header2: "English Department",
+        price: { full: "$16.48", discount: "$6.48" },
+        colors: {
+          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
+          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+        },
+      },
+      {
+        img: plsp11,
+        header: "Graphic Design",
+        header2: "English Department",
+        price: { full: "$16.48", discount: "$6.48" },
+        colors: {
+          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
+          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+        },
+      },
+      {
+        img: plsp12,
+        header: "Graphic Design",
+        header2: "English Department",
+        price: { full: "$16.48", discount: "$6.48" },
+        colors: {
+          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
+          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
+          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
+          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+        },
       },
     ],
   },

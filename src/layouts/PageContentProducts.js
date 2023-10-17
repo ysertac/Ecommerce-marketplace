@@ -90,7 +90,13 @@ const PageContentProducts = () => {
       </div>
 
       {/* Logo Part */}
-      <div></div>
+      <div className="bg-dimbg p-10 mt-12">
+        <div className="w-standart flex justify-between mx-auto">
+          {productListData.logoPart.map((logo) => (
+            <img src={logo} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

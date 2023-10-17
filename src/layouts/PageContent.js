@@ -5,7 +5,7 @@ import ProductList from "../components/ProductList";
 
 const PageContent = () => {
   return (
-    <>
+    <div className="mb-24">
       {/* Editors Pick Section */}
       <div>
         <h2 className="text-center text-2xl font-bold leading-8 p-16">
@@ -132,7 +132,7 @@ const PageContent = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

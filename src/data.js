@@ -27,6 +27,12 @@ import plsp9 from "./assets/productlist/plsp9.jpg";
 import plsp10 from "./assets/productlist/plsp10.jpg";
 import plsp11 from "./assets/productlist/plsp11.jpg";
 import plsp12 from "./assets/productlist/plsp12.jpg";
+import logo1 from "./assets/productlist/logo1.png";
+import logo2 from "./assets/productlist/logo2.png";
+import logo3 from "./assets/productlist/logo3.png";
+import logo4 from "./assets/productlist/logo4.png";
+import logo5 from "./assets/productlist/logo5.png";
+import logo6 from "./assets/productlist/logo6.png";
 
 export const data = {
   header1: {
@@ -600,4 +606,5 @@ export const productListData = {
       },
     ],
   },
+  logoPart: [logo1, logo2, logo3, logo4, logo5, logo6],
 };

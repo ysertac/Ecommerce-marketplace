@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
       {/* Brand and Socials */}
-      <div className="bg-[#FAFAFA] mt-24">
+      <div className="bg-[#FAFAFA]">
         <div className="flex justify-between w-[73%] mx-auto py-10">
           <span className="text-2xl text-general font-bold">
             {data.header2.brand}

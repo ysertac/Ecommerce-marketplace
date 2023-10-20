@@ -1,4 +1,5 @@
 import Header from "../layouts/Header";
+import PageContentAbout from "../layouts/PageContentAbout";
 
 const About = () => {
   return (
@@ -6,6 +7,9 @@ const About = () => {
       <header>
         <Header />
       </header>
+      <section>
+        <PageContentAbout />
+      </section>
     </>
   );
 };

@@ -6,7 +6,7 @@ const Header = () => {
     <>
       {/* Üst Header */}
       <div className="bg-[#252B42] text-white">
-        <div className="flex justify-between w-[1439px] mx-auto py-5">
+        <div className="flex justify-between w-standart mx-auto py-5">
           <div className="font-bold text-sm leading-6">
             <span>
               {data.header1.mobile.icon} &nbsp; {data.header1.mobile.value}
@@ -29,7 +29,7 @@ const Header = () => {
 
       {/* Alt Header */}
       <div>
-        <div className="flex justify-between items-center w-[1439px] mx-auto py-5">
+        <div className="flex justify-between items-center w-standart mx-auto py-5">
           <div className="font-bold text-sm leading-6">
             <h2 className="text-2xl font-bold leading-8 text-general">
               {data.header2.brand}

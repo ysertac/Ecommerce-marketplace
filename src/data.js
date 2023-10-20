@@ -33,6 +33,7 @@ import logo3 from "./assets/productlist/logo3.png";
 import logo4 from "./assets/productlist/logo4.png";
 import logo5 from "./assets/productlist/logo5.png";
 import logo6 from "./assets/productlist/logo6.png";
+import videoImg from "./assets/about/video.jpg";
 
 export const data = {
   header1: {
@@ -400,6 +401,7 @@ export const data = {
   },
 };
 const secondPartHeaderCounter = 12;
+
 export const productListData = {
   shop: {
     header: {
@@ -607,4 +609,39 @@ export const productListData = {
     ],
   },
   logoPart: [logo1, logo2, logo3, logo4, logo5, logo6],
+};
+
+export const aboutUsData = {
+  banner: [
+    "ABOUT COMPANY",
+    "ABOUT US",
+    "We know how large objects will act, but things on a small scale",
+    "Get Quote Now",
+  ],
+  second: [
+    "Problems trying",
+    "Met minim Mollie non desert Alamo est sit cliquey dolor do met sent",
+    "Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics ",
+  ],
+  third: [
+    {
+      big: "15K",
+      small: "Happy Customers",
+    },
+    {
+      big: "150K",
+      small: "Monthly Visitors",
+    },
+    {
+      big: "15",
+      small: "Countries Worldwide",
+    },
+    {
+      big: "100+",
+      small: "Top Partners",
+    },
+  ],
+  bottomBanner: {
+    img: videoImg,
+  },
 };

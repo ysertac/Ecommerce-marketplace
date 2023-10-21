@@ -34,6 +34,10 @@ import logo4 from "./assets/productlist/logo4.png";
 import logo5 from "./assets/productlist/logo5.png";
 import logo6 from "./assets/productlist/logo6.png";
 import videoImg from "./assets/about/video.jpg";
+import team1 from "./assets/about/team1.jpg";
+import team2 from "./assets/about/team2.jpg";
+import team3 from "./assets/about/team3.jpg";
+import bbimg from "./assets/about/bbimg.jpg";
 
 export const data = {
   header1: {
@@ -73,7 +77,7 @@ export const data = {
     navbar: [
       { name: "Home", path: "/" },
       { name: "Shop", path: "/products" },
-      { name: "About", path: "/about" },
+      { name: "About Us", path: "/about" },
       { name: "Team", path: "/team" },
       { name: "Contact", path: "/contact" },
       { name: "Pages", path: "/" },
@@ -643,5 +647,80 @@ export const aboutUsData = {
   ],
   bottomBanner: {
     img: videoImg,
+  },
+  team: {
+    h2: "Meet Our Team",
+    text: "Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics",
+    members: [
+      {
+        img: team1,
+        username: "Username",
+        profession: "Profession",
+        links: [
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-instagram"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-facebook"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-twitter"></i>,
+          },
+        ],
+      },
+      {
+        img: team2,
+        username: "Username",
+        profession: "Profession",
+        links: [
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-instagram"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-facebook"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-twitter"></i>,
+          },
+        ],
+      },
+      {
+        img: team3,
+        username: "Username",
+        profession: "Profession",
+        links: [
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-instagram"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-facebook"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-twitter"></i>,
+          },
+        ],
+      },
+    ],
+  },
+  companies: {
+    h2: "Big Companies Are Here",
+    text: "Problems trying to resolve the conflict between the two major of Classical physics: Newtonian mechanics",
+    img: [logo1, logo2, logo3, logo4, logo5, logo6],
+  },
+  bottomBanner2: {
+    img: bbimg,
+    header1: "WORK WITH US",
+    header2: "Now Let's grow Yours",
+    text: "The gradual accumulation of information about atomic and small-scale behavior during the first quarter of the 20th",
+    button: "Button",
   },
 };

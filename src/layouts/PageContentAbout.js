@@ -1,5 +1,4 @@
 import { aboutUsData } from "../data";
-import Footer from "./Footer";
 
 const PageContentAbout = () => {
   return (
@@ -132,9 +131,6 @@ const PageContentAbout = () => {
         </div>
         <img src={aboutUsData.bottomBanner2.img} />
       </div>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };

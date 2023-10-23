@@ -38,6 +38,20 @@ import team1 from "./assets/about/team1.jpg";
 import team2 from "./assets/about/team2.jpg";
 import team3 from "./assets/about/team3.jpg";
 import bbimg from "./assets/about/bbimg.jpg";
+import teamBanner1 from "./assets/team/teambanner1.png";
+import teamBanner2 from "./assets/team/teambanner2.png";
+import teamBanner3 from "./assets/team/teambanner3.png";
+import teamBanner4 from "./assets/team/teambanner4.png";
+import teamBanner5 from "./assets/team/teambanner5.png";
+import tteam1 from "./assets/team/team1.jpg";
+import tteam2 from "./assets/team/team2.jpg";
+import tteam3 from "./assets/team/team3.jpg";
+import tteam4 from "./assets/team/team4.jpg";
+import tteam5 from "./assets/team/team5.jpg";
+import tteam6 from "./assets/team/team6.jpg";
+import tteam7 from "./assets/team/team7.jpg";
+import tteam8 from "./assets/team/team8.jpg";
+import tteam9 from "./assets/team/team9.jpg";
 
 export const data = {
   header1: {
@@ -722,5 +736,219 @@ export const aboutUsData = {
     header2: "Now Let's grow Yours",
     text: "The gradual accumulation of information about atomic and small-scale behavior during the first quarter of the 20th",
     button: "Button",
+  },
+};
+
+export const teamData = {
+  bannerTop: [
+    "WHAT WE DO",
+    "Innovation tailored for you",
+    <i class="fa-solid fa-angle-right"></i>,
+  ],
+  bannerBottom: [
+    teamBanner1,
+    teamBanner2,
+    teamBanner3,
+    teamBanner4,
+    teamBanner5,
+  ],
+  team: {
+    header: "Meet Our Team",
+    members: [
+      {
+        img: tteam1,
+        username: "Username",
+        profession: "Profession",
+        socials: [
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-instagram"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-facebook"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-twitter"></i>,
+          },
+        ],
+      },
+      {
+        img: tteam2,
+        username: "Username",
+        profession: "Profession",
+        socials: [
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-instagram"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-facebook"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-twitter"></i>,
+          },
+        ],
+      },
+      {
+        img: tteam3,
+        username: "Username",
+        profession: "Profession",
+        socials: [
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-instagram"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-facebook"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-twitter"></i>,
+          },
+        ],
+      },
+      {
+        img: tteam4,
+        username: "Username",
+        profession: "Profession",
+        socials: [
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-instagram"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-facebook"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-twitter"></i>,
+          },
+        ],
+      },
+      {
+        img: tteam5,
+        username: "Username",
+        profession: "Profession",
+        socials: [
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-instagram"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-facebook"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-twitter"></i>,
+          },
+        ],
+      },
+      {
+        img: tteam6,
+        username: "Username",
+        profession: "Profession",
+        socials: [
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-instagram"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-facebook"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-twitter"></i>,
+          },
+        ],
+      },
+      {
+        img: tteam7,
+        username: "Username",
+        profession: "Profession",
+        socials: [
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-instagram"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-facebook"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-twitter"></i>,
+          },
+        ],
+      },
+      {
+        img: tteam8,
+        username: "Username",
+        profession: "Profession",
+        socials: [
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-instagram"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-facebook"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-twitter"></i>,
+          },
+        ],
+      },
+      {
+        img: tteam9,
+        username: "Username",
+        profession: "Profession",
+        socials: [
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-instagram"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-facebook"></i>,
+          },
+          {
+            path: "/#",
+            icon: <i class="fa-brands fa-twitter"></i>,
+          },
+        ],
+      },
+    ],
+  },
+  trial: {
+    header: "Start your 14 days free trial",
+    text: "Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent.",
+    button: "Try it free now",
+    socials: [
+      {
+        path: "https://github.com/ysertac",
+        icon: <i class="fa-brands fa-github"></i>,
+      },
+      {
+        path: "https://instagram.com/ysertacc",
+        icon: <i class="fa-brands fa-instagram"></i>,
+      },
+      {
+        path: "https://facebook.com/ysertacc",
+        icon: <i class="fa-brands fa-facebook"></i>,
+      },
+      {
+        path: "/https://linkedin.com/in/sertacyildirir",
+        icon: <i class="fa-brands fa-linkedin"></i>,
+      },
+    ],
   },
 };

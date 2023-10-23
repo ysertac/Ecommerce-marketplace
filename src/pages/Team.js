@@ -1,4 +1,6 @@
+import Footer from "../layouts/Footer";
 import Header from "../layouts/Header";
+import PageContentTeam from "../layouts/PageContentTeam";
 
 const Team = () => {
   return (
@@ -6,6 +8,12 @@ const Team = () => {
       <header>
         <Header />
       </header>
+      <section>
+        <PageContentTeam />
+      </section>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };

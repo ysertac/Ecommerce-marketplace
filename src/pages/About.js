@@ -1,3 +1,4 @@
+import Footer from "../layouts/Footer";
 import Header from "../layouts/Header";
 import PageContentAbout from "../layouts/PageContentAbout";
 
@@ -10,6 +11,9 @@ const About = () => {
       <section>
         <PageContentAbout />
       </section>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };

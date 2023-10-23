@@ -115,14 +115,14 @@ const PageContentAbout = () => {
 
       {/* Bottom Banner */}
       <div className="bg-primaryColor flex justify-between items-center">
-        <div className="mx-auto w-[438px] text-white h-60 flex flex-col justify-between">
-          <h3 className="text-base font-bold">
+        <div className="mx-auto w-[44%] text-white h-60 flex flex-col justify-between">
+          <h3 className="text-base font-bold w-[438px]">
             {aboutUsData.bottomBanner2.header1}
           </h3>
-          <h2 className="text-[40px] leading-[50px] font-bold">
+          <h2 className="text-[40px] leading-[50px] font-bold w-[438px]">
             {aboutUsData.bottomBanner2.header2}
           </h2>
-          <p className="text-sm font-normal">
+          <p className="text-sm font-normal w-[438px]">
             {aboutUsData.bottomBanner2.text}
           </p>
           <button className="py-3 px-8 border rounded-lg w-32 text-dimbg border-dimbg">

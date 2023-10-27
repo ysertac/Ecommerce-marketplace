@@ -6,7 +6,7 @@ const Footer = () => {
     <>
       {/* Brand and Socials */}
       <div className="bg-[#FAFAFA]">
-        <div className="flex justify-between w-standart mx-auto py-10">
+        <div className="flex justify-between w-3/4 mx-auto py-10">
           <span className="text-2xl text-general font-bold">
             {data.header2.brand}
           </span>
@@ -21,7 +21,7 @@ const Footer = () => {
       </div>
 
       {/* Main Footer */}
-      <div className="w-standart mx-auto">
+      <div className="w-3/4 mx-auto">
         <div className="flex justify-between py-12">
           <div className="flex justify-between w-[70%]">
             {data.footer.blocks.map((block) => (
@@ -59,7 +59,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="text-sm font-bold text-[#737373] bg-[#FAFAFA] py-5">
-        <p className="w-[73%] mx-auto">{data.footer.copyRight}</p>
+        <p className="w-3/4 mx-auto">{data.footer.copyRight}</p>
       </div>
     </>
   );

@@ -6,7 +6,7 @@ const PageContentProducts = () => {
     <div>
       {/* First Part */}
       <div className="bg-dimbg  py-14">
-        <h2 className="w-standart mx-auto flex justify-between text-2xl font-bold leading-8 pb-10 text-general">
+        <h2 className="w-3/4 mx-auto flex justify-between text-2xl font-bold leading-8 pb-10 text-general">
           {productListData.shop.header.left}
           <span>
             <span className="text-sm font-bold">
@@ -17,7 +17,7 @@ const PageContentProducts = () => {
             </span>
           </span>
         </h2>
-        <div className="flex w-standart justify-between mx-auto">
+        <div className="flex w-3/4 justify-between mx-auto">
           {productListData.shop.main.map((item) => (
             <div className={item.class}>
               <div>
@@ -35,7 +35,7 @@ const PageContentProducts = () => {
 
       {/* Second Part */}
       <div>
-        <div className="flex w-standart justify-between items-center mx-auto py-16">
+        <div className="flex w-3/4 justify-between items-center mx-auto py-16">
           <p className="text-secondaryColor text-sm leading-6 font-bold">
             {productListData.secondPart.header.left.text}
           </p>
@@ -57,7 +57,7 @@ const PageContentProducts = () => {
             </span>
           </div>
         </div>
-        <div className="flex w-standart justify-between mx-auto flex-wrap content-between h-[1800px]">
+        <div className="flex w-3/4 justify-between mx-auto flex-wrap content-between h-[1800px]">
           {productListData.secondPart.content.map((item) => (
             <div className="flex flex-col items-center">
               <img className="w-80" src={item.img} />
@@ -91,7 +91,7 @@ const PageContentProducts = () => {
 
       {/* Logo Part */}
       <div className="bg-dimbg p-10 mt-12">
-        <div className="w-standart flex justify-between mx-auto">
+        <div className="w-3/4 flex justify-between mx-auto">
           {productListData.logoPart.map((logo) => (
             <img src={logo} />
           ))}

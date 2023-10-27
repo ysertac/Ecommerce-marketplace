@@ -24,15 +24,15 @@ const PageContentTeam = () => {
 
       {/* Alt Banner */}
       <section className="flex justify-between">
-        <img className="w-[49%]" src={teamData.bannerBottom[0]} />
-        <div className="flex justify-between w-[49%]">
-          <div className="flex flex-col justify-between w-[48%]">
-            <img className="h-[48%]" src={teamData.bannerBottom[1]} />
-            <img className="h-[48%]" src={teamData.bannerBottom[2]} />
+        <img className="w-[49.5%]" src={teamData.bannerBottom[0]} />
+        <div className="flex justify-between w-[49.5%]">
+          <div className="flex flex-col justify-between w-[49%]">
+            <img className="h-[49%]" src={teamData.bannerBottom[1]} />
+            <img className="h-[49%]" src={teamData.bannerBottom[2]} />
           </div>
-          <div className="flex flex-col justify-between w-[48%]">
-            <img className="h-[48%]" src={teamData.bannerBottom[3]} />
-            <img className="h-[48%]" src={teamData.bannerBottom[4]} />
+          <div className="flex flex-col justify-between w-[49%]">
+            <img className="h-[49%]" src={teamData.bannerBottom[3]} />
+            <img className="h-[49%]" src={teamData.bannerBottom[4]} />
           </div>
         </div>
       </section>
@@ -42,7 +42,7 @@ const PageContentTeam = () => {
         <h2 className="text-general text-[40px] leading-[50px] font-bold text-center py-24">
           {teamData.team.header}
         </h2>
-        <div className="flex flex-wrap w-standart mx-auto justify-between h-[1700px]">
+        <div className="flex flex-wrap w-3/4 mx-auto justify-between h-[1700px]">
           {teamData.team.members.map((member) => (
             <div className="w-[30%]">
               <img className="w-full" src={member.img} />

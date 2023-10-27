@@ -5,7 +5,7 @@ const PageContentAbout = () => {
     <div>
       {/* Banner */}
       <div className="bg-[url('./assets/about/background.png')] h-[972px] bg-no-repeat bg-cover flex items-center">
-        <div className="w-standart mx-auto h-80 flex flex-col justify-between">
+        <div className="w-3/4 mx-auto h-80 flex flex-col justify-between">
           <p className="text-general text-base font-bold">
             {aboutUsData.banner[0]}
           </p>
@@ -23,7 +23,7 @@ const PageContentAbout = () => {
 
       {/* Second */}
       <div>
-        <div className="w-standart mx-auto flex justify-between items-center py-5">
+        <div className="w-3/4 mx-auto flex justify-between items-center py-5">
           <div className="w-96 h-36 flex flex-col justify-between">
             <p className="text-sm font-normal text-[#e74040]">
               {aboutUsData.second[0]}
@@ -40,7 +40,7 @@ const PageContentAbout = () => {
 
       {/* Third */}
       <div>
-        <div className="w-standart mx-auto flex justify-between py-20">
+        <div className="w-3/4 mx-auto flex justify-between py-20">
           {aboutUsData.third.map((content) => (
             <div>
               <div className="text-general font-bold text-[58px] leading-[80px] text-center">
@@ -56,9 +56,9 @@ const PageContentAbout = () => {
 
       {/* Video */}
       <div className="py-10">
-        <div className="w-standart mx-auto">
+        <div className="w-3/4 mx-auto">
           <img
-            className="mx-auto rounded-3xl w-standart"
+            className="mx-auto rounded-3xl w-full"
             src={aboutUsData.bottomBanner.img}
           />
         </div>
@@ -72,7 +72,7 @@ const PageContentAbout = () => {
         <p className="text-center w-[470px] mx-auto text-sm font-normal text-secondaryColor pb-20">
           {aboutUsData.team.text}
         </p>
-        <div className="w-standart flex mx-auto justify-between">
+        <div className="w-3/4 flex mx-auto justify-between">
           {aboutUsData.team.members.map((member) => (
             <div>
               <img className="w-[433px]" src={member.img} />
@@ -106,7 +106,7 @@ const PageContentAbout = () => {
             {aboutUsData.companies.text}
           </p>
         </div>
-        <div className="flex mx-auto justify-between w-standart">
+        <div className="flex mx-auto justify-between w-3/4">
           {aboutUsData.companies.img.map((company) => (
             <img src={company} />
           ))}

@@ -1,4 +1,6 @@
+import Footer from "../layouts/Footer";
 import Header from "../layouts/Header";
+import PageContentContact from "../layouts/PageContentContact";
 
 const Contact = () => {
   return (
@@ -6,6 +8,12 @@ const Contact = () => {
       <header>
         <Header />
       </header>
+      <section>
+        <PageContentContact />
+      </section>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };

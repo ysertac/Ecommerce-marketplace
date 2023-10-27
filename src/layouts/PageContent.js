@@ -11,8 +11,8 @@ const PageContent = () => {
         <h2 className="text-center text-2xl font-bold leading-8 p-16">
           {data.pageContent.header1}
         </h2>
-        <div className="flex w-[73%] mx-auto justify-between">
-          <div className="bg-[url('./assets/pg11.png')] bg-no-repeat bg-cover h-[650px] w-[650px] relative">
+        <div className="flex w-3/4 mx-auto justify-between">
+          <div className="bg-[url('./assets/pg11.png')] bg-no-repeat bg-cover w-[48%] h-[30vw] relative">
             <a
               href="#"
               className="bg-white py-3 px-10 text-base font-bold absolute left-7 bottom-7"
@@ -20,7 +20,7 @@ const PageContent = () => {
               {data.pageContent.links[0]}
             </a>
           </div>
-          <div className="bg-[url('./assets/pg12.png')] bg-no-repeat bg-cover h-[650px] w-[25%] relative">
+          <div className="bg-[url('./assets/pg12.png')] bg-no-repeat bg-cover w-[24%] h-[30vw] relative">
             <a
               href="#"
               className="bg-white py-3 px-10 text-base font-bold absolute left-7 bottom-7"
@@ -28,8 +28,8 @@ const PageContent = () => {
               {data.pageContent.links[1]}
             </a>
           </div>
-          <div className="flex flex-col justify-between">
-            <div className="bg-[url('./assets/pg13.png')] bg-no-repeat bg-cover h-[310px] w-[320px] relative">
+          <div className="flex flex-col justify-between w-[24%]">
+            <div className="bg-[url('./assets/pg13.png')] bg-no-repeat bg-cover w-full h-[14.2vw] relative">
               <a
                 href="#"
                 className="bg-white py-3 px-10 text-base font-bold absolute left-7 bottom-7"
@@ -37,7 +37,7 @@ const PageContent = () => {
                 {data.pageContent.links[2]}
               </a>
             </div>
-            <div className="bg-[url('./assets/pg14.png')] bg-no-repeat bg-cover h-[310px] w-[320px] relative">
+            <div className="bg-[url('./assets/pg14.png')] bg-no-repeat bg-cover w-full h-[14.2vw] relative">
               <a
                 href="#"
                 className="bg-white py-3 px-10 text-base font-bold absolute left-7 bottom-7"
@@ -69,7 +69,7 @@ const PageContent = () => {
         </Carousel>
       </div>
       {/* Page Content 4 section */}
-      <div className="flex w-[73%] mx-auto justify-between items-center">
+      <div className="flex w-3/4 mx-auto justify-between items-center">
         <img src={data.pageContent.pageContent4.img} />
         <div>
           <p className="text-base font-bold leading-6 text-[#BDBDBD]">
@@ -102,7 +102,7 @@ const PageContent = () => {
         <h2 className="text-center text-[40px] leading-[50px] font-bold text-[#252B42] py-16">
           {data.pageContent.pageContent5.header}
         </h2>
-        <div className="flex w-[73%] justify-between mx-auto">
+        <div className="flex w-3/4 justify-between mx-auto">
           {data.pageContent.pageContent5.items.map((item) => (
             <div className="border-2">
               <img className="w-[450px]" src={item.img} />

@@ -52,6 +52,11 @@ import tteam6 from "./assets/team/team6.jpg";
 import tteam7 from "./assets/team/team7.jpg";
 import tteam8 from "./assets/team/team8.jpg";
 import tteam9 from "./assets/team/team9.jpg";
+import contactBannerBg from "./assets/contact/bannerbg.png";
+import phone from "./assets/contact/phone.png";
+import location from "./assets/contact/location.png";
+import envelope from "./assets/contact/envelope.png";
+import arrow from "./assets/contact/Arrow.png";
 
 export const data = {
   header1: {
@@ -90,7 +95,7 @@ export const data = {
     brand: "Bandage",
     navbar: [
       { name: "Home", path: "/" },
-      { name: "Shop", path: "/products" },
+      { name: "Shop", path: "/shop" },
       { name: "About Us", path: "/about" },
       { name: "Team", path: "/team" },
       { name: "Contact", path: "/contact" },
@@ -950,5 +955,70 @@ export const teamData = {
         icon: <i class="fa-brands fa-linkedin"></i>,
       },
     ],
+  },
+};
+
+export const contactData = {
+  banner: {
+    texts: [
+      "CONTACT US",
+      "Get in touch today!",
+      "We know how large objects will act, but things on a small scale.",
+      "Phone: +90 535 741 45 11",
+      "Email: ysertac96@gmail.com",
+    ],
+    socials: [
+      {
+        path: "https://instagram.com/ysertacc",
+        icon: <i class="fa-brands fa-instagram fa-2x"></i>,
+      },
+      {
+        path: "https://facebook.com/ysertacc",
+        icon: <i class="fa-brands fa-facebook fa-2x"></i>,
+      },
+      {
+        path: "https://linkedin.com/in/sertacyildirir",
+        icon: <i class="fa-brands fa-linkedin fa-2x"></i>,
+      },
+      {
+        path: "https://github.com/ysertac",
+        icon: <i class="fa-brands fa-github fa-2x"></i>,
+      },
+    ],
+    img: contactBannerBg,
+  },
+  main: {
+    header: ["VISIT OUR OFFICE", "We help small businesses with big ideas"],
+    cards: [
+      {
+        icon: phone,
+        text: ["+90 535 741 45 11", "Get Support"],
+        button: "CALL",
+        color: "general",
+        bg: "white",
+        hover: "general",
+      },
+      {
+        icon: location,
+        text: ["Antakya / Hatay / Turkiye", "Get Support"],
+        button: "LOCATION",
+        color: "white",
+        bg: "general",
+        hover: "white",
+      },
+      {
+        icon: envelope,
+        text: ["ysertac96@gmail.com", "Get Support"],
+        button: "EMAIL",
+        color: "general",
+        bg: "white",
+        hover: "general",
+      },
+    ],
+    end: {
+      arrow: arrow,
+      text: ["WE Can't WAIT TO MEET YOU", "Let's Talk"],
+      button: "Try it free now",
+    },
   },
 };

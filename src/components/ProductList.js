@@ -2,7 +2,7 @@ import { data } from "../data";
 
 const ProductList = () => {
   return (
-    <div className="flex w-[73%] mx-auto flex-wrap justify-between content-around h-[1600px]">
+    <div className="flex w-3/4 mx-auto flex-wrap justify-between content-around h-[1600px]">
       {data.pageContent.products.map((product) => (
         <div>
           <img src={product.image} className="w-80" />

@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import Pagination from "../components/Pagination";
-import { productListData } from "../data";
+import { productListData, teamData } from "../data";
 
 const PageContentProducts = () => {
   return (
@@ -8,14 +9,17 @@ const PageContentProducts = () => {
       <div className="bg-dimbg  py-14">
         <h2 className="w-3/4 mx-auto flex justify-between text-2xl font-bold leading-8 pb-10 text-general">
           {productListData.shop.header.left}
-          <span>
+          <p className="inline-block">
             <span className="text-sm font-bold">
-              {productListData.shop.header.right.first}
+              {productListData.shop.header.right.first + " "}
             </span>
             <span className="text-[#BDBDBD] text-sm font-bold">
-              {">" + productListData.shop.header.right.second}
+              {teamData.bannerTop[2]}
             </span>
-          </span>
+            <span className="text-secondaryColor text-sm font-bold">
+              {" " + productListData.shop.header.right.second}
+            </span>
+          </p>
         </h2>
         <div className="flex w-3/4 justify-between mx-auto">
           {productListData.shop.main.map((item) => (
@@ -59,31 +63,33 @@ const PageContentProducts = () => {
         </div>
         <div className="flex w-3/4 justify-between mx-auto flex-wrap content-between h-[1800px]">
           {productListData.secondPart.content.map((item) => (
-            <div className="flex flex-col items-center">
-              <img className="w-80" src={item.img} />
-              <div>
-                <h2 className="text-center font-bold text-base text-general pt-3">
-                  {item.header}
-                </h2>
-                <h2 className="text-center font-bold text-sm leading-6 text-secondaryColor pt-3">
-                  {item.header2}
-                </h2>
-                <p className="text-center pt-3">
-                  <span className="font-bold text-base text-[#bdbdbd]">
-                    {item.price.full}{" "}
-                  </span>
-                  <span className="font-bold text-base text-[#23856d]">
-                    {item.price.discount}
-                  </span>
-                </p>
-                <div className="flex w-20 justify-between mx-auto pt-3">
-                  {item.colors.blue}
-                  {item.colors.darkish}
-                  {item.colors.orange}
-                  {item.colors.green}
+            <Link to={`/shop/product/${item.id}`}>
+              <div className="flex flex-col items-center">
+                <img className="w-80" src={item.img} />
+                <div>
+                  <h2 className="text-center font-bold text-base text-general pt-3">
+                    {item.header}
+                  </h2>
+                  <h2 className="text-center font-bold text-sm leading-6 text-secondaryColor pt-3">
+                    {item.header2}
+                  </h2>
+                  <p className="text-center pt-3">
+                    <span className="font-bold text-base text-[#bdbdbd]">
+                      {item.price.full}{" "}
+                    </span>
+                    <span className="font-bold text-base text-[#23856d]">
+                      {item.price.discount}
+                    </span>
+                  </p>
+                  <div className="flex w-24 h-7 justify-between mx-auto pt-3">
+                    {item.colors.blue}
+                    {item.colors.darkish}
+                    {item.colors.orange}
+                    {item.colors.green}
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <Pagination />

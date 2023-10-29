@@ -15,7 +15,7 @@ const PageContentTeam = () => {
           <span className="text-general text-sm leading-6 font-bold">
             {data.header2.navbar[0].name + " "}
           </span>
-          {teamData.bannerTop[2]}
+          <span className="text-[#bdbdbd]">{teamData.bannerTop[2]}</span>
           <span className="text-secondaryColor text-sm leading-6 font-bold">
             {" " + data.header2.navbar[3].name}
           </span>

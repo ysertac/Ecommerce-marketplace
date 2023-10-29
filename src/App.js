@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route exact path="/shop">
           <Products />
+        </Route>
+        <Route exact path="/shop/product/:id">
+          <ProductDetails />
         </Route>
         <Route exact path="/about">
           <About />

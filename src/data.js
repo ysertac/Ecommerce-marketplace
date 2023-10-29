@@ -486,148 +486,352 @@ export const productListData = {
     },
     content: [
       {
+        id: 0,
         img: plsp1,
         header: "Graphic Design",
         header2: "English Department",
         price: { full: "$16.48", discount: "$6.48" },
         colors: {
-          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
-          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
-          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
-          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          blue: (
+            <div className="bg-primaryColor w-1/6 h-full rounded-full"></div>
+          ),
+          darkish: (
+            <div className="bg-[#252B42] w-1/6 h-full rounded-full"></div>
+          ),
+          orange: (
+            <div className="bg-[#E77C40] w-1/6 h-full rounded-full"></div>
+          ),
+          green: <div className="bg-[#23856D] w-1/6 h-full rounded-full"></div>,
         },
+        definition: `Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
+        Excitation venial consequent sent nostrum met.`,
+        stock: "in stock",
+        buttons: [
+          "Select Options",
+          <i class="fa-regular fa-heart"></i>,
+          <i class="fa-solid fa-cart-shopping"></i>,
+          <i class="fa-regular fa-eye"></i>,
+        ],
       },
       {
+        id: 1,
         img: plsp2,
         header: "Graphic Design",
         header2: "English Department",
         price: { full: "$16.48", discount: "$6.48" },
         colors: {
-          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
-          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
-          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
-          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          blue: (
+            <div className="bg-primaryColor w-1/6 h-full rounded-full"></div>
+          ),
+          darkish: (
+            <div className="bg-[#252B42] w-1/6 h-full rounded-full"></div>
+          ),
+          orange: (
+            <div className="bg-[#E77C40] w-1/6 h-full rounded-full"></div>
+          ),
+          green: <div className="bg-[#23856D] w-1/6 h-full rounded-full"></div>,
         },
+        definition: `Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
+        Excitation venial consequent sent nostrum met.`,
+        stock: "in stock",
+        buttons: [
+          "Select Options",
+          <i class="fa-regular fa-heart"></i>,
+          <i class="fa-solid fa-cart-shopping"></i>,
+          <i class="fa-regular fa-eye"></i>,
+        ],
       },
       {
+        id: 2,
         img: plsp3,
         header: "Graphic Design",
         header2: "English Department",
         price: { full: "$16.48", discount: "$6.48" },
         colors: {
-          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
-          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
-          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
-          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          blue: (
+            <div className="bg-primaryColor w-1/6 h-full rounded-full"></div>
+          ),
+          darkish: (
+            <div className="bg-[#252B42] w-1/6 h-full rounded-full"></div>
+          ),
+          orange: (
+            <div className="bg-[#E77C40] w-1/6 h-full rounded-full"></div>
+          ),
+          green: <div className="bg-[#23856D] w-1/6 h-full rounded-full"></div>,
         },
+        definition: `Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
+        Excitation venial consequent sent nostrum met.`,
+        stock: "in stock",
+        buttons: [
+          "Select Options",
+          <i class="fa-regular fa-heart"></i>,
+          <i class="fa-solid fa-cart-shopping"></i>,
+          <i class="fa-regular fa-eye"></i>,
+        ],
       },
       {
+        id: 3,
         img: plsp4,
         header: "Graphic Design",
         header2: "English Department",
         price: { full: "$16.48", discount: "$6.48" },
         colors: {
-          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
-          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
-          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
-          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          blue: (
+            <div className="bg-primaryColor w-1/6 h-full rounded-full"></div>
+          ),
+          darkish: (
+            <div className="bg-[#252B42] w-1/6 h-full rounded-full"></div>
+          ),
+          orange: (
+            <div className="bg-[#E77C40] w-1/6 h-full rounded-full"></div>
+          ),
+          green: <div className="bg-[#23856D] w-1/6 h-full rounded-full"></div>,
         },
+        definition: `Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
+        Excitation venial consequent sent nostrum met.`,
+        stock: "in stock",
+        buttons: [
+          "Select Options",
+          <i class="fa-regular fa-heart"></i>,
+          <i class="fa-solid fa-cart-shopping"></i>,
+          <i class="fa-regular fa-eye"></i>,
+        ],
       },
       {
+        id: 4,
         img: plsp5,
         header: "Graphic Design",
         header2: "English Department",
         price: { full: "$16.48", discount: "$6.48" },
         colors: {
-          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
-          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
-          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
-          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          blue: (
+            <div className="bg-primaryColor w-1/6 h-full rounded-full"></div>
+          ),
+          darkish: (
+            <div className="bg-[#252B42] w-1/6 h-full rounded-full"></div>
+          ),
+          orange: (
+            <div className="bg-[#E77C40] w-1/6 h-full rounded-full"></div>
+          ),
+          green: <div className="bg-[#23856D] w-1/6 h-full rounded-full"></div>,
         },
+        definition: `Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
+        Excitation venial consequent sent nostrum met.`,
+        stock: "in stock",
+        buttons: [
+          "Select Options",
+          <i class="fa-regular fa-heart"></i>,
+          <i class="fa-solid fa-cart-shopping"></i>,
+          <i class="fa-regular fa-eye"></i>,
+        ],
       },
       {
+        id: 5,
         img: plsp6,
         header: "Graphic Design",
         header2: "English Department",
         price: { full: "$16.48", discount: "$6.48" },
         colors: {
-          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
-          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
-          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
-          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          blue: (
+            <div className="bg-primaryColor w-1/6 h-full rounded-full"></div>
+          ),
+          darkish: (
+            <div className="bg-[#252B42] w-1/6 h-full rounded-full"></div>
+          ),
+          orange: (
+            <div className="bg-[#E77C40] w-1/6 h-full rounded-full"></div>
+          ),
+          green: <div className="bg-[#23856D] w-1/6 h-full rounded-full"></div>,
         },
+        definition: `Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
+        Excitation venial consequent sent nostrum met.`,
+        stock: "no stock",
+        buttons: [
+          "Select Options",
+          <i class="fa-regular fa-heart"></i>,
+          <i class="fa-solid fa-cart-shopping"></i>,
+          <i class="fa-regular fa-eye"></i>,
+        ],
       },
       {
+        id: 6,
         img: plsp7,
         header: "Graphic Design",
         header2: "English Department",
         price: { full: "$16.48", discount: "$6.48" },
         colors: {
-          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
-          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
-          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
-          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          blue: (
+            <div className="bg-primaryColor w-1/6 h-full rounded-full"></div>
+          ),
+          darkish: (
+            <div className="bg-[#252B42] w-1/6 h-full rounded-full"></div>
+          ),
+          orange: (
+            <div className="bg-[#E77C40] w-1/6 h-full rounded-full"></div>
+          ),
+          green: <div className="bg-[#23856D] w-1/6 h-full rounded-full"></div>,
         },
+        definition: `Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
+        Excitation venial consequent sent nostrum met.`,
+        stock: "in stock",
+        buttons: [
+          "Select Options",
+          <i class="fa-regular fa-heart"></i>,
+          <i class="fa-solid fa-cart-shopping"></i>,
+          <i class="fa-regular fa-eye"></i>,
+        ],
       },
       {
+        id: 7,
         img: plsp8,
         header: "Graphic Design",
         header2: "English Department",
         price: { full: "$16.48", discount: "$6.48" },
         colors: {
-          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
-          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
-          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
-          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          blue: (
+            <div className="bg-primaryColor w-1/6 h-full rounded-full"></div>
+          ),
+          darkish: (
+            <div className="bg-[#252B42] w-1/6 h-full rounded-full"></div>
+          ),
+          orange: (
+            <div className="bg-[#E77C40] w-1/6 h-full rounded-full"></div>
+          ),
+          green: <div className="bg-[#23856D] w-1/6 h-full rounded-full"></div>,
         },
+        definition: `Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
+        Excitation venial consequent sent nostrum met.`,
+        stock: "no stock",
+        buttons: [
+          "Select Options",
+          <i class="fa-regular fa-heart"></i>,
+          <i class="fa-solid fa-cart-shopping"></i>,
+          <i class="fa-regular fa-eye"></i>,
+        ],
       },
       {
+        id: 8,
         img: plsp9,
         header: "Graphic Design",
         header2: "English Department",
         price: { full: "$16.48", discount: "$6.48" },
         colors: {
-          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
-          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
-          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
-          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          blue: (
+            <div className="bg-primaryColor w-1/6 h-full rounded-full"></div>
+          ),
+          darkish: (
+            <div className="bg-[#252B42] w-1/6 h-full rounded-full"></div>
+          ),
+          orange: (
+            <div className="bg-[#E77C40] w-1/6 h-full rounded-full"></div>
+          ),
+          green: <div className="bg-[#23856D] w-1/6 h-full rounded-full"></div>,
         },
+        definition: `Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
+        Excitation venial consequent sent nostrum met.`,
+        stock: "in stock",
+        buttons: [
+          "Select Options",
+          <i class="fa-regular fa-heart"></i>,
+          <i class="fa-solid fa-cart-shopping"></i>,
+          <i class="fa-regular fa-eye"></i>,
+        ],
       },
       {
+        id: 9,
         img: plsp10,
         header: "Graphic Design",
         header2: "English Department",
         price: { full: "$16.48", discount: "$6.48" },
         colors: {
-          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
-          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
-          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
-          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          blue: (
+            <div className="bg-primaryColor w-1/6 h-full rounded-full"></div>
+          ),
+          darkish: (
+            <div className="bg-[#252B42] w-1/6 h-full rounded-full"></div>
+          ),
+          orange: (
+            <div className="bg-[#E77C40] w-1/6 h-full rounded-full"></div>
+          ),
+          green: <div className="bg-[#23856D] w-1/6 h-full rounded-full"></div>,
         },
+        definition: `Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
+        Excitation venial consequent sent nostrum met.`,
+        stock: "in stock",
+        buttons: [
+          "Select Options",
+          <i class="fa-regular fa-heart"></i>,
+          <i class="fa-solid fa-cart-shopping"></i>,
+          <i class="fa-regular fa-eye"></i>,
+        ],
       },
       {
+        id: 10,
         img: plsp11,
         header: "Graphic Design",
         header2: "English Department",
         price: { full: "$16.48", discount: "$6.48" },
         colors: {
-          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
-          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
-          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
-          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          blue: (
+            <div className="bg-primaryColor w-1/6 h-full rounded-full"></div>
+          ),
+          darkish: (
+            <div className="bg-[#252B42] w-1/6 h-full rounded-full"></div>
+          ),
+          orange: (
+            <div className="bg-[#E77C40] w-1/6 h-full rounded-full"></div>
+          ),
+          green: <div className="bg-[#23856D] w-1/6 h-full rounded-full"></div>,
         },
+        definition: `Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
+        Excitation venial consequent sent nostrum met.`,
+        stock: "in stock",
+        buttons: [
+          "Select Options",
+          <i class="fa-regular fa-heart"></i>,
+          <i class="fa-solid fa-cart-shopping"></i>,
+          <i class="fa-regular fa-eye"></i>,
+        ],
       },
       {
+        id: 11,
         img: plsp12,
         header: "Graphic Design",
         header2: "English Department",
         price: { full: "$16.48", discount: "$6.48" },
         colors: {
-          blue: <div className="bg-primaryColor w-4 h-4 rounded-full"></div>,
-          darkish: <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>,
-          orange: <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>,
-          green: <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>,
+          blue: (
+            <div className="bg-primaryColor w-1/6 h-full rounded-full"></div>
+          ),
+          darkish: (
+            <div className="bg-[#252B42] w-1/6 h-full rounded-full"></div>
+          ),
+          orange: (
+            <div className="bg-[#E77C40] w-1/6 h-full rounded-full"></div>
+          ),
+          green: <div className="bg-[#23856D] w-1/6 h-full rounded-full"></div>,
         },
+        definition: `Met minim Mollie non desert Alamo est sit cliquey dolor 
+        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
+        Excitation venial consequent sent nostrum met.`,
+        stock: "no stock",
+        buttons: [
+          "Select Options",
+          <i class="fa-regular fa-heart"></i>,
+          <i class="fa-solid fa-cart-shopping"></i>,
+          <i class="fa-regular fa-eye"></i>,
+        ],
       },
     ],
   },

@@ -42,13 +42,13 @@ const PageContentContact = () => {
         <div className="w-2/3 flex justify-between mx-auto my-20">
           {contactData.main.cards.map((card) => (
             <div
-              className={`bg-${card.bg} text-${card.color} h-[28vw] w-1/3 flex flex-col justify-evenly items-center`}
+              className={`${card.bg} ${card.color} h-[28vw] w-1/3 flex flex-col justify-evenly items-center`}
             >
               <img src={card.icon} className="w-1/5" />
               <h2 className="font-bold text-sm leading-6">{card.text[0]}</h2>
               <h3 className="font-bold text-base">{card.text[1]}</h3>
               <button
-                className={`font-bold text-sm leading-6 text-primaryColor border border-primaryColor py-4 px-9 rounded-[37px] hover:bg-${card.hover} duration-500`}
+                className={`font-bold text-sm leading-6 text-primaryColor border border-primaryColor py-4 px-9 rounded-[37px] ${card.hover} duration-500`}
               >
                 {card.button}
               </button>

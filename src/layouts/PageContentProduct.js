@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { productListData, teamData } from "../data";
+import { aboutUsData, productData, productListData, teamData } from "../data";
 
 const PageContentProduct = () => {
   const { id } = useParams();
@@ -60,6 +60,95 @@ const PageContentProduct = () => {
               </button>
             </div>
           </div>
+        </div>
+      </div>
+      {/* Details */}
+      <div className="w-3/4 mx-auto text-center flex justify-evenly items-center py-5 border-b border-[#ececec]">
+        <span className="text-sm text-secondaryColor font-semibold leading-6">
+          {productData.options.headers[0]}
+        </span>
+        <span className="text-sm text-secondaryColor font-semibold leading-6">
+          {productData.options.headers[1]}
+        </span>
+        <span className="text-sm text-secondaryColor font-semibold leading-6">
+          {productData.options.headers[2].name}{" "}
+          <span className="text-[#23856d] font-bold">
+            ({productData.options.headers[2].number})
+          </span>
+        </span>
+      </div>
+      <div className="flex w-3/4 mx-auto justify-between py-10">
+        <img
+          className="shadow-2xl w-1/4"
+          src={productData.options.details.img}
+        />
+        <div className="w-1/4 h-[22vw] flex flex-col justify-between items-start">
+          <h2 className="text-general text-2xl font-bold">
+            {productData.options.details.secondCol.header}
+          </h2>
+          {productData.options.details.secondCol.content.map((paragraph) => (
+            <p className="text-secondaryColor font-normal text-sm">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        <div className="w-1/4 h-[22vw] flex flex-col justify-between items-start">
+          <h2 className="text-general text-2xl font-bold">
+            {productData.options.details.thirdCol.header}
+          </h2>
+          {productData.options.details.thirdCol.content1.map((line) => (
+            <p className="text-secondaryColor font-bold text-sm">
+              {line.icon} {line.sentence}
+            </p>
+          ))}
+
+          <h2 className="text-general text-2xl font-bold">
+            {productData.options.details.thirdCol.header}
+          </h2>
+          {productData.options.details.thirdCol.content2.map((line) => (
+            <p className="text-secondaryColor font-bold text-sm">
+              {line.icon} {line.sentence}
+            </p>
+          ))}
+        </div>
+      </div>
+      {/* BestSeller Part */}
+      <div className="bg-dimbg">
+        <div className="w-3/4 mx-auto">
+          <h2 className="text-general font-bold text-2xl border-b py-8 border-[#ececec]">
+            {productData.options.bestSeller.header}
+          </h2>
+          <div className="flex flex-wrap justify-between h-[63vw] py-7 content-between">
+            {productData.options.bestSeller.products.map((product) => (
+              <div className="w-[21%] bg-white">
+                <img className="w-full" src={product.img} />
+                <div className="h-[11vw] flex flex-col justify-evenly pl-7">
+                  <h2 className="text-general font-bold text-base">
+                    {product.name}
+                  </h2>
+                  <p className="text-secondaryColor font-bold text-sm leading-6">
+                    {product.def}
+                  </p>
+                  <p>
+                    <span className="text-[#bdbdbd] font-bold text-base">
+                      {product.price[0]}
+                    </span>{" "}
+                    <span className="text-[#23856d] font-bold text-base">
+                      {product.price[1]}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      {/* Companies */}
+      <div className="bg-dimbg">
+        <div className="flex mx-auto w-3/4 justify-between py-10">
+          {aboutUsData.companies.img.map((img) => (
+            <img src={img} />
+          ))}
         </div>
       </div>
     </div>

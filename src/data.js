@@ -57,6 +57,15 @@ import phone from "./assets/contact/phone.png";
 import location from "./assets/contact/location.png";
 import envelope from "./assets/contact/envelope.png";
 import arrow from "./assets/contact/Arrow.png";
+import detailImg from "./assets/product/main.jpg";
+import add1 from "./assets/product/1.jpg";
+import add2 from "./assets/product/2.jpg";
+import add3 from "./assets/product/3.jpg";
+import add4 from "./assets/product/4.jpg";
+import add5 from "./assets/product/5.jpg";
+import add6 from "./assets/product/6.jpg";
+import add7 from "./assets/product/7.jpg";
+import add8 from "./assets/product/8.jpg";
 
 export const data = {
   header1: {
@@ -1198,31 +1207,140 @@ export const contactData = {
         icon: phone,
         text: ["+90 535 741 45 11", "Get Support"],
         button: "CALL",
-        color: "general",
-        bg: "white",
-        hover: "general",
+        color: "text-general",
+        bg: "bg-white",
+        hover: "hover:bg-general",
       },
       {
         icon: location,
         text: ["Antakya / Hatay / Turkiye", "Get Support"],
         button: "LOCATION",
-        color: "white",
-        bg: "general",
-        hover: "white",
+        color: "text-white",
+        bg: "bg-general",
+        hover: "hover:bg-white",
       },
       {
         icon: envelope,
         text: ["ysertac96@gmail.com", "Get Support"],
         button: "EMAIL",
-        color: "general",
-        bg: "white",
-        hover: "general",
+        color: "text-general",
+        bg: "bg-white",
+        hover: "hover:bg-general",
       },
     ],
     end: {
       arrow: arrow,
       text: ["WE Can't WAIT TO MEET YOU", "Let's Talk"],
       button: "Try it free now",
+    },
+  },
+};
+
+export const productData = {
+  options: {
+    headers: [
+      "Description",
+      "Additional Information",
+      { name: "Reviews", number: 0 },
+    ],
+    details: {
+      img: detailImg,
+      secondCol: {
+        header: "the quick fox jumps over",
+        content: [
+          "Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.",
+          "Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.",
+          "Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.",
+        ],
+      },
+      thirdCol: {
+        header: "the quick fox jumps over",
+        content1: [
+          {
+            icon: <i class="fa-solid fa-angle-right"></i>,
+            sentence: "the quick fox jumps over the lazy dog",
+          },
+          {
+            icon: <i class="fa-solid fa-angle-right"></i>,
+            sentence: "the quick fox jumps over the lazy dog",
+          },
+          {
+            icon: <i class="fa-solid fa-angle-right"></i>,
+            sentence: "the quick fox jumps over the lazy dog",
+          },
+          {
+            icon: <i class="fa-solid fa-angle-right"></i>,
+            sentence: "the quick fox jumps over the lazy dog",
+          },
+        ],
+        content2: [
+          {
+            icon: <i class="fa-solid fa-angle-right"></i>,
+            sentence: "the quick fox jumps over the lazy dog",
+          },
+          {
+            icon: <i class="fa-solid fa-angle-right"></i>,
+            sentence: "the quick fox jumps over the lazy dog",
+          },
+          {
+            icon: <i class="fa-solid fa-angle-right"></i>,
+            sentence: "the quick fox jumps over the lazy dog",
+          },
+        ],
+      },
+    },
+    bestSeller: {
+      header: "BESTSELLER PRODUCTS",
+      products: [
+        {
+          name: "Graphic Design",
+          def: "English Department",
+          price: ["$16.48", "$6.48"],
+          img: add1,
+        },
+        {
+          name: "Graphic Design2",
+          def: "English Department",
+          price: ["$20.99", "$12.99"],
+          img: add2,
+        },
+        {
+          name: "Graphic Design3",
+          def: "English Department",
+          price: ["$19.48", "$9.99"],
+          img: add3,
+        },
+        {
+          name: "Graphic Design4",
+          def: "English Department",
+          price: ["$15.48", "$4.48"],
+          img: add4,
+        },
+        {
+          name: "Graphic Design5",
+          def: "English Department",
+          price: ["$17.45", "$7.45"],
+          img: add5,
+        },
+        {
+          name: "Graphic Design6",
+          def: "English Department",
+          price: ["$21.99", "$15.99"],
+          img: add6,
+        },
+        {
+          name: "Graphic Design7",
+          def: "English Department",
+          price: ["$7.99", "$3.99"],
+          img: add7,
+        },
+        {
+          name: "Graphic Design8",
+          def: "English Department",
+          price: ["$32.49", "$20.99"],
+          img: add8,
+        },
+      ],
     },
   },
 };

@@ -2,10 +2,10 @@ import { data } from "../data";
 
 const ProductList = () => {
   return (
-    <div className="flex w-3/4 mx-auto flex-wrap justify-between content-around h-[1600px]">
+    <div className="flex w-3/4 mx-auto flex-wrap justify-between content-around h-[84vw]">
       {data.pageContent.products.map((product) => (
-        <div>
-          <img src={product.image} className="w-80" />
+        <div className="w-[23%]">
+          <img src={product.image} className="w-full" />
           <p className="text-center text-[#252B42] text-base leading-6 font-bold pt-5">
             {product.name}
           </p>
@@ -17,7 +17,7 @@ const ProductList = () => {
               {product.price.discount}
             </span>
           </div>
-          <div className="flex justify-between pt-5 items-center w-24 mx-auto">
+          <div className="flex justify-between pt-5 items-center w-[30%] mx-auto">
             {product.colors.map((color) => color.icon)}
           </div>
         </div>

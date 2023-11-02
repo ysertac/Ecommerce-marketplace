@@ -438,31 +438,31 @@ export const productListData = {
     main: [
       {
         class:
-          "bg-[url('./assets/productlist/plfp1.png')] bg-cover w-[270px] h-[295px] bg-no-repeat flex justify-center items-center",
+          "bg-[url('./assets/productlist/plfp1.png')] bg-cover w-[18.75%] h-[15.5vw] max-sm:h-[75vw] max-sm:mt-5 bg-no-repeat flex justify-center items-center max-sm:w-full",
         content1: "CLOTHS",
         content2: "5 Items",
       },
       {
         class:
-          "bg-[url('./assets/productlist/plfp2.png')] bg-cover w-[270px] h-[295px] bg-no-repeat flex justify-center items-center",
+          "bg-[url('./assets/productlist/plfp2.png')] bg-cover w-[18.75%] h-[15.5vw] max-sm:h-[75vw] max-sm:mt-5 bg-no-repeat flex justify-center items-center max-sm:w-full",
         content1: "CLOTHS",
         content2: "5 Items",
       },
       {
         class:
-          "bg-[url('./assets/productlist/plfp3.png')] bg-cover w-[270px] h-[295px] bg-no-repeat flex justify-center items-center",
+          "bg-[url('./assets/productlist/plfp3.png')] bg-cover w-[18.75%] h-[15.5vw] max-sm:h-[75vw] max-sm:mt-5 bg-no-repeat flex justify-center items-center max-sm:w-full",
         content1: "CLOTHS",
         content2: "5 Items",
       },
       {
         class:
-          "bg-[url('./assets/productlist/plfp4.png')] bg-cover w-[270px] h-[295px] bg-no-repeat flex justify-center items-center",
+          "bg-[url('./assets/productlist/plfp4.png')] bg-cover w-[18.75%] h-[15.5vw] max-sm:h-[75vw] max-sm:mt-5 bg-no-repeat flex justify-center items-center max-sm:w-full",
         content1: "CLOTHS",
         content2: "5 Items",
       },
       {
         class:
-          "bg-[url('./assets/productlist/plfp5.png')] bg-cover w-[270px] h-[295px] bg-no-repeat flex justify-center items-center",
+          "bg-[url('./assets/productlist/plfp5.png')] bg-cover w-[18.75%] h-[15.5vw] max-sm:h-[75vw] max-sm:mt-5 bg-no-repeat flex justify-center items-center max-sm:w-full",
         content1: "CLOTHS",
         content2: "5 Items",
       },

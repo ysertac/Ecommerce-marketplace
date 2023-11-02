@@ -25,7 +25,7 @@ const items = [
 export default function Pagination() {
   return (
     <div className="flex items-center justify-between border-gray-200 bg-white px-4 sm:px-6 pt-24">
-      <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-center">
+      <div className="flex flex-1 items-center justify-center">
         <div>
           <nav
             className="isolate inline-flex -space-x-px rounded-md shadow-sm"
@@ -55,7 +55,7 @@ export default function Pagination() {
             </a>
             <a
               href="#"
-              className="relative hidden items-center px-4 py-5 text-sm font-bold leading-6 text-primaryColor ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
+              className="relative items-center px-4 py-5 text-sm font-bold leading-6 text-primaryColor ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 inline-flex"
             >
               3
             </a>

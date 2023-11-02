@@ -7,7 +7,7 @@ const PageContentProducts = () => {
     <div>
       {/* First Part */}
       <div className="bg-dimbg  py-14">
-        <h2 className="w-3/4 mx-auto flex justify-between text-2xl font-bold leading-8 pb-10 text-general">
+        <h2 className="w-3/4 max-sm:w-11/12 mx-auto flex max-sm:flex-col max-sm:items-center max-sm:h-36 justify-between text-2xl font-bold leading-8 pb-10 text-general">
           {productListData.shop.header.left}
           <p className="inline-block">
             <span className="text-sm font-bold">
@@ -21,7 +21,7 @@ const PageContentProducts = () => {
             </span>
           </p>
         </h2>
-        <div className="flex w-3/4 justify-between mx-auto">
+        <div className="flex w-3/4 max-sm:w-11/12 max-sm:flex-col justify-between mx-auto">
           {productListData.shop.main.map((item) => (
             <div className={item.class}>
               <div>
@@ -39,7 +39,7 @@ const PageContentProducts = () => {
 
       {/* Second Part */}
       <div>
-        <div className="flex w-3/4 justify-between items-center mx-auto py-16">
+        <div className="flex w-3/4 max-sm:w-11/12 max-sm:flex-col max-sm:h-80 justify-between items-center mx-auto py-16">
           <p className="text-secondaryColor text-sm leading-6 font-bold">
             {productListData.secondPart.header.left.text}
           </p>
@@ -52,20 +52,20 @@ const PageContentProducts = () => {
             ))}
           </div>
           <div className="w-64 flex justify-between">
-            <span className="text-sm leading-7 font-normal text-secondaryColor bg-[#f9f9f9] border border-[#dddddd] rounded-md py-4 px-8">
+            <span className="text-sm leading-7 font-normal text-secondaryColor bg-[#f9f9f9] border border-[#dddddd] rounded-md py-4 max-sm:py-2 px-8 max-sm:px-4">
               {productListData.secondPart.header.buttons[0].text}{" "}
               {productListData.secondPart.header.buttons[0].icon}
             </span>
-            <span className="text-sm leading-7 font-bold text-white bg-primaryColor border border-[#dddddd] rounded-md py-4 px-8">
+            <span className="text-sm leading-7 font-bold text-white bg-primaryColor border border-[#dddddd] rounded-md py-4 max-sm:py-2 px-8 max-sm:px-6">
               {productListData.secondPart.header.buttons[1]}
             </span>
           </div>
         </div>
-        <div className="flex w-3/4 justify-between mx-auto flex-wrap content-between h-[1800px]">
+        <div className="flex w-3/4 max-sm:flex-col max-sm:w-11/12 justify-between mx-auto sm:flex-wrap sm:content-between">
           {productListData.secondPart.content.map((item) => (
             <Link to={`/shop/product/${item.id}`}>
-              <div className="flex flex-col items-center">
-                <img className="w-80" src={item.img} />
+              <div className="flex flex-col max-sm:w-full items-center mt-5">
+                <img className="w-80 max-sm:w-full" src={item.img} />
                 <div>
                   <h2 className="text-center font-bold text-base text-general pt-3">
                     {item.header}
@@ -96,10 +96,10 @@ const PageContentProducts = () => {
       </div>
 
       {/* Logo Part */}
-      <div className="bg-dimbg p-10 mt-12">
-        <div className="w-3/4 flex justify-between mx-auto">
+      <div className="bg-dimbg p-10 max-sm:py-20 mt-12">
+        <div className="w-3/4 max-sm:w-1/2 max-sm:flex-col flex justify-between mx-auto">
           {productListData.logoPart.map((logo) => (
-            <img src={logo} />
+            <img className="max-sm: my-10" src={logo} />
           ))}
         </div>
       </div>

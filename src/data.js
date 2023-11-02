@@ -63,6 +63,7 @@ import add5 from "./assets/product/5.jpg";
 import add6 from "./assets/product/6.jpg";
 import add7 from "./assets/product/7.jpg";
 import add8 from "./assets/product/8.jpg";
+import none from "./assets/about/none.png";
 
 export const data = {
   header1: {
@@ -848,6 +849,7 @@ export const aboutUsData = {
     "ABOUT US",
     "We know how large objects will act, but things on a small scale",
     "Get Quote Now",
+    none,
   ],
   second: [
     "Problems trying",

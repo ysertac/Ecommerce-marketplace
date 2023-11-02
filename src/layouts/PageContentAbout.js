@@ -4,18 +4,19 @@ const PageContentAbout = () => {
   return (
     <div>
       {/* Banner */}
-      <div className="bg-[url('./assets/about/background.png')] h-[972px] bg-no-repeat bg-cover flex items-center">
-        <div className="w-3/4 mx-auto h-80 flex flex-col justify-between">
-          <p className="text-general text-base font-bold">
+      <div className="sm:h-[49vw] flex flex-row-reverse max-sm:flex-col-reverse justify-between w-3/4 mx-auto items-center">
+        <img className="max-sm:mt-20" src={aboutUsData.banner[4]} />
+        <div className="w-full mx-auto max-sm:mt-20 h-80 flex flex-col justify-between">
+          <p className="text-general text-base font-bold max-sm:text-center">
             {aboutUsData.banner[0]}
           </p>
-          <p className="text-general text-6xl leading-[80px] font-bold">
+          <p className="text-general text-6xl max-sm:text-[40px] max-sm:text-center leading-[80px] max-sm:leading-10 font-bold">
             {aboutUsData.banner[1]}
           </p>
-          <p className="text-secondaryColor text-xl font-normal w-96">
+          <p className="text-secondaryColor text-xl font-normal w-96 max-sm:w-full max-sm:text-center">
             {aboutUsData.banner[2]}
           </p>
-          <a className="text-sm font-bold text-white bg-primaryColor py-3 text-center rounded-md w-48">
+          <a className="text-sm font-bold text-white bg-primaryColor py-3 text-center rounded-md w-48 max-sm:w-full">
             {aboutUsData.banner[3]}
           </a>
         </div>
@@ -23,16 +24,16 @@ const PageContentAbout = () => {
 
       {/* Second */}
       <div>
-        <div className="w-3/4 mx-auto flex justify-between items-center py-5">
-          <div className="w-96 h-36 flex flex-col justify-between">
+        <div className="w-3/4 max-sm:w-11/12 mx-auto max-sm:flex-col flex justify-between items-center py-5">
+          <div className="w-[27%] max-sm:w-full max-sm:text-center max-sm:pt-10 h-36 flex flex-col justify-between">
             <p className="text-sm font-normal text-[#e74040]">
               {aboutUsData.second[0]}
             </p>
-            <p className="text-2xl font-bold text-general">
+            <p className="text-2xl font-bold text-general max-sm:pt-5">
               {aboutUsData.second[1]}
             </p>
           </div>
-          <p className="text-secondaryColor w-[545px] font-normal text-sm">
+          <p className="text-secondaryColor w-2/5 max-sm:w-full font-normal text-sm max-sm:pt-20">
             {aboutUsData.second[2]}
           </p>
         </div>
@@ -40,9 +41,9 @@ const PageContentAbout = () => {
 
       {/* Third */}
       <div>
-        <div className="w-3/4 mx-auto flex justify-between py-20">
+        <div className="w-3/4 max-sm:w-11/12 mx-auto flex max-sm:flex-col justify-between sm:py-20">
           {aboutUsData.third.map((content) => (
-            <div>
+            <div className="max-sm:py-10">
               <div className="text-general font-bold text-[58px] leading-[80px] text-center">
                 {content.big}
               </div>
@@ -56,7 +57,7 @@ const PageContentAbout = () => {
 
       {/* Video */}
       <div className="py-10">
-        <div className="w-3/4 mx-auto">
+        <div className="w-3/4 max-sm:w-11/12 mx-auto">
           <img
             className="mx-auto rounded-3xl w-full"
             src={aboutUsData.bottomBanner.img}
@@ -69,13 +70,13 @@ const PageContentAbout = () => {
         <h2 className="text-center text-general text-[40px] leading-[50px] font-bold pb-5">
           {aboutUsData.team.h2}
         </h2>
-        <p className="text-center w-[470px] mx-auto text-sm font-normal text-secondaryColor pb-20">
+        <p className="text-center w-[470px] max-sm:w-11/12 mx-auto text-sm font-normal text-secondaryColor pb-20">
           {aboutUsData.team.text}
         </p>
-        <div className="w-3/4 flex mx-auto justify-between">
+        <div className="w-3/4 max-sm:w-11/12 flex flex-wrap mx-auto justify-between">
           {aboutUsData.team.members.map((member) => (
-            <div>
-              <img className="w-[433px]" src={member.img} />
+            <div className="w-[30%] max-sm:w-full">
+              <img className="w-full sm:h-[16vw]" src={member.img} />
               <div className="flex flex-col justify-evenly items-center h-[152px]">
                 <h3 className="text-general text-base font-bold">
                   {member.username}
@@ -97,39 +98,42 @@ const PageContentAbout = () => {
       </div>
 
       {/* Big Companies Are Here  */}
-      <div className="bg-dimbg h-[478px] flex flex-col justify-evenly">
-        <div>
-          <h2 className="text-center text-general text-[40px] font-bold leading-[50px] pb-5">
+      <div className="bg-dimbg flex flex-col justify-evenly max-sm:py-20">
+        <div className="sm:py-14">
+          <h2 className="text-center text-general text-[40px] max-sm:w-11/12 max-sm:mx-auto font-bold leading-[50px] pb-5">
             {aboutUsData.companies.h2}
           </h2>
-          <p className="w-[547px] mx-auto text-center text-secondaryColor text-sm">
+          <p className="w-[547px] max-sm:w-11/12 mx-auto text-center text-secondaryColor text-sm">
             {aboutUsData.companies.text}
           </p>
         </div>
-        <div className="flex mx-auto justify-between w-3/4">
+        <div className="flex max-sm:flex-col sm:py-14 mx-auto justify-between w-3/4">
           {aboutUsData.companies.img.map((company) => (
-            <img src={company} />
+            <img
+              className="max-sm:w-1/2 max-sm:mx-auto max-sm:my-10"
+              src={company}
+            />
           ))}
         </div>
       </div>
 
       {/* Bottom Banner */}
       <div className="bg-primaryColor flex justify-between items-center">
-        <div className="mx-auto w-[44%] text-white h-60 flex flex-col justify-between">
-          <h3 className="text-base font-bold w-[438px]">
+        <div className="mx-auto w-[44%] max-sm:w-11/12 text-white sm:h-60 max-sm:py-10 flex flex-col justify-between">
+          <h3 className="text-base font-bold sm:w-[438px] max-sm:my-5 max-sm:text-center">
             {aboutUsData.bottomBanner2.header1}
           </h3>
-          <h2 className="text-[40px] leading-[50px] font-bold w-[438px]">
+          <h2 className="text-[40px] leading-[50px] font-bold sm:w-[438px] max-sm:my-5 max-sm:text-center">
             {aboutUsData.bottomBanner2.header2}
           </h2>
-          <p className="text-sm font-normal w-[438px]">
+          <p className="text-sm font-normal sm:w-[438px] max-sm:my-5 max-sm:text-center">
             {aboutUsData.bottomBanner2.text}
           </p>
-          <button className="py-3 px-8 border rounded-lg w-32 text-dimbg border-dimbg">
+          <button className="py-3 px-8 border rounded-lg sm:w-32 text-dimbg border-dimbg max-sm:my-5">
             {aboutUsData.bottomBanner2.button}
           </button>
         </div>
-        <img src={aboutUsData.bottomBanner2.img} />
+        <img className="max-sm:hidden" src={aboutUsData.bottomBanner2.img} />
       </div>
     </div>
   );

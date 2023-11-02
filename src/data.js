@@ -1,6 +1,3 @@
-import b11 from "./assets/b11.jpg";
-import b12 from "./assets/b12.jpg";
-import b13 from "./assets/b13.jpg";
 import t1 from "./assets/t1.png";
 import t2 from "./assets/t2.png";
 import t3 from "./assets/t3.png";
@@ -128,9 +125,7 @@ export const data = {
       { icon: <i class="fa-regular fa-heart"></i>, count: 0 },
     ],
   },
-  hero: {
-    carousel: [b11, b12, b13],
-  },
+  hero: {},
   pageContent: {
     header1: "EDITOR'S PICK",
     header2: { header: "BESTSELLER PRODUCTS", text: "Featured Products" },

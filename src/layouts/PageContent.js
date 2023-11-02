@@ -115,14 +115,14 @@ const PageContent = () => {
       </div>
       {/* Page Content 5 section */}
       <div>
-        <h2 className="text-center text-[40px] leading-[50px] font-bold text-[#252B42] py-16">
+        <h2 className="text-center text-[40px] leading-[50px] font-bold text-general py-16">
           {data.pageContent.pageContent5.header}
         </h2>
         <div className="flex w-3/4 max-sm:w-11/12 flex-wrap justify-between mx-auto">
           {data.pageContent.pageContent5.items.map((item) => (
             <div className="border-2 w-[32%] max-sm:w-full mb-5">
               <img className="w-full" src={item.img} />
-              <div className="w-60 flex justify-between text-[#737373] my-3 ml-5">
+              <div className="w-60 flex justify-between text-secondaryColor my-3 ml-5">
                 {item.topText.map((text) => (
                   <a>{text}</a>
                 ))}
@@ -130,7 +130,7 @@ const PageContent = () => {
               <h2 className="text-xl max-sm:text-lg text-general font-normal sm:w-80 ml-5">
                 {item.name}
               </h2>
-              <p className="w-80 text-[#737373] font-normal text-sm my-2 ml-5 pt-2">
+              <p className="w-80 text-secondaryColor font-normal text-sm my-2 ml-5 pt-2">
                 {item.bottomText}
               </p>
               <div className="flex max-sm:flex-col justify-between sm:w-96 pt-5 ml-5">

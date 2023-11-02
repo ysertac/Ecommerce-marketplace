@@ -24,13 +24,15 @@ const Header = () => {
           <div className="font-bold text-sm leading-6 max-sm:hidden">
             {data.header1.text}
           </div>
-          <div className="font-bold text-sm leading-6 max-sm:hidden">
-            <span>{data.header1.socials.text}</span>
-            {data.header1.socials.icons.map((icon) => (
-              <a target="_blank" href={icon.path}>
-                {icon.icon}
-              </a>
-            ))}
+          <div className="font-bold text-sm leading-6 max-sm:hidden flex">
+            <span className="mr-2">{data.header1.socials.text}</span>
+            <span className="flex w-32 justify-between">
+              {data.header1.socials.icons.map((icon) => (
+                <a target="_blank" href={icon.path}>
+                  {icon.icon}
+                </a>
+              ))}
+            </span>
           </div>
         </div>
       </div>

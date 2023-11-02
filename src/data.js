@@ -79,19 +79,19 @@ export const data = {
       text: "Follow Us :",
       icons: [
         {
-          icon: <i class="fa-brands fa-instagram px-2"></i>,
+          icon: <i class="fa-brands fa-instagram"></i>,
           path: "https://instagram.com/ysertacc",
         },
         {
-          icon: <i class="fa-brands fa-github px-2"></i>,
+          icon: <i class="fa-brands fa-github"></i>,
           path: "https://github.com/ysertac",
         },
         {
-          icon: <i class="fa-brands fa-linkedin-in px-2"></i>,
+          icon: <i class="fa-brands fa-linkedin-in"></i>,
           path: "https://linkedin.com/in/sertacyildirir",
         },
         {
-          icon: <i class="fa-brands fa-facebook px-2"></i>,
+          icon: <i class="fa-brands fa-facebook"></i>,
           path: "https://facebook.com/ysertacc",
         },
       ],

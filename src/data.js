@@ -69,6 +69,7 @@ import tbres2 from "./assets/team/tbres2.jpg";
 import tbres3 from "./assets/team/tbres3.jpg";
 import tbres4 from "./assets/team/tbres4.jpg";
 import tbres5 from "./assets/team/tbres5.jpg";
+import contactBanner from "./assets/contact/contactbanner.png";
 
 export const data = {
   header1: {
@@ -1186,6 +1187,7 @@ export const contactData = {
       "We know how large objects will act, but things on a small scale.",
       "Phone: +90 535 741 45 11",
       "Email: ysertac96@gmail.com",
+      contactBanner,
     ],
     socials: [
       {

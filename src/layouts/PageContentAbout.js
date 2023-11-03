@@ -110,7 +110,7 @@ const PageContentAbout = () => {
         <div className="flex max-sm:flex-col sm:py-14 mx-auto justify-between w-3/4">
           {aboutUsData.companies.img.map((company) => (
             <img
-              className="max-sm:w-1/2 max-sm:mx-auto max-sm:my-10"
+              className="max-sm:w-1/3 max-sm:mx-auto max-sm:my-10"
               src={company}
             />
           ))}

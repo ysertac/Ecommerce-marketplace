@@ -97,9 +97,12 @@ const PageContentProducts = () => {
 
       {/* Logo Part */}
       <div className="bg-dimbg p-10 max-sm:py-20 mt-12">
-        <div className="w-3/4 max-sm:w-1/2 max-sm:flex-col flex justify-between mx-auto">
+        <div className="w-3/4 max-sm:w-11/12 max-sm:flex-col flex justify-between mx-auto">
           {productListData.logoPart.map((logo) => (
-            <img className="max-sm: my-10" src={logo} />
+            <img
+              className="max-sm:my-10 max-sm:w-1/3 max-sm:mx-auto"
+              src={logo}
+            />
           ))}
         </div>
       </div>

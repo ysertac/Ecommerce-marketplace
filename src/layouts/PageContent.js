@@ -79,8 +79,24 @@ const PageContent = () => {
       </div>
       {/* Banner Bottom Section */}
       <div className="mt-10">
-        <Carousel autoPlay infiniteLoop showThumbs={false} stopOnHover={false}>
+        <Carousel
+          className="max-sm:hidden"
+          autoPlay
+          infiniteLoop
+          showThumbs={false}
+          stopOnHover={false}
+        >
           <div className="bg-[url('./assets/pccar1.png')] sm:h-[41.5vw] h-[100vh] bg-no-repeat max-sm:bg-center bg-cover w-full"></div>
+          <div className="bg-[url('./assets/pccar2.png')] sm:h-[41.5vw] h-[100vh] bg-no-repeat max-sm:bg-center bg-cover w-full"></div>
+        </Carousel>
+        <Carousel
+          className="sm:hidden"
+          autoPlay
+          infiniteLoop
+          showThumbs={false}
+          stopOnHover={false}
+        >
+          <div className="bg-[url('./assets/pccarres.jpg')] sm:h-[41.5vw] h-[100vh] bg-no-repeat max-sm:bg-center bg-cover w-full"></div>
           <div className="bg-[url('./assets/pccar2.png')] sm:h-[41.5vw] h-[100vh] bg-no-repeat max-sm:bg-center bg-cover w-full"></div>
         </Carousel>
       </div>

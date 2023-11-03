@@ -64,7 +64,7 @@ const PageContentTeam = () => {
         </h2>
         <div className="flex flex-wrap w-3/4 max-sm:w-11/12 mx-auto justify-between max-sm:justify-center sm:h-[88.5vw]">
           {teamData.team.members.map((member) => (
-            <div className="sm:w-[30%] max-sm:my-10">
+            <div className="sm:w-[30%] max-sm:w-full max-sm:my-10">
               <img className="w-full" src={member.img} />
               <div className="flex flex-col justify-between h-1/5 mt-5">
                 <h3 className="text-center text-general text-base font-bold">

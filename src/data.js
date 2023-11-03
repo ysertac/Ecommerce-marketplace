@@ -64,6 +64,11 @@ import add6 from "./assets/product/6.jpg";
 import add7 from "./assets/product/7.jpg";
 import add8 from "./assets/product/8.jpg";
 import none from "./assets/about/none.png";
+import tbres1 from "./assets/team/tbres1.jpg";
+import tbres2 from "./assets/team/tbres2.jpg";
+import tbres3 from "./assets/team/tbres3.jpg";
+import tbres4 from "./assets/team/tbres4.jpg";
+import tbres5 from "./assets/team/tbres5.jpg";
 
 export const data = {
   header1: {
@@ -966,6 +971,11 @@ export const teamData = {
     teamBanner3,
     teamBanner4,
     teamBanner5,
+    tbres1,
+    tbres2,
+    tbres3,
+    tbres4,
+    tbres5,
   ],
   team: {
     header: "Meet Our Team",

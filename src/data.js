@@ -117,7 +117,10 @@ export const data = {
     auth: {
       icon: <i class="fa-regular fa-user"></i>,
       login: "Login",
-      register: "Register",
+      register: {
+        path: "/register",
+        name: "Register",
+      },
     },
 
     otherIcons: [

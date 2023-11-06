@@ -2,6 +2,7 @@ import { data } from "../data";
 import { NavLink } from "react-router-dom";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -46,8 +47,8 @@ const Header = () => {
               <div className="relative flex h-16 items-center justify-between">
                 <div className="font-bold text-sm leading-6 text-primaryColor sm:hidden">
                   <span>{data.header2.auth.icon}</span>{" "}
-                  <span>{data.header2.auth.login}</span> /{" "}
-                  <span>{data.header2.auth.register}</span>
+                  <Link>{data.header2.auth.login}</Link> /{" "}
+                  <Link to="/register">{data.header2.auth.register.name}</Link>
                 </div>
 
                 <div className="flex flex-1 items-center justify-center sm:justify-between">
@@ -75,8 +76,10 @@ const Header = () => {
                   </div>
                   <div className="font-bold text-sm leading-6 text-primaryColor max-sm:hidden">
                     <span>{data.header2.auth.icon}</span>{" "}
-                    <span>{data.header2.auth.login}</span> /{" "}
-                    <span>{data.header2.auth.register}</span>
+                    <Link>{data.header2.auth.login}</Link> /{" "}
+                    <Link to="/register">
+                      {data.header2.auth.register.name}
+                    </Link>
                     {data.header2.otherIcons.map((icon) => (
                       <span className="pl-5">
                         {icon.icon} {icon.count}

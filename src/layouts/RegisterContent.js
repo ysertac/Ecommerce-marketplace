@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { Link, useHistory } from "react-router-dom";
 
 const RegisterContent = () => {
+  const history = useHistory();
   const [roles, setRoles] = useState([]);
   const [formData, setFormData] = useState({});
-
+  const { register, handleSubmit } = useForm();
   useEffect(() => {
     axios
       .get("https://workintech-fe-ecommerce.onrender.com/roles")
@@ -19,6 +21,9 @@ const RegisterContent = () => {
       password1: "",
       password2: "",
       role: roles.length > 0 ? roles[2].code : "",
+      storename: "",
+      storetaxid: "",
+      storeaccountno: "",
     });
   }, [roles]);
 
@@ -31,14 +36,18 @@ const RegisterContent = () => {
   };
 
   const submitHandler = (e) => {
-    e.preventDefault();
     console.log(formData);
+    history.push("/");
   };
 
   return (
     <>
       <form
-        onSubmit={submitHandler}
+        onSubmit={
+          formData.password1 == formData.password2
+            ? handleSubmit(submitHandler)
+            : alert("parolalar eşleşmiyor")
+        }
         className="w-1/6 max-sm:w-11/12 pb-10 mx-auto"
       >
         <div className="mt-10 border-b border-secondaryColor">
@@ -55,6 +64,11 @@ const RegisterContent = () => {
             </label>
             <div className="mt-2">
               <input
+                {...register("username", {
+                  required: true,
+                  maxLength: 10,
+                  minLength: 3,
+                })}
                 type="text"
                 onChange={changeHandler}
                 name="username"
@@ -62,7 +76,6 @@ const RegisterContent = () => {
                 value={formData.username}
                 autoComplete="username"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                placeholder="janesmith"
               />
             </div>
           </div>
@@ -75,6 +88,9 @@ const RegisterContent = () => {
             </label>
             <div className="mt-2">
               <input
+                {...register("email", {
+                  required: true,
+                })}
                 id="email"
                 name="email"
                 type="email"
@@ -94,6 +110,11 @@ const RegisterContent = () => {
             </label>
             <div className="mt-2">
               <input
+                {...register("password1", {
+                  required: true,
+                  maxLength: 15,
+                  minLength: 3,
+                })}
                 type="password"
                 name="password1"
                 onChange={changeHandler}
@@ -112,6 +133,11 @@ const RegisterContent = () => {
             </label>
             <div className="mt-2">
               <input
+                {...register("password2", {
+                  required: true,
+                  maxLength: 15,
+                  minLength: 3,
+                })}
                 type="password"
                 name="password2"
                 onChange={changeHandler}
@@ -142,6 +168,84 @@ const RegisterContent = () => {
               </select>
             </div>
           </div>
+          {formData.role == "store" && (
+            <div className="my-7">
+              <label
+                htmlFor="storename"
+                className="block text-sm font-medium leading-6 text-general"
+              >
+                Store Name
+              </label>
+              <div className="mt-2">
+                <input
+                  {...register("storename", {
+                    required: true,
+                    maxLength: 10,
+                    minLength: 3,
+                  })}
+                  id="storename"
+                  name="storename"
+                  type="text"
+                  onChange={changeHandler}
+                  value={formData.storename}
+                  autoComplete="email"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+          )}
+          {formData.role == "store" && (
+            <div className="my-7">
+              <label
+                htmlFor="storetaxid"
+                className="block text-sm font-medium leading-6 text-general"
+              >
+                Tax ID
+              </label>
+              <div className="mt-2">
+                <input
+                  {...register("storetaxid", {
+                    required: true,
+                    maxLength: 10,
+                    minLength: 3,
+                  })}
+                  id="storetaxid"
+                  name="storetaxid"
+                  type="text"
+                  onChange={changeHandler}
+                  value={formData.storetaxid}
+                  autoComplete="email"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+          )}
+          {formData.role == "store" && (
+            <div className="my-7">
+              <label
+                htmlFor="storeaccountno"
+                className="block text-sm font-medium leading-6 text-general"
+              >
+                Account Number
+              </label>
+              <div className="mt-2">
+                <input
+                  {...register("storeaccountno", {
+                    required: true,
+                    maxLength: 10,
+                    minLength: 3,
+                  })}
+                  id="storeaccountno"
+                  name="storeaccountno"
+                  type="text"
+                  onChange={changeHandler}
+                  value={formData.storeaccountno}
+                  autoComplete="email"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+          )}
         </div>
         <button
           type="submit"

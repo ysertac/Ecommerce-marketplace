@@ -7,18 +7,19 @@ const RegisterContent = () => {
   const history = useHistory();
   const [roles, setRoles] = useState([]);
   const [formData, setFormData] = useState({});
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: {errors} } = useForm();
   useEffect(() => {
     axios
       .get("https://workintech-fe-ecommerce.onrender.com/roles")
-      .then((response) => setRoles(response.data));
+      .then((response) => setRoles(response.data))
+      .catch((error) => console.log(error))
   }, []);
 
   useEffect(() => {
     setFormData({
-      username: "",
-      email: "",
-      password1: "",
+      Name: "",
+      Email: "",
+      Password: "",
       password2: "",
       role: roles.length > 0 ? roles[2].code : "",
       storename: "",
@@ -36,18 +37,20 @@ const RegisterContent = () => {
   };
 
   const submitHandler = (e) => {
+    axios
+      .post("https://workintech-fe-ecommerce.onrender.com/signup", formData)
+      .then((response) => console.log(response))
+      .then((response) => history.push("/"))
+      .catch((error) => console.log(error))
     console.log(formData);
-    history.push("/");
+    
   };
 
+  
   return (
     <>
       <form
-        onSubmit={
-          formData.password1 == formData.password2
-            ? handleSubmit(submitHandler)
-            : alert("parolalar eşleşmiyor")
-        }
+        onSubmit={handleSubmit(submitHandler)}
         className="w-1/6 max-sm:w-11/12 pb-10 mx-auto"
       >
         <div className="mt-10 border-b border-secondaryColor">
@@ -64,64 +67,92 @@ const RegisterContent = () => {
             </label>
             <div className="mt-2">
               <input
-                {...register("username", {
+                {...register("Name", {
                   required: true,
                   maxLength: 10,
                   minLength: 3,
                 })}
+                aria-invalid={errors.Name ? true : false}
                 type="text"
                 onChange={changeHandler}
-                name="username"
-                id="username"
-                value={formData.username}
-                autoComplete="username"
+                name="Name"
+                id="Name"
+                value={formData.Name}
+                autoComplete="Name"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
+              {errors.Name?.type === "required" && (
+                <p className="text-red-400 text-sm font-bold" role="alert">Username is required</p>
+              )}
+              {errors.Name?.type === "minLength" && (
+                <p className="text-red-400 text-sm font-bold" role="alert">Username needs to contain at least 3 characters</p>
+              )}
+              {errors.Name?.type === "maxLength" && (
+                <p className="text-red-400 text-sm font-bold" role="alert">Username can not contain more than 10 characters.</p>
+              )}
             </div>
           </div>
           <div className="my-7">
             <label
-              htmlFor="email"
+              htmlFor="Email"
               className="block text-sm font-medium leading-6 text-general"
             >
               Email address
             </label>
             <div className="mt-2">
               <input
-                {...register("email", {
+                {...register("Email", {
                   required: true,
+                  pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
                 })}
-                id="email"
-                name="email"
+                aria-invalid={errors.Email ? true : false}
+                id="Email"
+                name="Email"
                 type="email"
                 onChange={changeHandler}
-                value={formData.email}
-                autoComplete="email"
+                value={formData.Email}
+                autoComplete="Email"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
+              {errors.Email?.type === "required" && (
+                <p className="text-red-400 text-sm font-bold" role="alert">Email is required</p>
+              )}
+              {errors.Email?.type === "pattern" && (
+                <p className="text-red-400 text-sm font-bold" role="alert">Pleace write a valid email adress</p>
+              )}
             </div>
           </div>
           <div className="my-7">
             <label
-              htmlFor="password1"
+              htmlFor="Password"
               className="block text-sm font-medium leading-6 text-general"
             >
               Password
             </label>
             <div className="mt-2">
               <input
-                {...register("password1", {
+                {...register("Password", {
                   required: true,
-                  maxLength: 15,
-                  minLength: 3,
+                  maxLength: 20,
+                  minLength: 8,
                 })}
+                aria-invalid={errors.Password ? true : false}
                 type="password"
-                name="password1"
+                name="Password"
                 onChange={changeHandler}
-                value={formData.password1}
-                id="password1"
+                value={formData.Password}
+                id="Password"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
+              {errors.Password?.type === "required" && (
+                <p className="text-red-400 text-sm font-bold" role="alert">Password is required</p>
+              )}
+              {errors.Password?.type === "minLength" && (
+                <p className="text-red-400 text-sm font-bold" role="alert">Password needs to contain at least 8 characters</p>
+              )}
+              {errors.Password?.type === "maxLength" && (
+                <p className="text-red-400 text-sm font-bold" role="alert">Password can not contain more than 20 characters.</p>
+              )}
             </div>
           </div>
           <div className="my-7">
@@ -135,9 +166,9 @@ const RegisterContent = () => {
               <input
                 {...register("password2", {
                   required: true,
-                  maxLength: 15,
-                  minLength: 3,
+                  validate: (value) => value === formData.Password
                 })}
+                aria-invalid={errors.password2 ? true : false}
                 type="password"
                 name="password2"
                 onChange={changeHandler}
@@ -145,6 +176,12 @@ const RegisterContent = () => {
                 id="password2"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
+              {errors.password2?.type === "required" && (
+                <p className="text-red-400 text-sm font-bold" role="alert">Password is required</p>
+              )}
+              {errors.password2?.type === "validate" && (
+                <p className="text-red-400 text-sm font-bold" role="alert">Passwords do not match!</p>
+              )}
             </div>
           </div>
           <div className="my-7">
@@ -180,7 +217,7 @@ const RegisterContent = () => {
                 <input
                   {...register("storename", {
                     required: true,
-                    maxLength: 10,
+                    maxLength: 20,
                     minLength: 3,
                   })}
                   id="storename"
@@ -191,6 +228,15 @@ const RegisterContent = () => {
                   autoComplete="email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
+                {errors.storename?.type === "required" && (
+                  <p className="text-red-400 text-sm font-bold" role="alert">Store Name is required</p>
+                )}
+                {errors.storename?.type === "minLength" && (
+                  <p className="text-red-400 text-sm font-bold" role="alert">Store Name has to contain at least 3 characters</p>
+                )}
+                {errors.storename?.type === "maxLength" && (
+                  <p className="text-red-400 text-sm font-bold" role="alert">Store Name can contain max 20 characters</p>
+                )}
               </div>
             </div>
           )}
@@ -206,8 +252,7 @@ const RegisterContent = () => {
                 <input
                   {...register("storetaxid", {
                     required: true,
-                    maxLength: 10,
-                    minLength: 3,
+                    pattern: /[1-9](\d{9})([0,2,4,6,8]{1})/
                   })}
                   id="storetaxid"
                   name="storetaxid"
@@ -217,6 +262,12 @@ const RegisterContent = () => {
                   autoComplete="email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
+                {errors.storetaxid?.type === "required" && (
+                  <p className="text-red-400 text-sm font-bold" role="alert">Store Tax ID is required</p>
+                )}
+                {errors.storetaxid?.type === "pattern" && (
+                  <p className="text-red-400 text-sm font-bold" role="alert">Please write a valid Store Tax ID</p>
+                )}
               </div>
             </div>
           )}
@@ -232,8 +283,7 @@ const RegisterContent = () => {
                 <input
                   {...register("storeaccountno", {
                     required: true,
-                    maxLength: 10,
-                    minLength: 3,
+                    pattern: /TR[a-zA-Z0-9]{2}\s?([0-9]{4}\s?){1}([0-9]{1})([a-zA-Z0-9]{3}\s?)([a-zA-Z0-9]{4}\s?){3}([a-zA-Z0-9]{2})\s?/
                   })}
                   id="storeaccountno"
                   name="storeaccountno"
@@ -243,6 +293,12 @@ const RegisterContent = () => {
                   autoComplete="email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
+                {errors.storeaccountno?.type === "required" && (
+                  <p className="text-red-400 text-sm font-bold" role="alert">Account Number is required</p>
+                )}
+                {errors.storeaccountno?.type === "pattern" && (
+                  <p className="text-red-400 text-sm font-bold" role="alert">Please write a valid account number</p>
+                )}
               </div>
             </div>
           )}

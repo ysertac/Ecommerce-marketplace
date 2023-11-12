@@ -2,12 +2,18 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegisterContent = () => {
   const history = useHistory();
   const [roles, setRoles] = useState([]);
   const [formData, setFormData] = useState({});
+  const [normalData, setNormalData] = useState({});
+  const [storeData, setStoreData] = useState({});
   const { register, handleSubmit, formState: {errors} } = useForm();
+  let [spinner, setSpinner] = useState(false);
+
   useEffect(() => {
     axios
       .get("https://workintech-fe-ecommerce.onrender.com/roles")
@@ -28,6 +34,32 @@ const RegisterContent = () => {
     });
   }, [roles]);
 
+  useEffect(() => {
+    setNormalData({
+      name: formData.Name,
+      email: formData.Email,
+      password: formData.Password,
+      role_id: roles.filter((role) => (
+        role.code == formData.code
+      )).id
+    })
+
+    setStoreData({
+      name: formData.Name,
+      email: formData.Email,
+      password: formData.Password,
+      role_id: roles.filter((role) => (
+        role.code == formData.code
+      )).id,
+      store: {
+        name: formData.storename,
+        phone: "",
+        tax_no: formData.storetaxid,
+        storeaccountno: formData.bank_account
+      }
+    })
+  }, [formData])
+
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -37,13 +69,23 @@ const RegisterContent = () => {
   };
 
   const submitHandler = (e) => {
-    axios
-      .post("https://workintech-fe-ecommerce.onrender.com/signup", formData)
-      .then((response) => console.log(response))
+    setSpinner(true)
+    formData.role == "store" 
+    ? (axios
+      .post("https://workintech-fe-ecommerce.onrender.com/signup", storeData)
+      .then((response) => toast.success(response.data.message))
       .then((response) => history.push("/"))
-      .catch((error) => console.log(error))
+      .catch((error) => toast.error(error.response.data.error))
+      .finally(() => setSpinner(false))
+    )
+    : (axios
+      .post("https://workintech-fe-ecommerce.onrender.com/signup", normalData)
+      .then((response) => toast.success(response.data.message))
+      .then((response) => history.push("/"))
+      .catch((error) => toast.error(error.response.data.error))
+      .finally(() => setSpinner(false))
+    )
     console.log(formData);
-    
   };
 
   
@@ -79,7 +121,7 @@ const RegisterContent = () => {
                 id="Name"
                 value={formData.Name}
                 autoComplete="Name"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.Name?.type === "required" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">Username is required</p>
@@ -112,7 +154,7 @@ const RegisterContent = () => {
                 onChange={changeHandler}
                 value={formData.Email}
                 autoComplete="Email"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.Email?.type === "required" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">Email is required</p>
@@ -135,6 +177,7 @@ const RegisterContent = () => {
                   required: true,
                   maxLength: 20,
                   minLength: 8,
+                  pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{6,64}$/
                 })}
                 aria-invalid={errors.Password ? true : false}
                 type="password"
@@ -142,7 +185,7 @@ const RegisterContent = () => {
                 onChange={changeHandler}
                 value={formData.Password}
                 id="Password"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.Password?.type === "required" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">Password is required</p>
@@ -152,6 +195,9 @@ const RegisterContent = () => {
               )}
               {errors.Password?.type === "maxLength" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">Password can not contain more than 20 characters.</p>
+              )}
+              {errors.Password?.type === "pattern" && (
+                <p className="text-red-400 text-sm font-bold" role="alert">Password must contain at least one uppercase, one lowercase, one number, one special character and total 8 characters.</p>
               )}
             </div>
           </div>
@@ -174,10 +220,10 @@ const RegisterContent = () => {
                 onChange={changeHandler}
                 value={formData.password2}
                 id="password2"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.password2?.type === "required" && (
-                <p className="text-red-400 text-sm font-bold" role="alert">Password is required</p>
+                <p className="text-red-400 text-sm font-bold" role="alert">Passwords do not match!</p>
               )}
               {errors.password2?.type === "validate" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">Passwords do not match!</p>
@@ -197,7 +243,7 @@ const RegisterContent = () => {
                 name="role"
                 onChange={changeHandler}
                 value={formData.role}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               >
                 {roles.map((role) => (
                   <option>{role.code}</option>
@@ -226,7 +272,7 @@ const RegisterContent = () => {
                   onChange={changeHandler}
                   value={formData.storename}
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 {errors.storename?.type === "required" && (
                   <p className="text-red-400 text-sm font-bold" role="alert">Store Name is required</p>
@@ -252,7 +298,7 @@ const RegisterContent = () => {
                 <input
                   {...register("storetaxid", {
                     required: true,
-                    pattern: /[1-9](\d{9})([0,2,4,6,8]{1})/
+                    pattern: /^T\d\d\d\dV\d\d\d\d\d$/i
                   })}
                   id="storetaxid"
                   name="storetaxid"
@@ -260,7 +306,7 @@ const RegisterContent = () => {
                   onChange={changeHandler}
                   value={formData.storetaxid}
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 pl-3 uppercase text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 {errors.storetaxid?.type === "required" && (
                   <p className="text-red-400 text-sm font-bold" role="alert">Store Tax ID is required</p>
@@ -283,7 +329,7 @@ const RegisterContent = () => {
                 <input
                   {...register("storeaccountno", {
                     required: true,
-                    pattern: /TR[a-zA-Z0-9]{2}\s?([0-9]{4}\s?){1}([0-9]{1})([a-zA-Z0-9]{3}\s?)([a-zA-Z0-9]{4}\s?){3}([a-zA-Z0-9]{2})\s?/
+                    pattern: /^TR\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d$/i
                   })}
                   id="storeaccountno"
                   name="storeaccountno"
@@ -291,7 +337,7 @@ const RegisterContent = () => {
                   onChange={changeHandler}
                   value={formData.storeaccountno}
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 pl-3 uppercase text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 {errors.storeaccountno?.type === "required" && (
                   <p className="text-red-400 text-sm font-bold" role="alert">Account Number is required</p>
@@ -307,7 +353,14 @@ const RegisterContent = () => {
           type="submit"
           className="rounded-md bg-indigo-600 mt-6 px-3 py-2 w-full text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Sign Up
+          {
+            spinner
+            ? <svg class="animate-spin mx-auto h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            : 'Sign Up'
+          }
         </button>
       </form>
     </>

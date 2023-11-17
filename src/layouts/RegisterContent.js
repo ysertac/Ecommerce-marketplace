@@ -43,14 +43,18 @@ const RegisterContent = () => {
       name: formData.Name,
       email: formData.Email,
       password: formData.Password,
-      role_id: roles.filter((role) => role.code == formData.code).id,
+      role_id: formData.role
+        ? roles.find((role) => role.code == formData.role).id
+        : 0,
     });
 
     setStoreData({
       name: formData.Name,
       email: formData.Email,
       password: formData.Password,
-      role_id: roles.filter((role) => role.code == formData.code).id,
+      role_id: formData.role
+        ? roles.find((role) => role.code == formData.role).id
+        : 0,
       store: {
         name: formData.storename,
         phone: "",

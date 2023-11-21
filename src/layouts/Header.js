@@ -47,8 +47,13 @@ const Header = () => {
               <div className="relative flex h-16 items-center justify-between">
                 <div className="font-bold text-sm leading-6 text-primaryColor sm:hidden">
                   <span>{data.header2.auth.icon}</span>{" "}
-                  <Link>{data.header2.auth.login}</Link> /{" "}
-                  <Link to="/register">{data.header2.auth.register.name}</Link>
+                  <Link to={data.header2.auth.login.path}>
+                    {data.header2.auth.login.name}
+                  </Link>{" "}
+                  /{" "}
+                  <Link to={data.header2.auth.register.path}>
+                    {data.header2.auth.register.name}
+                  </Link>
                 </div>
 
                 <div className="flex flex-1 items-center justify-center sm:justify-between">
@@ -76,8 +81,11 @@ const Header = () => {
                   </div>
                   <div className="font-bold text-sm leading-6 text-primaryColor max-sm:hidden">
                     <span>{data.header2.auth.icon}</span>{" "}
-                    <Link>{data.header2.auth.login}</Link> /{" "}
-                    <Link to="/register">
+                    <Link to={data.header2.auth.login.path}>
+                      {data.header2.auth.login.name}
+                    </Link>{" "}
+                    /{" "}
+                    <Link to={data.header2.auth.register.path}>
                       {data.header2.auth.register.name}
                     </Link>
                     {data.header2.otherIcons.map((icon) => (

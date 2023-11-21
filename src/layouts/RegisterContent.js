@@ -105,7 +105,9 @@ const RegisterContent = () => {
         <div className="mt-10 border-b border-secondaryColor">
           <div className="text-general text-right font-bold text-sm">
             <p>(Are you already a member?)</p>
-            <Link className="text-primaryColor">Log in</Link>
+            <Link to="/login" className="text-primaryColor">
+              Log in
+            </Link>
           </div>
           <div className="mb-7">
             <label
@@ -364,7 +366,7 @@ const RegisterContent = () => {
                 htmlFor="storeaccountno"
                 className="block text-sm font-medium leading-6 text-general"
               >
-                Account Number
+                Bank Account Number
               </label>
               <div className="mt-2">
                 <input

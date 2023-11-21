@@ -116,10 +116,13 @@ export const data = {
     ],
     auth: {
       icon: <i class="fa-regular fa-user"></i>,
-      login: "Login",
+      login: {
+        path: "/login",
+        name: "Log in",
+      },
       register: {
         path: "/register",
-        name: "Register",
+        name: "Sign up",
       },
     },
 

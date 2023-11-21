@@ -130,7 +130,7 @@ const RegisterContent = () => {
                 id="Name"
                 value={formData.Name}
                 autoComplete="Name"
-                className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.Name?.type === "required" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">
@@ -169,7 +169,7 @@ const RegisterContent = () => {
                 onChange={changeHandler}
                 value={formData.Email}
                 autoComplete="Email"
-                className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.Email?.type === "required" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">
@@ -205,7 +205,7 @@ const RegisterContent = () => {
                 onChange={changeHandler}
                 value={formData.Password}
                 id="Password"
-                className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.Password?.type === "required" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">
@@ -249,7 +249,7 @@ const RegisterContent = () => {
                 onChange={changeHandler}
                 value={formData.password2}
                 id="password2"
-                className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.password2?.type === "required" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">
@@ -276,7 +276,7 @@ const RegisterContent = () => {
                 name="role"
                 onChange={changeHandler}
                 value={formData.role}
-                className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               >
                 {roles.map((role) => (
                   <option>{role.code}</option>
@@ -305,7 +305,7 @@ const RegisterContent = () => {
                   onChange={changeHandler}
                   value={formData.storename}
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 {errors.storename?.type === "required" && (
                   <p className="text-red-400 text-sm font-bold" role="alert">
@@ -345,7 +345,7 @@ const RegisterContent = () => {
                   onChange={changeHandler}
                   value={formData.storetaxid}
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 pl-3 uppercase text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-3 uppercase text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 {errors.storetaxid?.type === "required" && (
                   <p className="text-red-400 text-sm font-bold" role="alert">
@@ -381,7 +381,7 @@ const RegisterContent = () => {
                   onChange={changeHandler}
                   value={formData.storeaccountno}
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 pl-3 uppercase text-gray-900 shadow-sm ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-3 uppercase text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 {errors.storeaccountno?.type === "required" && (
                   <p className="text-red-400 text-sm font-bold" role="alert">

@@ -3,12 +3,15 @@ import { NavLink } from "react-router-dom";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import Gravatar from "../components/Gravatar";
+import { useSelector } from "react-redux";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const Header = () => {
+  const user = useSelector((store) => store.user.user);
   return (
     <>
       {/* Üst Header */}
@@ -45,17 +48,26 @@ const Header = () => {
           <>
             <div className="mx-auto w-3/4 max-sm:w-11/12 py-1">
               <div className="relative flex h-16 items-center justify-between">
-                <div className="font-bold text-sm leading-6 text-primaryColor sm:hidden">
-                  <span>{data.header2.auth.icon}</span>{" "}
-                  <Link to={data.header2.auth.login.path}>
-                    {data.header2.auth.login.name}
-                  </Link>{" "}
-                  /{" "}
-                  <Link to={data.header2.auth.register.path}>
-                    {data.header2.auth.register.name}
-                  </Link>
-                </div>
-
+                {localStorage.getItem("user") ? (
+                  <div className="sm:hidden flex items-center justify-between w-[30%]">
+                    <Gravatar
+                      email={JSON.parse(localStorage.getItem("user")).email}
+                    />
+                    <span className="font-bold text-primaryColor">
+                      {JSON.parse(localStorage.getItem("user")).name}
+                    </span>
+                  </div>
+                ) : (
+                  <div className="font-bold text-sm leading-6 text-primaryColor sm:hidden">
+                    <Link to={data.header2.auth.login.path}>
+                      {data.header2.auth.login.name}
+                    </Link>
+                    {" / "}
+                    <Link to={data.header2.auth.register.path}>
+                      {data.header2.auth.register.name}
+                    </Link>
+                  </div>
+                )}
                 <div className="flex flex-1 items-center justify-center sm:justify-between">
                   <h2 className="text-2xl font-bold leading-8 text-general">
                     {data.header2.brand}
@@ -79,15 +91,27 @@ const Header = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="font-bold text-sm leading-6 text-primaryColor max-sm:hidden">
-                    <span>{data.header2.auth.icon}</span>{" "}
-                    <Link to={data.header2.auth.login.path}>
-                      {data.header2.auth.login.name}
-                    </Link>{" "}
-                    /{" "}
-                    <Link to={data.header2.auth.register.path}>
-                      {data.header2.auth.register.name}
-                    </Link>
+                  <div className="font-bold text-sm leading-6 text-primaryColor max-sm:hidden flex items-center justify-between">
+                    {localStorage.getItem("user") ? (
+                      <div className="flex items-center justify-around">
+                        <span>
+                          {JSON.parse(localStorage.getItem("user")).name}
+                        </span>
+                        <Gravatar
+                          email={JSON.parse(localStorage.getItem("user")).email}
+                        />
+                      </div>
+                    ) : (
+                      <span>
+                        <Link to={data.header2.auth.login.path}>
+                          {data.header2.auth.login.name}
+                        </Link>
+                        {" / "}
+                        <Link to={data.header2.auth.register.path}>
+                          {data.header2.auth.register.name}
+                        </Link>
+                      </span>
+                    )}
                     {data.header2.otherIcons.map((icon) => (
                       <span className="pl-5">
                         {icon.icon} {icon.count}

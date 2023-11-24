@@ -1,11 +1,12 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { fetchUser } from "../store/actions/userActions";
 
 const LoginContent = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const [formData, setFormData] = useState({});
   const {
@@ -13,7 +14,7 @@ const LoginContent = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  let [spinner, setSpinner] = useState(false);
+  const spinner = useSelector((store) => store.user.spinner);
 
   useEffect(() => {
     setFormData({
@@ -31,14 +32,7 @@ const LoginContent = () => {
   };
 
   const submitHandler = (e) => {
-    setSpinner(true);
-    axios
-      .post("https://workintech-fe-ecommerce.onrender.com/login", formData)
-      .then((response) => console.log(response))
-      .then((response) => history.push("/"))
-      .catch((error) => toast.error(error.response.data.error))
-      .finally(() => setSpinner(false));
-    console.log(formData);
+    dispatch(fetchUser(formData, history));
   };
 
   return (
@@ -74,7 +68,7 @@ const LoginContent = () => {
                 onChange={changeHandler}
                 value={formData.Email}
                 autoComplete="Email"
-                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.email?.type === "required" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">
@@ -102,7 +96,7 @@ const LoginContent = () => {
                 onChange={changeHandler}
                 value={formData.Password}
                 id="password"
-                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>

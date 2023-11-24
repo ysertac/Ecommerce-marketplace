@@ -6,6 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { fetchRolesAction } from "../store/actions/globalActions";
+import { fetchRegister } from "../store/actions/userActions";
 
 const RegisterContent = () => {
   const history = useHistory();
@@ -19,7 +20,7 @@ const RegisterContent = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  let [spinner, setSpinner] = useState(false);
+  const spinner = useSelector((store) => store.user.spinner);
 
   useEffect(() => {
     setFormData({
@@ -73,8 +74,7 @@ const RegisterContent = () => {
   };
 
   const submitHandler = (e) => {
-    setSpinner(true);
-    formData.role == "store"
+    /* formData.role == "store"
       ? axios
           .post(
             "https://workintech-fe-ecommerce.onrender.com/signup",
@@ -89,12 +89,21 @@ const RegisterContent = () => {
             "https://workintech-fe-ecommerce.onrender.com/signup",
             normalData
           )
-          .then((response) => toast.success(response.data.message))
+          .then((response) => {
+            toast.success(response.data.message);
+          })
           .then((response) => history.push("/"))
           .catch((error) => toast.error(error.response.data.error))
-          .finally(() => setSpinner(false));
+          .finally(() => setSpinner(false)); */
+    formData.role == "store"
+      ? dispatch(fetchRegister(storeData, history))
+      : dispatch(fetchRegister(normalData, history));
     console.log(formData);
   };
+
+  /* useEffect(() => {
+    
+  }, [msg]); */
 
   return (
     <>
@@ -130,7 +139,7 @@ const RegisterContent = () => {
                 id="Name"
                 value={formData.Name}
                 autoComplete="Name"
-                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.Name?.type === "required" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">
@@ -169,7 +178,7 @@ const RegisterContent = () => {
                 onChange={changeHandler}
                 value={formData.Email}
                 autoComplete="Email"
-                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.Email?.type === "required" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">
@@ -205,7 +214,7 @@ const RegisterContent = () => {
                 onChange={changeHandler}
                 value={formData.Password}
                 id="Password"
-                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.Password?.type === "required" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">
@@ -249,7 +258,7 @@ const RegisterContent = () => {
                 onChange={changeHandler}
                 value={formData.password2}
                 id="password2"
-                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               {errors.password2?.type === "required" && (
                 <p className="text-red-400 text-sm font-bold" role="alert">
@@ -276,7 +285,7 @@ const RegisterContent = () => {
                 name="role"
                 onChange={changeHandler}
                 value={formData.role}
-                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               >
                 {roles.map((role) => (
                   <option>{role.code}</option>
@@ -305,7 +314,7 @@ const RegisterContent = () => {
                   onChange={changeHandler}
                   value={formData.storename}
                   autoComplete="email"
-                  className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-3 text-gray-900 ring-2 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 {errors.storename?.type === "required" && (
                   <p className="text-red-400 text-sm font-bold" role="alert">
@@ -345,7 +354,7 @@ const RegisterContent = () => {
                   onChange={changeHandler}
                   value={formData.storetaxid}
                   autoComplete="email"
-                  className="block w-full rounded-md py-1.5 pl-3 uppercase text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-3 uppercase text-gray-900 ring-2 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 {errors.storetaxid?.type === "required" && (
                   <p className="text-red-400 text-sm font-bold" role="alert">
@@ -381,7 +390,7 @@ const RegisterContent = () => {
                   onChange={changeHandler}
                   value={formData.storeaccountno}
                   autoComplete="email"
-                  className="block w-full rounded-md py-1.5 pl-3 uppercase text-gray-900 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-3 uppercase text-gray-900 ring-2 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 {errors.storeaccountno?.type === "required" && (
                   <p className="text-red-400 text-sm font-bold" role="alert">

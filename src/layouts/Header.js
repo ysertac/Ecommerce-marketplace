@@ -4,7 +4,9 @@ import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Gravatar from "../components/Gravatar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { verifyUser } from "../store/actions/userActions";
+import { useEffect } from "react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -12,6 +14,17 @@ function classNames(...classes) {
 
 const Header = () => {
   const user = useSelector((store) => store.user.user);
+  const dispatch = useDispatch();
+  /* axios
+    .get(`${api}verify`, user.token)
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => err); */
+
+  useEffect(() => {
+    dispatch(verifyUser(localStorage.getItem("token")));
+  }, []);
   return (
     <>
       {/* Üst Header */}
@@ -48,13 +61,11 @@ const Header = () => {
           <>
             <div className="mx-auto w-3/4 max-sm:w-11/12 py-1">
               <div className="relative flex h-16 items-center justify-between">
-                {localStorage.getItem("user") ? (
+                {user.token ? (
                   <div className="sm:hidden flex items-center justify-between w-[30%]">
-                    <Gravatar
-                      email={JSON.parse(localStorage.getItem("user")).email}
-                    />
+                    <Gravatar email={user.email} />
                     <span className="font-bold text-primaryColor">
-                      {JSON.parse(localStorage.getItem("user")).name}
+                      {user.name}
                     </span>
                   </div>
                 ) : (
@@ -69,9 +80,12 @@ const Header = () => {
                   </div>
                 )}
                 <div className="flex flex-1 items-center justify-center sm:justify-between">
-                  <h2 className="text-2xl font-bold leading-8 text-general">
+                  <Link
+                    to="/"
+                    className="text-2xl font-bold leading-8 text-general"
+                  >
                     {data.header2.brand}
-                  </h2>
+                  </Link>
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-1">
                       {data.header2.navbar.map((item) => (
@@ -92,14 +106,10 @@ const Header = () => {
                     </div>
                   </div>
                   <div className="font-bold text-sm leading-6 text-primaryColor max-sm:hidden flex items-center justify-between">
-                    {localStorage.getItem("user") ? (
+                    {user.token ? (
                       <div className="flex items-center justify-around">
-                        <span>
-                          {JSON.parse(localStorage.getItem("user")).name}
-                        </span>
-                        <Gravatar
-                          email={JSON.parse(localStorage.getItem("user")).email}
-                        />
+                        <Gravatar email={user.email} />
+                        <span>{user.name}</span>
                       </div>
                     ) : (
                       <span>

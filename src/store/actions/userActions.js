@@ -1,23 +1,24 @@
 import axios from "axios";
 import { api } from "../../api/api";
 import { toast } from "react-toastify";
-export const FETCH_USER = "fetchUser";
+export const SET_USER = "fetchUser";
 export const FETCH_REGISTER = "fetchRegister";
+export const VERIFY_USER = "verifyUser";
 
 export const fetchUser = (data, history) => (dispatch) => {
   axios
     .post(`${api}login`, data)
     .then((res) => {
-      dispatch({ type: FETCH_USER, payload: res.data });
-      localStorage.setItem("user", JSON.stringify(res.data));
+      dispatch({ type: SET_USER, payload: res.data });
+      localStorage.setItem("token", res.data.token);
       toast.success(`Welcome ${res.data.name}`);
       history.push("/");
     })
     .catch((error) => {
-      dispatch({ type: FETCH_USER, payload: {} });
+      dispatch({ type: SET_USER, payload: {} });
       toast.error(error.response.data.message);
     })
-    .finally(dispatch({ type: FETCH_USER, payload: {} }));
+    .finally(dispatch({ type: SET_USER, payload: {} }));
 };
 
 export const fetchRegister = (data, history) => (dispatch) => {
@@ -33,4 +34,17 @@ export const fetchRegister = (data, history) => (dispatch) => {
       toast.error(error.response.data.error);
     })
     .finally(dispatch({ type: FETCH_REGISTER, payload: "" }));
+};
+
+export const verifyUser = (data) => (dispatch) => {
+  axios
+    .get(`${api}verify`, { headers: { Authorization: data } })
+    .then((res) => {
+      dispatch({ type: VERIFY_USER, payload: res.data });
+      localStorage.setItem("token", res.data.token);
+    })
+    .catch((err) => {
+      dispatch({ type: VERIFY_USER, payload: "" });
+      localStorage.removeItem("token");
+    });
 };

@@ -1,14 +1,13 @@
-import { FETCH_REGISTER, FETCH_USER } from "../actions/userActions";
+import { FETCH_REGISTER, SET_USER, VERIFY_USER } from "../actions/userActions";
 
 const initialState = {
-  message: "",
   spinner: false,
   user: {},
 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_USER:
+    case SET_USER:
       return {
         ...state,
         user: action.payload,
@@ -17,8 +16,12 @@ const userReducer = (state = initialState, action) => {
     case FETCH_REGISTER:
       return {
         ...state,
-        message: action.payload,
         spinner: !state.spinner,
+      };
+    case VERIFY_USER:
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;

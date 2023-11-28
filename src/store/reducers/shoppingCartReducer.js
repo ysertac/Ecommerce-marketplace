@@ -1,3 +1,5 @@
+import { SET_CART } from "../actions/shoppingCartActions";
+
 const initialState = {
   cart: [],
   payment: {},
@@ -6,6 +8,10 @@ const initialState = {
 
 const shoppingCartReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_CART:
+      return {
+        ...action.payload,
+      };
     default:
       return state;
   }

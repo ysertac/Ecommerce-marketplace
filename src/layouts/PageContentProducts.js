@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import { productListData, teamData } from "../data";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 const PageContentProducts = () => {
+  const categories = useSelector((store) => store.global.categories);
+
   return (
     <div>
       {/* First Part */}
@@ -22,18 +26,24 @@ const PageContentProducts = () => {
           </p>
         </h2>
         <div className="flex w-3/4 max-sm:w-11/12 max-sm:flex-col justify-between mx-auto">
-          {productListData.shop.main.map((item) => (
-            <div className={item.class}>
-              <div>
-                <p className="text-base text-center leading-6 text-white font-bold">
-                  {item.content1}
-                </p>
-                <p className="text-sm text-center font-normal leading-5 text-white pt-3">
-                  {item.content2}
-                </p>
+          {categories
+            .filter((category) => category.rating >= 4.1 && category.id !== 9)
+            .map((category) => (
+              <div className="w-[18.75%] max-sm:w-full h-[20vw] max-sm:h-[100vw] flex flex-col justify-between items-center">
+                <div
+                  style={{ backgroundImage: `url(${category.img})` }}
+                  className={
+                    "bg-cover w-full h-[15.5vw] max-sm:h-[75vw] max-sm:mt-5 bg-no-repeat flex justify-center items-center max-sm:w-full"
+                  }
+                ></div>
+                <div className="text-sm leading-6 font-bold text-center">
+                  <p className="text-secondaryColor">
+                    {category.code[0] == "e" ? "erkek" : "kadın"}
+                  </p>
+                  <p className="text-general">{category.code.substring(2)}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
 

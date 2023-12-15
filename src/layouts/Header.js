@@ -7,6 +7,7 @@ import Gravatar from "../components/Gravatar";
 import { useDispatch, useSelector } from "react-redux";
 import { verifyUser } from "../store/actions/userActions";
 import { useEffect } from "react";
+import { fetchCategoriesAction } from "../store/actions/globalActions";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -14,17 +15,15 @@ function classNames(...classes) {
 
 const Header = () => {
   const user = useSelector((store) => store.user.user);
+  const categories = useSelector((store) => store.global.categories);
   const dispatch = useDispatch();
-  /* axios
-    .get(`${api}verify`, user.token)
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err) => err); */
 
   useEffect(() => {
     dispatch(verifyUser(localStorage.getItem("token")));
+    dispatch(fetchCategoriesAction());
   }, []);
+
+  console.log(categories);
   return (
     <>
       {/* Üst Header */}

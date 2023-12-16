@@ -13,7 +13,7 @@ export default function DropDownn() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50">
+        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md text-sm font-bold leading-6 hover:text-white text-secondaryColor">
           Shop
           <ChevronDownIcon
             className="-mr-1 h-5 w-5 text-gray-400"

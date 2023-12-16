@@ -28,7 +28,12 @@ const PageContentProducts = () => {
           {categories
             .filter((category) => category.rating >= 4.1 && category.id !== 9)
             .map((category) => (
-              <div className="w-[18.75%] max-sm:w-full h-[20vw] max-sm:h-[100vw] flex flex-col justify-between items-center">
+              <Link
+                to={
+                  "shop/" + category.code[0] + "/" + category.code.substring(2)
+                }
+                className="w-[18.75%] max-sm:w-full h-[20vw] max-sm:h-[100vw] flex flex-col justify-between items-center"
+              >
                 <div
                   style={{ backgroundImage: `url(${category.img})` }}
                   className={
@@ -41,7 +46,7 @@ const PageContentProducts = () => {
                   </p>
                   <p className="text-general">{category.title}</p>
                 </div>
-              </div>
+              </Link>
             ))}
         </div>
       </div>

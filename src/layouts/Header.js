@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { verifyUser } from "../store/actions/userActions";
 import { useEffect } from "react";
 import { fetchCategoriesAction } from "../store/actions/globalActions";
-import DropDownn from "../components/DropDownn";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -18,7 +17,6 @@ const Header = () => {
   const user = useSelector((store) => store.user.user);
   const categories = useSelector((store) => store.global.categories);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(verifyUser(localStorage.getItem("token")));
     dispatch(fetchCategoriesAction());

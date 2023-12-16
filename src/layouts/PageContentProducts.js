@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import { productListData, teamData } from "../data";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 
 const PageContentProducts = () => {
   const categories = useSelector((store) => store.global.categories);
@@ -40,7 +39,7 @@ const PageContentProducts = () => {
                   <p className="text-secondaryColor">
                     {category.code[0] == "e" ? "erkek" : "kadın"}
                   </p>
-                  <p className="text-general">{category.code.substring(2)}</p>
+                  <p className="text-general">{category.title}</p>
                 </div>
               </div>
             ))}

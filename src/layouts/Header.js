@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { verifyUser } from "../store/actions/userActions";
 import { useEffect } from "react";
 import { fetchCategoriesAction } from "../store/actions/globalActions";
+import DropDownn from "../components/DropDownn";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -22,7 +23,6 @@ const Header = () => {
     dispatch(verifyUser(localStorage.getItem("token")));
     dispatch(fetchCategoriesAction());
   }, []);
-
   console.log(categories);
   return (
     <>
@@ -86,7 +86,7 @@ const Header = () => {
                     {data.header2.brand}
                   </Link>
                   <div className="hidden sm:ml-6 sm:block">
-                    <div className="flex space-x-1">
+                    <div className="flex items-center space-x-1">
                       {data.header2.navbar.map((item) => (
                         <NavLink
                           key={item.name}

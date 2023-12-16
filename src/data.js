@@ -70,6 +70,7 @@ import tbres3 from "./assets/team/tbres3.jpg";
 import tbres4 from "./assets/team/tbres4.jpg";
 import tbres5 from "./assets/team/tbres5.jpg";
 import contactBanner from "./assets/contact/contactbanner.png";
+import DropDownn from "./components/DropDownn";
 
 export const data = {
   header1: {
@@ -108,7 +109,7 @@ export const data = {
     brand: "Bandage",
     navbar: [
       { name: "Home", path: "/" },
-      { name: "Shop", path: "/shop" },
+      { name: <DropDownn />, path: "/shop" },
       { name: "About Us", path: "/about" },
       { name: "Team", path: "/team" },
       { name: "Contact", path: "/contact" },

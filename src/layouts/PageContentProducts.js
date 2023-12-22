@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import { productListData, teamData } from "../data";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsAction } from "../store/actions/productActions";
+import { useEffect } from "react";
 
 const PageContentProducts = () => {
+  const dispatch = useDispatch();
   const categories = useSelector((store) => store.global.categories);
-
+  const products = useSelector((store) => store.product.productList);
+  useEffect(() => dispatch(fetchProductsAction()), []);
+  console.log(products);
   return (
     <div>
       {/* First Part */}
@@ -30,7 +35,10 @@ const PageContentProducts = () => {
             .map((category) => (
               <Link
                 to={
-                  "shop/" + category.code[0] + "/" + category.code.substring(2)
+                  "shop/" +
+                  (category.code[0] === "e" ? "erkek" : "kadin") +
+                  "/" +
+                  category.code.substring(2)
                 }
                 className="w-[18.75%] max-sm:w-full h-[20vw] max-sm:h-[100vw] flex flex-col justify-between items-center"
               >

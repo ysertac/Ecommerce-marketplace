@@ -39,12 +39,7 @@ export default function DropDownn() {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      to={
-                        "/shop/" +
-                        category.code[0] +
-                        "/" +
-                        category.code.substring(2)
-                      }
+                      to={"/shop/erkek/" + category.code.substring(2)}
                       className={classNames(
                         active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                         "block px-4 py-2 text-sm"
@@ -63,12 +58,7 @@ export default function DropDownn() {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      to={
-                        "/shop/" +
-                        category.code[0] +
-                        "/" +
-                        category.code.substring(2)
-                      }
+                      to={"/shop/kadin/" + category.code.substring(2)}
                       className={classNames(
                         active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                         "block px-4 py-2 text-sm"

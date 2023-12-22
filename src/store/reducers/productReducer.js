@@ -1,7 +1,7 @@
-import { SET_PRODUCTS } from "../actions/productActions";
+import { FETCH_PRODUCTS } from "../actions/productActions";
 
 const initialState = {
-  producList: [],
+  productList: [],
   totalProductCount: 0,
   pageCount: 0,
   activePage: 0,
@@ -10,8 +10,11 @@ const initialState = {
 
 const productReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_PRODUCTS:
-      return { ...action.payload };
+    case FETCH_PRODUCTS:
+      return {
+        ...state,
+        productList: action.payload,
+      };
     default:
       return state;
   }

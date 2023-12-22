@@ -7,14 +7,12 @@ const PageContentCategory = () => {
   const categories = useSelector((store) => store.global.categories);
   const [selectedCategory, setSelectedCategory] = useState({});
 
-  useEffect(
-    () =>
-      setSelectedCategory(
-        categories
-          .filter((item) => item.code[0] == gender)
-          .find((item) => item.code.substring(2) === category)
-      ),
-    [categories]
+  useEffect(() =>
+    setSelectedCategory(
+      categories
+        .filter((item) => item.code[0] == gender[0])
+        .find((item) => item.code.substring(2) === category)
+    )
   );
 
   return <>{selectedCategory?.title}</>;

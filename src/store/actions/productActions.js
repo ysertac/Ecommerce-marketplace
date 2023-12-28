@@ -7,7 +7,7 @@ export const fetchProductsAction = () => (dispatch) => {
   axios
     .get(`${api}products`)
     .then((res) => {
-      dispatch({ type: FETCH_PRODUCTS, payload: res.data });
+      dispatch({ type: FETCH_PRODUCTS, payload: res.data.products });
     })
     .catch((error) => console.error(error));
 };

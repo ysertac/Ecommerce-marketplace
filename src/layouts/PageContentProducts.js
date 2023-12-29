@@ -84,30 +84,33 @@ const PageContentProducts = () => {
           </div>
         </div>
         <div className="flex w-3/4 max-sm:flex-col max-sm:w-11/12 justify-between mx-auto sm:flex-wrap sm:content-between">
-          {productListData.secondPart.content.map((item) => (
-            <Link to={`/shop/product/${item.id}`}>
+          {products.map((product) => (
+            <Link to={`/shop/product/${product.id}`}>
               <div className="flex flex-col max-sm:w-full items-center mt-5">
-                <img className="w-80 max-sm:w-full" src={item.img} />
+                <img
+                  className="w-80 max-sm:w-full"
+                  src={product.images[0].url}
+                />
                 <div>
                   <h2 className="text-center font-bold text-base text-general pt-3">
-                    {item.header}
+                    {product.name}
                   </h2>
                   <h2 className="text-center font-bold text-sm leading-6 text-secondaryColor pt-3">
-                    {item.header2}
+                    {product.description.substring(0, 26)}...
                   </h2>
                   <p className="text-center pt-3">
-                    <span className="font-bold text-base text-[#bdbdbd]">
-                      {item.price.full}{" "}
+                    <span className="block font-bold text-base text-[#bdbdbd]">
+                      {product.price}₺
                     </span>
-                    <span className="font-bold text-base text-[#23856d]">
-                      {item.price.discount}
+                    <span className="block font-bold text-base text-[#23856d]">
+                      Stock: {product.stock}
                     </span>
                   </p>
                   <div className="flex w-24 h-7 justify-between mx-auto pt-3">
-                    {item.colors.blue}
-                    {item.colors.darkish}
-                    {item.colors.orange}
-                    {item.colors.green}
+                    <div className="bg-primaryColor w-4 h-4 rounded-full"></div>
+                    <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>
+                    <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>
+                    <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>
                   </div>
                 </div>
               </div>

@@ -1,8 +1,15 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { data } from "../data";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsAction } from "../store/actions/productActions";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useEffect } from "react";
 
 const PageContent = () => {
+  const dispatch = useDispatch();
+  const products = useSelector((store) => store.product.productList);
+  useEffect(() => dispatch(fetchProductsAction()), []);
   return (
     <div className="mb-24">
       {/* Editors Pick Section */}
@@ -56,24 +63,37 @@ const PageContent = () => {
           {data.pageContent.header2.header}
         </h2>
         <div className="flex w-3/4 max-sm:w-11/12 mx-auto flex-wrap justify-between content-arounds sm:h-[84vw]">
-          {data.pageContent.products.map((product) => (
-            <div className="w-[23%] max-sm:w-full my-10">
-              <img src={product.image} className="w-full" />
-              <p className="text-center text-[#252B42] text-base leading-6 font-bold pt-5">
-                {product.name}
-              </p>
-              <div className="text-center pt-5">
-                <span className="px-1 font-bold text-base leading-6 text-[#BDBDBD]">
-                  {product.price.first}
-                </span>
-                <span className="px-1 font-bold text-base leading-6 text-[#23856D]">
-                  {product.price.discount}
-                </span>
+          {products.splice(0, 8).map((product) => (
+            <Link to={`/shop/product/${product.id}`}>
+              <div className="flex flex-col max-sm:w-full items-center mt-5">
+                <img
+                  className="w-80 max-sm:w-full"
+                  src={product.images[0].url}
+                />
+                <div>
+                  <h2 className="text-center font-bold text-base text-general pt-3">
+                    {product.name}
+                  </h2>
+                  <h2 className="text-center font-bold text-sm leading-6 text-secondaryColor pt-3">
+                    {product.description.substring(0, 26)}...
+                  </h2>
+                  <p className="text-center pt-3">
+                    <span className="block font-bold text-base text-[#bdbdbd]">
+                      {product.price}₺
+                    </span>
+                    <span className="block font-bold text-base text-[#23856d]">
+                      Stock: {product.stock}
+                    </span>
+                  </p>
+                  <div className="flex w-24 h-7 justify-between mx-auto pt-3">
+                    <div className="bg-primaryColor w-4 h-4 rounded-full"></div>
+                    <div className="bg-[#23856D] w-4 h-4 rounded-full"></div>
+                    <div className="bg-[#E77C40] w-4 h-4 rounded-full"></div>
+                    <div className="bg-[#252B42] w-4 h-4 rounded-full"></div>
+                  </div>
+                </div>
               </div>
-              <div className="flex justify-between pt-5 items-center w-[30%] mx-auto">
-                {product.colors.map((color) => color.icon)}
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

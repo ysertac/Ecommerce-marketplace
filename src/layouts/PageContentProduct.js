@@ -1,9 +1,18 @@
 import { useParams } from "react-router-dom";
 import { aboutUsData, productData, productListData, teamData } from "../data";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsAction } from "../store/actions/productActions";
+import { useEffect } from "react";
 
 const PageContentProduct = () => {
   const { id } = useParams();
   const item = productListData.secondPart.content.find((item) => item.id == id);
+  const products = useSelector((store) => store.product.productList);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProductsAction());
+  }, []);
 
   console.log(id);
   return (
@@ -21,49 +30,59 @@ const PageContentProduct = () => {
       </div>
       <div className="bg-dimbg pb-12">
         <div className="w-3/4 max-sm:w-11/12 mx-auto flex max-sm:flex-col justify-between">
-          <img src={item.img} className="w-2/5 max-sm:w-full sm:h-[30vw]" />
-          <div className="w-2/5 max-sm:w-full sm:h-[30vw] flex flex-col justify-between">
-            <p className="text-xl font-normal text-general max-sm:mt-5">
-              {item.header}
-            </p>
-            <p className="text-xl font-normal text-general max-sm:mt-5">
-              {item.header2}
-            </p>
-            <p className="font-bold text-2xl text-general max-sm:mt-5">
-              {item.price.full} / {item.price.discount}
-            </p>
-            <p className="text-secondaryColor font-bold text-sm leading-6 max-sm:mt-5">
-              Availability :{" "}
-              {item.stock == "in stock" ? (
-                <span className="text-primaryColor">In Stock</span>
-              ) : (
-                <span className="text-red-700">Out of Stock</span>
-              )}
-            </p>
-            <p className="text-[#858585] font-normal text-sm max-sm:mt-5 max-sm:pb-5 border-b border-[#bdbdbd]">
-              {item.definition}
-            </p>
-            <div className="flex w-36 h-6 justify-between max-sm:mt-5">
-              {item.colors.blue}
-              {item.colors.darkish}
-              {item.colors.orange}
-              {item.colors.green}
-            </div>
-            <div className="flex w-80 justify-between max-sm:mt-5">
-              <button className="text-white bg-primaryColor py-3 px-5 rounded-md font-bold text-sm leading-6">
-                {item.buttons[0]}
-              </button>
-              <button className="border bordere-[#e8e8e8] rounded-full w-10 h-10">
-                {item.buttons[1]}
-              </button>
-              <button className="border bordere-[#e8e8e8] rounded-full w-10 h-10">
-                {item.buttons[2]}
-              </button>
-              <button className="border bordere-[#e8e8e8] rounded-full w-10 h-10">
-                {item.buttons[3]}
-              </button>
-            </div>
-          </div>
+          {products.length !== 0 ? (
+            <>
+              <img
+                src={products[id - 2].images[0].url}
+                className="w-2/5 max-sm:w-full sm:h-[30vw]"
+              />
+              <div className="w-2/5 max-sm:w-full sm:h-[30vw] flex flex-col justify-between">
+                <p className="text-xl font-normal text-general max-sm:mt-5">
+                  {products[id - 2].name}
+                </p>
+                <p className="text-xl font-normal text-general max-sm:mt-5">
+                  {products[id - 2].description}
+                </p>
+                <p className="font-bold text-2xl text-general max-sm:mt-5">
+                  {products[id - 2].price}₺
+                </p>
+                <p className="text-secondaryColor font-bold text-sm leading-6 max-sm:mt-5">
+                  Stock :{" "}
+                  {products[id - 2].stock > 0 ? (
+                    <span className="text-primaryColor">
+                      {products[id - 2].stock}
+                    </span>
+                  ) : (
+                    <span className="text-red-700">
+                      {products[id - 2].stock}
+                    </span>
+                  )}
+                </p>
+                <div className="flex w-36 h-6 justify-between max-sm:mt-5">
+                  <div className="bg-primaryColor w-6 h-6 rounded-full"></div>
+                  <div className="bg-[#23856D] w-6 h-6 rounded-full"></div>
+                  <div className="bg-[#E77C40] w-6 h-6 rounded-full"></div>
+                  <div className="bg-[#252B42] w-6 h-6 rounded-full"></div>
+                </div>
+                <div className="flex w-80 justify-between max-sm:mt-5">
+                  <button className="capitalize text-white bg-primaryColor py-3 px-5 rounded-md font-bold text-sm leading-6">
+                    select options
+                  </button>
+                  <button className="border bordere-[#e8e8e8] rounded-full w-10 h-10">
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+                  <button className="border bordere-[#e8e8e8] rounded-full w-10 h-10">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </button>
+                  <button className="border bordere-[#e8e8e8] rounded-full w-10 h-10">
+                    <i class="fa-regular fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+            </>
+          ) : (
+            "loading"
+          )}
         </div>
       </div>
       {/* Details */}
@@ -122,34 +141,36 @@ const PageContentProduct = () => {
           <h2 className="text-general font-bold text-2xl border-b py-8 border-[#ececec]">
             {productData.options.bestSeller.header}
           </h2>
-          <div className="flex sm:flex-wrap max-sm:flex-col justify-between sm:h-[63vw] py-7 content-between">
-            {productData.options.bestSeller.products.map((product) => (
-              <div className="sm:w-[21%] bg-white max-sm:my-5">
-                <img className="w-full" src={product.img} />
-                <div className="sm:h-[11vw] flex flex-col justify-evenly pl-7">
-                  <h2 className="text-general font-bold text-base max-sm:mt-5">
-                    {product.name}
-                  </h2>
-                  <p className="text-secondaryColor font-bold text-sm leading-6 max-sm:mt-5">
-                    {product.def}
-                  </p>
-                  <p className="max-sm:py-5">
-                    <span className="text-[#bdbdbd] font-bold text-base">
-                      {product.price[0]}
-                    </span>{" "}
-                    <span className="text-[#23856d] font-bold text-base">
-                      {product.price[1]}
-                    </span>
-                  </p>
-                </div>
-              </div>
-            ))}
+          <div className="flex sm:flex-wrap max-sm:flex-col justify-between sm:h-[68vw] py-7 content-between">
+            {products.length !== 0
+              ? products.splice(0, 8).map((product) => (
+                  <div className="sm:w-[21%] bg-white max-sm:my-5">
+                    <img className="w-full" src={product.images[0].url} />
+                    <div className="sm:h-[8vw] flex flex-col justify-evenly pl-7">
+                      <h2 className="text-general text-center font-bold text-base max-sm:mt-5">
+                        {product.name}
+                      </h2>
+                      <p className="text-secondaryColor text-center font-bold text-sm leading-6 max-sm:mt-5">
+                        {product.description.substring(0, 26)}...
+                      </p>
+                      <p className="max-sm:py-5">
+                        <span className="block text-center text-[#bdbdbd] font-bold text-base">
+                          {product.price}₺
+                        </span>{" "}
+                        <span className="block text-center text-[#23856d] font-bold text-base">
+                          Stock: {product.stock}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                ))
+              : "loading"}
           </div>
         </div>
       </div>
       {/* Companies */}
       <div className="bg-dimbg">
-        <div className="flex mx-auto w-3/4 max-sm:w-11/12 max-sm:flex-col justify-between py-10">
+        <div className="flex mx-auto w-3/4 max-sm:w-11/12 max-sm:flex-col justify-between py-16">
           {aboutUsData.companies.img.map((img) => (
             <img
               className="max-sm:w-1/3 max-sm:mx-auto max-sm:py-10"

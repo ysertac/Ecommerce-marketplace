@@ -17,6 +17,7 @@ const Header = () => {
   const user = useSelector((store) => store.user.user);
   const categories = useSelector((store) => store.global.categories);
   const dispatch = useDispatch();
+  const lsKey = "searchParam";
   useEffect(() => {
     dispatch(verifyUser(localStorage.getItem("token")));
     dispatch(fetchCategoriesAction());
@@ -84,7 +85,10 @@ const Header = () => {
                     {data.header2.brand}
                   </Link>
                   <div className="hidden sm:ml-6 sm:block">
-                    <div className="flex items-center space-x-1">
+                    <div
+                      className="flex items-center space-x-1"
+                      onClick={() => localStorage.setItem(lsKey, "")}
+                    >
                       {data.header2.navbar.map((item) => (
                         <NavLink
                           key={item.name}
@@ -143,7 +147,10 @@ const Header = () => {
             </div>
 
             <Disclosure.Panel className="sm:hidden">
-              <div className="space-y-1 px-2 pb-3 pt-2">
+              <div
+                className="space-y-1 px-2 pb-3 pt-2"
+                onClick={() => localStorage.setItem(lsKey, "")}
+              >
                 {data.header2.navbar.map((item) => (
                   <NavLink
                     key={item.name}

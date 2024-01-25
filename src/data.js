@@ -109,11 +109,11 @@ export const data = {
     brand: "Bandage",
     navbar: [
       { name: "Home", path: "/" },
-      { name: <DropDownn />, path: "/shop" },
+      { name: <DropDownn />, path: "/shop/1" },
       { name: "About Us", path: "/about" },
       { name: "Team", path: "/team" },
       { name: "Contact", path: "/contact" },
-      { name: "Pages", path: "/" },
+      { name: "Pages", path: "/deneme" },
     ],
     auth: {
       icon: <i class="fa-regular fa-user"></i>,

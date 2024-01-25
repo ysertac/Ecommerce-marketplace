@@ -9,6 +9,8 @@ import ProductDetails from "./pages/ProductDetails";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Category from "./pages/Category";
+import Deneme from "./deneme/Deneme";
+import PageContentCategory from "./layouts/PageContentCategory";
 
 function App() {
   return (
@@ -17,7 +19,7 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/shop">
+        <Route path="/shop/:pageno">
           <Products />
         </Route>
         <Route exact path="/shop/product/:id">
@@ -40,6 +42,9 @@ function App() {
         </Route>
         <Route exact path="/shop/:gender/:category">
           <Category />
+        </Route>
+        <Route exact path="/deneme">
+          <Deneme />
         </Route>
       </Switch>
     </div>

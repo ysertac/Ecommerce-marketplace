@@ -1,18 +1,11 @@
 import { useParams } from "react-router-dom";
 import { aboutUsData, productData, productListData, teamData } from "../data";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProductsAction } from "../store/actions/productActions";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const PageContentProduct = () => {
   const { id } = useParams();
-  const item = productListData.secondPart.content.find((item) => item.id == id);
   const products = useSelector((store) => store.product.productList);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchProductsAction());
-  }, []);
+  const activePage = useSelector((store) => store.product.activePage);
 
   console.log(id);
   return (
@@ -33,28 +26,28 @@ const PageContentProduct = () => {
           {products.length !== 0 ? (
             <>
               <img
-                src={products[id - 2].images[0].url}
+                src={products[id - 2 - activePage * 24].images[0].url}
                 className="w-2/5 max-sm:w-full sm:h-[30vw]"
               />
               <div className="w-2/5 max-sm:w-full sm:h-[30vw] flex flex-col justify-between">
                 <p className="text-xl font-normal text-general max-sm:mt-5">
-                  {products[id - 2].name}
+                  {products[id - 2 - activePage * 24].name}
                 </p>
                 <p className="text-xl font-normal text-general max-sm:mt-5">
-                  {products[id - 2].description}
+                  {products[id - 2 - activePage * 24].description}
                 </p>
                 <p className="font-bold text-2xl text-general max-sm:mt-5">
-                  {products[id - 2].price}₺
+                  {products[id - 2 - activePage * 24].price}₺
                 </p>
                 <p className="text-secondaryColor font-bold text-sm leading-6 max-sm:mt-5">
                   Stock :{" "}
-                  {products[id - 2].stock > 0 ? (
+                  {products[id - 2 - activePage * 24].stock > 0 ? (
                     <span className="text-primaryColor">
-                      {products[id - 2].stock}
+                      {products[id - 2 - activePage * 24].stock}
                     </span>
                   ) : (
                     <span className="text-red-700">
-                      {products[id - 2].stock}
+                      {products[id - 2 - activePage * 24].stock}
                     </span>
                   )}
                 </p>

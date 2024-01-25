@@ -2,15 +2,46 @@ import { Link } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import { productListData, teamData } from "../data";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProductsAction } from "../store/actions/productActions";
-import { useEffect } from "react";
+import {
+  fetchProductsAction,
+  paginateProductsAction,
+} from "../store/actions/productActions";
+import { useEffect, useState } from "react";
+
+import {
+  useHistory,
+  useParams,
+} from "react-router-dom/cjs/react-router-dom.min";
 
 const PageContentProducts = () => {
+  const [loading, setLoading] = useState(false);
+  const { pageno } = useParams();
+  const history = useHistory();
   const dispatch = useDispatch();
   const categories = useSelector((store) => store.global.categories);
   const products = useSelector((store) => store.product.productList);
-  useEffect(() => dispatch(fetchProductsAction()), []);
+  const activePage = useSelector((store) => store.product.activePage);
+  const pageCount = useSelector((store) => store.product.pageCount);
+  const lsKey = "searchParam";
+  const paginationNumbers = [];
+  for (let i = 1; i <= Math.ceil(pageCount); i++) {
+    paginationNumbers.push(i);
+  }
+  useEffect(() => {
+    dispatch(paginateProductsAction("", localStorage.getItem(lsKey)));
+  }, [localStorage.getItem(lsKey)]);
+
+  useEffect(
+    () =>
+      localStorage.getItem(lsKey) == null
+        ? dispatch(fetchProductsAction(pageno - 1, ""))
+        : dispatch(
+            fetchProductsAction(pageno - 1, localStorage.getItem(lsKey))
+          ),
+    [activePage]
+  );
   console.log(products);
+
   return (
     <div>
       {/* First Part */}
@@ -33,14 +64,15 @@ const PageContentProducts = () => {
           {categories
             .filter((category) => category.rating >= 4.1 && category.id !== 9)
             .map((category) => (
-              <Link
-                to={
-                  "shop/" +
-                  (category.code[0] === "e" ? "erkek" : "kadin") +
-                  "/" +
-                  category.code.substring(2)
-                }
-                className="w-[18.75%] max-sm:w-full h-[20vw] max-sm:h-[100vw] flex flex-col justify-between items-center"
+              <div
+                onClick={() => (
+                  dispatch(fetchProductsAction(pageno - 1, category.id)),
+                  localStorage.setItem(lsKey, category.id),
+                  history.push(
+                    `/shop/${category.gender}/${category.title.toLowerCase()}`
+                  )
+                )}
+                className="w-[18.75%] max-sm:w-full h-[20vw] max-sm:h-[100vw] flex flex-col justify-between items-center cursor-pointer"
               >
                 <div
                   style={{ backgroundImage: `url(${category.img})` }}
@@ -54,7 +86,7 @@ const PageContentProducts = () => {
                   </p>
                   <p className="text-general">{category.title}</p>
                 </div>
-              </Link>
+              </div>
             ))}
         </div>
       </div>
@@ -83,6 +115,7 @@ const PageContentProducts = () => {
             </span>
           </div>
         </div>
+
         <div className="flex w-3/4 max-sm:flex-col max-sm:w-11/12 justify-between mx-auto sm:flex-wrap sm:content-between">
           {products.map((product) => (
             <Link to={`/shop/product/${product.id}`}>
@@ -117,7 +150,7 @@ const PageContentProducts = () => {
             </Link>
           ))}
         </div>
-        <Pagination />
+        <Pagination paginationNumbers={paginationNumbers} />
       </div>
 
       {/* Logo Part */}

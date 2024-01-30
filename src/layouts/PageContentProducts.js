@@ -3,8 +3,10 @@ import Pagination from "../components/Pagination";
 import { productListData, teamData } from "../data";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  fetchFilterProductsAction,
   fetchProductsAction,
   paginateProductsAction,
+  paginateProductsActionFilter,
 } from "../store/actions/productActions";
 import { useEffect, useState } from "react";
 
@@ -24,6 +26,20 @@ const PageContentProducts = () => {
   const pageCount = useSelector((store) => store.product.pageCount);
   const lsKey = "searchParam";
   const paginationNumbers = [];
+  const filterFormDataInitial = {
+    filter: "",
+  };
+  const [filterFormData, setFilterFormData] = useState(filterFormDataInitial);
+  const filterChangeHandler = (e) => {
+    let { name, value } = e.target;
+    setFilterFormData({ ...filterFormData, [name]: value });
+  };
+  const filterHandler = () => {
+    dispatch(fetchFilterProductsAction(0, filterFormData.filter));
+    dispatch(paginateProductsActionFilter(filterFormData.filter));
+    localStorage.setItem(lsKey, filterFormData.filter);
+    history.push(`/shop/${filterFormData.filter}`);
+  };
   for (let i = 1; i <= Math.ceil(pageCount); i++) {
     paginationNumbers.push(i);
   }
@@ -31,16 +47,15 @@ const PageContentProducts = () => {
     dispatch(paginateProductsAction("", localStorage.getItem(lsKey)));
   }, [localStorage.getItem(lsKey)]);
 
-  useEffect(
-    () =>
-      localStorage.getItem(lsKey) == null
-        ? dispatch(fetchProductsAction(pageno - 1, ""))
-        : dispatch(
-            fetchProductsAction(pageno - 1, localStorage.getItem(lsKey))
-          ),
-    [activePage]
-  );
-  console.log(products);
+  useEffect(() => {
+    localStorage.getItem(lsKey) == null
+      ? dispatch(fetchProductsAction(pageno - 1, ""))
+      : typeof localStorage.getItem(lsKey) == "number"
+      ? dispatch(fetchProductsAction(pageno - 1, localStorage.getItem(lsKey)))
+      : dispatch(
+          fetchFilterProductsAction(pageno - 1, localStorage.getItem(lsKey))
+        );
+  }, [activePage]);
 
   return (
     <div>
@@ -105,14 +120,26 @@ const PageContentProducts = () => {
               <span className="border-2 p-3">{option}</span>
             ))}
           </div>
-          <div className="w-64 flex justify-between">
-            <span className="text-sm leading-7 font-normal text-secondaryColor bg-[#f9f9f9] border border-[#dddddd] rounded-md py-4 max-sm:py-2 px-8 max-sm:px-4">
+          <div className="w-1/3 flex justify-between">
+            <span className="text-sm leading-7 font-normal text-secondaryColor bg-[#f9f9f9] border border-[#dddddd] rounded-md py-1 max-sm:py-2 px-8 max-sm:px-4">
               {productListData.secondPart.header.buttons[0].text}{" "}
               {productListData.secondPart.header.buttons[0].icon}
             </span>
-            <span className="text-sm leading-7 font-bold text-white bg-primaryColor border border-[#dddddd] rounded-md py-4 max-sm:py-2 px-8 max-sm:px-6">
-              {productListData.secondPart.header.buttons[1]}
-            </span>
+            <form className="flex justify-between w-2/3">
+              <input
+                onChange={filterChangeHandler}
+                className="pl-3 py-1 border-2 rounded-lg"
+                name="filter"
+                placeholder="Filter"
+              />
+              <button
+                onClick={filterHandler}
+                type="button"
+                className="text-sm leading-7 font-bold text-white bg-primaryColor border border-[#dddddd] rounded-md py-1 max-sm:py-2 px-8 max-sm:px-6"
+              >
+                {productListData.secondPart.header.buttons[1]}
+              </button>
+            </form>
           </div>
         </div>
 

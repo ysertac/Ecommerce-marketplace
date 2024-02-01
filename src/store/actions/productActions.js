@@ -7,6 +7,8 @@ export const PAGINATE_PRODUCTS_FILTER = "paginate products as filter";
 export const CHANGE_PAGE_PRODUCTS = "change page";
 export const CATEGORY_PRODUCTS = "filter by category";
 export const FETCH_FILTER_PRODUCTS = "searching filter";
+export const SORT_PRODUCTS = "sorting";
+export const SORT_PRODUCTS_PAGINATE = "sorting pagination";
 
 export const fetchProductsAction = (param, categoryParam) => (dispatch) => {
   axios
@@ -52,6 +54,32 @@ export const fetchFilterProductsAction = (param, filterParam) => (dispatch) => {
     })
     .catch((error) => console.error(error));
 };
+
+export const sortProductsAction =
+  (param, filterParam, categoryParam, sortParam) => (dispatch) => {
+    axios
+      .get(
+        `${api}products/?limit=24&offset=${
+          param * 24
+        }&filter=${filterParam}&category=${categoryParam}&sort=${sortParam}`
+      )
+      .then((res) => {
+        dispatch({ type: SORT_PRODUCTS, payload: res.data.products });
+      })
+      .catch((err) => console.error(err));
+  };
+
+export const sortProductsPaginateAction =
+  (filterParam, categoryParam) => (dispatch) => {
+    axios
+      .get(
+        `${api}products/?limit=null&filter=${filterParam}&category=${categoryParam}`
+      )
+      .then((res) => {
+        dispatch({ type: SORT_PRODUCTS_PAGINATE, payload: res.data.products });
+      })
+      .catch((err) => console.error(err));
+  };
 
 export const changePageAction = (param) => {
   return {

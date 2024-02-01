@@ -17,7 +17,9 @@ const Header = () => {
   const user = useSelector((store) => store.user.user);
   const categories = useSelector((store) => store.global.categories);
   const dispatch = useDispatch();
-  const lsKey = "searchParam";
+  const lsKeyCategory = "categoryParam";
+  const lsKeyFilter = "filterParam";
+  const lsKeySort = "sortParam";
   useEffect(() => {
     dispatch(verifyUser(localStorage.getItem("token")));
     dispatch(fetchCategoriesAction());
@@ -87,7 +89,11 @@ const Header = () => {
                   <div className="hidden sm:ml-6 sm:block">
                     <div
                       className="flex items-center space-x-1"
-                      onClick={() => localStorage.setItem(lsKey, "")}
+                      onClick={() => (
+                        localStorage.setItem(lsKeyCategory, ""),
+                        localStorage.setItem(lsKeyFilter, ""),
+                        localStorage.setItem(lsKeySort, "")
+                      )}
                     >
                       {data.header2.navbar.map((item) => (
                         <NavLink
@@ -149,7 +155,11 @@ const Header = () => {
             <Disclosure.Panel className="sm:hidden">
               <div
                 className="space-y-1 px-2 pb-3 pt-2"
-                onClick={() => localStorage.setItem(lsKey, "")}
+                onClick={() => (
+                  localStorage.setItem(lsKeyCategory, ""),
+                  localStorage.setItem(lsKeyFilter, ""),
+                  localStorage.setItem(lsKeySort, "")
+                )}
               >
                 {data.header2.navbar.map((item) => (
                   <NavLink

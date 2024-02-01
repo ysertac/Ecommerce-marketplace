@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsAction } from "../store/actions/productActions";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect } from "react";
+const lsKey = "searchParam";
 
 const PageContent = () => {
   const dispatch = useDispatch();
   const products = useSelector((store) => store.product.productList);
-  useEffect(() => dispatch(fetchProductsAction()), []);
+  useEffect(() => dispatch(fetchProductsAction(0, "")), []);
   return (
     <div className="mb-24">
       {/* Editors Pick Section */}

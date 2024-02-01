@@ -7,6 +7,8 @@ import {
   fetchProductsAction,
   paginateProductsAction,
   paginateProductsActionFilter,
+  sortProductsAction,
+  sortProductsPaginateAction,
 } from "../store/actions/productActions";
 import { useEffect, useState } from "react";
 
@@ -14,6 +16,7 @@ import {
   useHistory,
   useParams,
 } from "react-router-dom/cjs/react-router-dom.min";
+import DropDownSort from "../components/DropDownSort";
 
 const PageContentProducts = () => {
   const [loading, setLoading] = useState(false);
@@ -24,7 +27,9 @@ const PageContentProducts = () => {
   const products = useSelector((store) => store.product.productList);
   const activePage = useSelector((store) => store.product.activePage);
   const pageCount = useSelector((store) => store.product.pageCount);
-  const lsKey = "searchParam";
+  const lsKeyCategory = "categoryParam";
+  const lsKeyFilter = "filterParam";
+  const lsKeySort = "sortParam";
   const paginationNumbers = [];
   const filterFormDataInitial = {
     filter: "",
@@ -37,24 +42,99 @@ const PageContentProducts = () => {
   const filterHandler = () => {
     dispatch(fetchFilterProductsAction(0, filterFormData.filter));
     dispatch(paginateProductsActionFilter(filterFormData.filter));
-    localStorage.setItem(lsKey, filterFormData.filter);
+    localStorage.setItem(lsKeyFilter, filterFormData.filter);
+    localStorage.setItem(lsKeyCategory, "");
     history.push(`/shop/${filterFormData.filter}`);
   };
   for (let i = 1; i <= Math.ceil(pageCount); i++) {
     paginationNumbers.push(i);
   }
-  useEffect(() => {
+  /* useEffect(() => {
     dispatch(paginateProductsAction("", localStorage.getItem(lsKey)));
-  }, [localStorage.getItem(lsKey)]);
+  }, [localStorage.getItem(lsKey)]); */
+
+  /* useEffect(() => {
+    localStorage.setItem(lsKey, localStorage.getItem(lsKey));
+    localStorage.setItem(lsKeySort, localStorage.getItem(lsKeySort));
+  }, []); */
 
   useEffect(() => {
-    localStorage.getItem(lsKey) == null
-      ? dispatch(fetchProductsAction(pageno - 1, ""))
-      : typeof localStorage.getItem(lsKey) == "number"
-      ? dispatch(fetchProductsAction(pageno - 1, localStorage.getItem(lsKey)))
-      : dispatch(
-          fetchFilterProductsAction(pageno - 1, localStorage.getItem(lsKey))
+    if (localStorage.getItem(lsKeySort) == "") {
+      if (
+        localStorage.getItem(lsKeyCategory) == "" &&
+        localStorage.getItem(lsKeyFilter) == ""
+      ) {
+        dispatch(
+          fetchProductsAction(pageno - 1, localStorage.getItem(lsKeyCategory))
         );
+        dispatch(
+          paginateProductsAction("", localStorage.getItem(lsKeyCategory))
+        );
+      } else {
+        if (
+          localStorage.getItem(lsKeyCategory) !== "" &&
+          localStorage.getItem(lsKeyFilter) == ""
+        ) {
+          dispatch(
+            fetchProductsAction(pageno - 1, localStorage.getItem(lsKeyCategory))
+          );
+          dispatch(
+            paginateProductsAction("", localStorage.getItem(lsKeyCategory))
+          );
+        } else {
+          dispatch(
+            fetchFilterProductsAction(
+              pageno - 1,
+              localStorage.getItem(lsKeyFilter)
+            )
+          );
+          dispatch(
+            paginateProductsActionFilter(localStorage.getItem(lsKeyFilter))
+          );
+        }
+      }
+    } else {
+      if (
+        localStorage.getItem(lsKeyCategory) == "" &&
+        localStorage.getItem(lsKeyFilter) == ""
+      ) {
+        dispatch(
+          sortProductsAction(
+            pageno - 1,
+            "",
+            "",
+            localStorage.getItem(lsKeySort)
+          )
+        );
+        dispatch(sortProductsPaginateAction("", ""));
+      } else {
+        if (localStorage.getItem(lsKeyCategory) !== "") {
+          dispatch(
+            sortProductsAction(
+              pageno - 1,
+              "",
+              localStorage.getItem(lsKeyCategory),
+              localStorage.getItem(lsKeySort)
+            )
+          );
+          dispatch(
+            sortProductsPaginateAction("", localStorage.getItem(lsKeyCategory))
+          );
+        } else {
+          dispatch(
+            sortProductsAction(
+              pageno - 1,
+              localStorage.getItem(lsKeyFilter),
+              "",
+              localStorage.getItem(lsKeySort)
+            )
+          );
+          dispatch(
+            sortProductsPaginateAction(localStorage.getItem(lsKeyFilter), "")
+          );
+        }
+      }
+    }
   }, [activePage]);
 
   return (
@@ -82,7 +162,9 @@ const PageContentProducts = () => {
               <div
                 onClick={() => (
                   dispatch(fetchProductsAction(pageno - 1, category.id)),
-                  localStorage.setItem(lsKey, category.id),
+                  dispatch(paginateProductsAction("", category.id)),
+                  localStorage.setItem(lsKeyCategory, category.id),
+                  localStorage.setItem(lsKeyFilter, ""),
                   history.push(
                     `/shop/${category.gender}/${category.title.toLowerCase()}`
                   )
@@ -121,10 +203,7 @@ const PageContentProducts = () => {
             ))}
           </div>
           <div className="w-1/3 flex justify-between">
-            <span className="text-sm leading-7 font-normal text-secondaryColor bg-[#f9f9f9] border border-[#dddddd] rounded-md py-1 max-sm:py-2 px-8 max-sm:px-4">
-              {productListData.secondPart.header.buttons[0].text}{" "}
-              {productListData.secondPart.header.buttons[0].icon}
-            </span>
+            <DropDownSort />
             <form className="flex justify-between w-2/3">
               <input
                 onChange={filterChangeHandler}

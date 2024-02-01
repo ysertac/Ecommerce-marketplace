@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { changePageAction } from "../store/actions/productActions";
-import { useHistory } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 export default function Pagination({ paginationNumbers }) {
   const dispatch = useDispatch();
+
   const history = useHistory();
   const { pageno } = useParams();
   const activePage = useSelector((store) => store.product.activePage);

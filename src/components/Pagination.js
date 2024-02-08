@@ -31,10 +31,19 @@ export default function Pagination({ paginationNumbers }) {
               </span>
             </button>
             {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
-            {paginationNumbers.map((pageNumber) => (
+            {paginationNumbers.map((pageNumber, index) => (
               <button
-                className="relative z-10 inline-flex items-center bg-primaryColor px-4 py-5 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                key={pageNumber}
+                className={
+                  pageNumber == paginationNumbers[0] ||
+                  pageNumber == paginationNumbers[paginationNumbers.length - 1]
+                    ? "relative z-10 inline-flex items-center bg-blue-950 px-4 py-5 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    : index == activePage + 1 ||
+                      index == activePage - 1 ||
+                      index == activePage
+                    ? "relative z-10 inline-flex items-center bg-primaryColor px-4 py-5 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    : "hidden"
+                }
+                key={index}
                 onClick={() => (
                   dispatch(changePageAction(pageNumber - 1)),
                   history.push(`/shop/${pageNumber}`)

@@ -45,7 +45,7 @@ export default function DropDownSort() {
   const lsKeyFilter = "filterParam";
   const lsKeySort = "sortParam";
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left max-sm:w-[30%]">
       <div>
         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md text-sm font-bold leading-6 hover:text-black text-secondaryColor border-2 py-2 px-8">
           Sort

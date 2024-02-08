@@ -202,19 +202,19 @@ const PageContentProducts = () => {
               <span className="border-2 p-3">{option}</span>
             ))}
           </div>
-          <div className="w-1/3 flex justify-between">
+          <div className="w-1/3 max-sm:w-11/12 flex justify-between">
             <DropDownSort />
             <form className="flex justify-between w-2/3">
               <input
                 onChange={filterChangeHandler}
-                className="pl-3 py-1 border-2 rounded-lg"
+                className="pl-3 py-1 border-2 rounded-lg max-sm:w-[47%]"
                 name="filter"
                 placeholder="Filter"
               />
               <button
                 onClick={filterHandler}
                 type="button"
-                className="text-sm leading-7 font-bold text-white bg-primaryColor border border-[#dddddd] rounded-md py-1 max-sm:py-2 px-8 max-sm:px-6"
+                className="text-sm leading-7 font-bold text-white bg-primaryColor border border-[#dddddd] rounded-md py-1 max-sm:py-2 px-8 max-sm:px-6 max-sm:w-[47%]"
               >
                 {productListData.secondPart.header.buttons[1]}
               </button>

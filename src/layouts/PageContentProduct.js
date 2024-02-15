@@ -26,28 +26,35 @@ const PageContentProduct = () => {
           {products.length !== 0 ? (
             <>
               <img
-                src={products[id - 2 - activePage * 24].images[0].url}
+                src={
+                  products[(id % 24) - 2 >= 0 ? (id % 24) - 2 : 23].images[0]
+                    .url
+                }
                 className="w-2/5 max-sm:w-full sm:h-[30vw]"
               />
               <div className="w-2/5 max-sm:w-full sm:h-[30vw] flex flex-col justify-between">
                 <p className="text-xl font-normal text-general max-sm:mt-5">
-                  {products[id - 2 - activePage * 24].name}
+                  {products[(id % 24) - 2 >= 0 ? (id % 24) - 2 : 23].name}
                 </p>
                 <p className="text-xl font-normal text-general max-sm:mt-5">
-                  {products[id - 2 - activePage * 24].description}
+                  {
+                    products[(id % 24) - 2 >= 0 ? (id % 24) - 2 : 23]
+                      .description
+                  }
                 </p>
                 <p className="font-bold text-2xl text-general max-sm:mt-5">
-                  {products[id - 2 - activePage * 24].price}₺
+                  {products[(id % 24) - 2 >= 0 ? (id % 24) - 2 : 23].price}₺
                 </p>
                 <p className="text-secondaryColor font-bold text-sm leading-6 max-sm:mt-5">
                   Stock :{" "}
-                  {products[id - 2 - activePage * 24].stock > 0 ? (
+                  {products[(id % 24) - 2 >= 0 ? (id % 24) - 2 : 23].stock >
+                  0 ? (
                     <span className="text-primaryColor">
-                      {products[id - 2 - activePage * 24].stock}
+                      {products[(id % 24) - 2 >= 0 ? (id % 24) - 2 : 23].stock}
                     </span>
                   ) : (
                     <span className="text-red-700">
-                      {products[id - 2 - activePage * 24].stock}
+                      {products[(id % 24) - 2 >= 0 ? (id % 24) - 2 : 23].stock}
                     </span>
                   )}
                 </p>

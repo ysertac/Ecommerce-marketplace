@@ -19,11 +19,11 @@ import {
 import DropDownSort from "../components/DropDownSort";
 
 const PageContentProducts = () => {
-  const [loading, setLoading] = useState(false);
   const { pageno } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
   const categories = useSelector((store) => store.global.categories);
+  const categoryNames = categories.map((category) => category.title);
   const products = useSelector((store) => store.product.productList);
   const activePage = useSelector((store) => store.product.activePage);
   const pageCount = useSelector((store) => store.product.pageCount);
@@ -223,8 +223,12 @@ const PageContentProducts = () => {
         </div>
 
         <div className="flex w-3/4 max-sm:flex-col max-sm:w-11/12 justify-between mx-auto sm:flex-wrap sm:content-between">
-          {products.map((product) => (
-            <Link to={`/shop/product/${product.id}`}>
+          {products.map((product, index) => (
+            <Link
+              to={`/${categoryNames[product.category_id - 1]}/${
+                product.id
+              }/${product.name.replaceAll(" ", "_")}`}
+            >
               <div className="flex flex-col max-sm:w-full items-center mt-5">
                 <img
                   className="w-80 max-sm:w-full"

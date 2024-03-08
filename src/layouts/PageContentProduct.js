@@ -1,12 +1,16 @@
 import { useParams } from "react-router-dom";
 import { aboutUsData, productData, productListData, teamData } from "../data";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemCart } from "../store/actions/shoppingCartActions";
 
 const PageContentProduct = () => {
   const { id } = useParams();
   const products = useSelector((store) => store.product.productList);
-  const activePage = useSelector((store) => store.product.activePage);
+  const product = products.find((item) => item.id == id);
+  const cart = useSelector((store) => store.shopping.cart);
+  const dispatch = useDispatch();
 
+  console.log(product);
   console.log(id);
   return (
     <div>
@@ -71,7 +75,10 @@ const PageContentProduct = () => {
                   <button className="border bordere-[#e8e8e8] rounded-full w-10 h-10">
                     <i class="fa-regular fa-heart"></i>
                   </button>
-                  <button className="border bordere-[#e8e8e8] rounded-full w-10 h-10">
+                  <button
+                    className="border bordere-[#e8e8e8] rounded-full w-10 h-10"
+                    onClick={() => dispatch(addItemCart(product))}
+                  >
                     <i class="fa-solid fa-cart-shopping"></i>
                   </button>
                   <button className="border bordere-[#e8e8e8] rounded-full w-10 h-10">
@@ -143,7 +150,7 @@ const PageContentProduct = () => {
           </h2>
           <div className="flex sm:flex-wrap max-sm:flex-col justify-between sm:h-[68vw] py-7 content-between">
             {products.length !== 0
-              ? products.splice(0, 8).map((product) => (
+              ? products.slice(0, 8).map((product) => (
                   <div className="sm:w-[21%] bg-white max-sm:my-5">
                     <img className="w-full" src={product.images[0].url} />
                     <div className="sm:h-[8vw] flex flex-col justify-evenly pl-7">

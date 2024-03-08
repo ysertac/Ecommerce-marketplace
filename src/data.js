@@ -126,18 +126,6 @@ export const data = {
         name: "Sign up",
       },
     },
-
-    otherIcons: [
-      {
-        icon: <i class="fa-solid fa-magnifying-glass"></i>,
-        count: "",
-      },
-      {
-        icon: <i class="fa-solid fa-cart-shopping"></i>,
-        count: 0,
-      },
-      { icon: <i class="fa-regular fa-heart"></i>, count: 0 },
-    ],
   },
   hero: {},
   pageContent: {

@@ -129,11 +129,15 @@ const Header = () => {
                         </Link>
                       </span>
                     )}
-                    {data.header2.otherIcons.map((icon) => (
-                      <span className="pl-5">
-                        {icon.icon} {icon.count}
-                      </span>
-                    ))}
+                    <span className="pl-5">
+                      <i class="fa-solid fa-magnifying-glass"></i>0
+                    </span>
+                    <span className="pl-5">
+                      <i class="fa-solid fa-cart-shopping"></i>0
+                    </span>
+                    <span className="pl-5">
+                      <i class="fa-regular fa-heart"></i>0
+                    </span>
                   </div>
                 </div>
 

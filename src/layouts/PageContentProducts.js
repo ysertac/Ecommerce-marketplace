@@ -2,14 +2,7 @@ import { Link } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import { productListData, teamData } from "../data";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchFilterProductsAction,
-  fetchProductsAction,
-  paginateProductsAction,
-  paginateProductsActionFilter,
-  sortProductsAction,
-  sortProductsPaginateAction,
-} from "../store/actions/productActions";
+import { fetchProductsAction } from "../store/actions/productActions";
 import { useEffect, useState } from "react";
 
 import {
@@ -40,8 +33,7 @@ const PageContentProducts = () => {
     setFilterFormData({ ...filterFormData, [name]: value });
   };
   const filterHandler = () => {
-    dispatch(fetchFilterProductsAction(0, filterFormData.filter));
-    dispatch(paginateProductsActionFilter(filterFormData.filter));
+    dispatch(fetchProductsAction(0, "", filterFormData.filter, ""));
     localStorage.setItem(lsKeyFilter, filterFormData.filter);
     localStorage.setItem(lsKeyCategory, "");
     history.push(`/shop/${filterFormData.filter}`);
@@ -65,10 +57,12 @@ const PageContentProducts = () => {
         localStorage.getItem(lsKeyFilter) == ""
       ) {
         dispatch(
-          fetchProductsAction(pageno - 1, localStorage.getItem(lsKeyCategory))
-        );
-        dispatch(
-          paginateProductsAction("", localStorage.getItem(lsKeyCategory))
+          fetchProductsAction(
+            pageno - 1,
+            localStorage.getItem(lsKeyCategory),
+            "",
+            ""
+          )
         );
       } else {
         if (
@@ -76,20 +70,21 @@ const PageContentProducts = () => {
           localStorage.getItem(lsKeyFilter) == ""
         ) {
           dispatch(
-            fetchProductsAction(pageno - 1, localStorage.getItem(lsKeyCategory))
-          );
-          dispatch(
-            paginateProductsAction("", localStorage.getItem(lsKeyCategory))
+            fetchProductsAction(
+              pageno - 1,
+              localStorage.getItem(lsKeyCategory),
+              "",
+              ""
+            )
           );
         } else {
           dispatch(
-            fetchFilterProductsAction(
+            fetchProductsAction(
               pageno - 1,
-              localStorage.getItem(lsKeyFilter)
+              "",
+              localStorage.getItem(lsKeyFilter),
+              ""
             )
-          );
-          dispatch(
-            paginateProductsActionFilter(localStorage.getItem(lsKeyFilter))
           );
         }
       }
@@ -99,44 +94,36 @@ const PageContentProducts = () => {
         localStorage.getItem(lsKeyFilter) == ""
       ) {
         dispatch(
-          sortProductsAction(
+          fetchProductsAction(
             pageno - 1,
             "",
             "",
             localStorage.getItem(lsKeySort)
           )
         );
-        dispatch(sortProductsPaginateAction("", ""));
       } else {
         if (localStorage.getItem(lsKeyCategory) !== "") {
           dispatch(
-            sortProductsAction(
+            fetchProductsAction(
               pageno - 1,
-              "",
               localStorage.getItem(lsKeyCategory),
+              "",
               localStorage.getItem(lsKeySort)
             )
-          );
-          dispatch(
-            sortProductsPaginateAction("", localStorage.getItem(lsKeyCategory))
           );
         } else {
           dispatch(
-            sortProductsAction(
+            fetchProductsAction(
               pageno - 1,
-              localStorage.getItem(lsKeyFilter),
               "",
+              localStorage.getItem(lsKeyFilter),
               localStorage.getItem(lsKeySort)
             )
-          );
-          dispatch(
-            sortProductsPaginateAction(localStorage.getItem(lsKeyFilter), "")
           );
         }
       }
     }
   }, [activePage]);
-
   return (
     <div>
       {/* First Part */}
@@ -158,11 +145,13 @@ const PageContentProducts = () => {
         <div className="flex w-3/4 max-sm:w-11/12 max-sm:flex-col justify-between mx-auto">
           {categories
             .filter((category) => category.rating >= 4.1 && category.id !== 9)
-            .map((category) => (
+            .map((category, index) => (
               <div
+                key={index}
                 onClick={() => (
-                  dispatch(fetchProductsAction(pageno - 1, category.id)),
-                  dispatch(paginateProductsAction("", category.id)),
+                  dispatch(
+                    fetchProductsAction(pageno - 1, category.id, "", "")
+                  ),
                   localStorage.setItem(lsKeyCategory, category.id),
                   localStorage.setItem(lsKeyFilter, ""),
                   history.push(
@@ -198,9 +187,13 @@ const PageContentProducts = () => {
             <span className="text-secondaryColor text-sm leading-6 font-bold">
               {productListData.secondPart.header.views.text}
             </span>
-            {productListData.secondPart.header.views.options.map((option) => (
-              <span className="border-2 p-3">{option}</span>
-            ))}
+            {productListData.secondPart.header.views.options.map(
+              (option, index) => (
+                <span key={index} className="border-2 p-3">
+                  {option}
+                </span>
+              )
+            )}
           </div>
           <div className="w-1/3 max-sm:w-11/12 flex justify-between">
             <DropDownSort />
@@ -225,6 +218,7 @@ const PageContentProducts = () => {
         <div className="flex w-3/4 max-sm:flex-col max-sm:w-11/12 justify-between mx-auto sm:flex-wrap sm:content-between">
           {products.map((product, index) => (
             <Link
+              key={index}
               to={`/${categoryNames[product.category_id - 1]}/${
                 product.id
               }/${product.name.replaceAll(" ", "_")}`}
@@ -266,8 +260,9 @@ const PageContentProducts = () => {
       {/* Logo Part */}
       <div className="bg-dimbg p-10 max-sm:py-20 mt-12">
         <div className="w-3/4 max-sm:w-11/12 max-sm:flex-col flex justify-between mx-auto">
-          {productListData.logoPart.map((logo) => (
+          {productListData.logoPart.map((logo, index) => (
             <img
+              key={index}
               className="max-sm:my-10 max-sm:w-1/3 max-sm:mx-auto"
               src={logo}
             />

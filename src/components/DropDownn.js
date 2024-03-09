@@ -3,14 +3,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import {
-  fetchFilterProductsAction,
-  fetchProductsAction,
-  paginateProductsAction,
-  paginateProductsActionFilter,
-  sortProductsAction,
-  sortProductsPaginateAction,
-} from "../store/actions/productActions";
+import { fetchProductsAction } from "../store/actions/productActions";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -33,10 +26,12 @@ export default function DropDownn() {
         localStorage.getItem(lsKeyFilter) == ""
       ) {
         dispatch(
-          fetchProductsAction(pageno - 1, localStorage.getItem(lsKeyCategory))
-        );
-        dispatch(
-          paginateProductsAction("", localStorage.getItem(lsKeyCategory))
+          fetchProductsAction(
+            pageno - 1,
+            localStorage.getItem(lsKeyCategory),
+            "",
+            ""
+          )
         );
       } else {
         if (
@@ -44,20 +39,21 @@ export default function DropDownn() {
           localStorage.getItem(lsKeyFilter) == ""
         ) {
           dispatch(
-            fetchProductsAction(pageno - 1, localStorage.getItem(lsKeyCategory))
-          );
-          dispatch(
-            paginateProductsAction("", localStorage.getItem(lsKeyCategory))
+            fetchProductsAction(
+              pageno - 1,
+              localStorage.getItem(lsKeyCategory),
+              "",
+              ""
+            )
           );
         } else {
           dispatch(
-            fetchFilterProductsAction(
+            fetchProductsAction(
               pageno - 1,
-              localStorage.getItem(lsKeyFilter)
+              "",
+              localStorage.getItem(lsKeyFilter),
+              ""
             )
-          );
-          dispatch(
-            paginateProductsActionFilter(localStorage.getItem(lsKeyFilter))
           );
         }
       }
@@ -67,38 +63,31 @@ export default function DropDownn() {
         localStorage.getItem(lsKeyFilter) == ""
       ) {
         dispatch(
-          sortProductsAction(
+          fetchProductsAction(
             pageno - 1,
             "",
             "",
             localStorage.getItem(lsKeySort)
           )
         );
-        dispatch(sortProductsPaginateAction("", ""));
       } else {
         if (localStorage.getItem(lsKeyCategory) !== "") {
           dispatch(
-            sortProductsAction(
+            fetchProductsAction(
               pageno - 1,
-              "",
               localStorage.getItem(lsKeyCategory),
+              "",
               localStorage.getItem(lsKeySort)
             )
-          );
-          dispatch(
-            sortProductsPaginateAction("", localStorage.getItem(lsKeyCategory))
           );
         } else {
           dispatch(
-            sortProductsAction(
+            fetchProductsAction(
               pageno - 1,
-              localStorage.getItem(lsKeyFilter),
               "",
+              localStorage.getItem(lsKeyFilter),
               localStorage.getItem(lsKeySort)
             )
-          );
-          dispatch(
-            sortProductsPaginateAction(localStorage.getItem(lsKeyFilter), "")
           );
         }
       }
@@ -130,7 +119,7 @@ export default function DropDownn() {
             {categories
               .filter((category) => category.code[0] == "e")
               .map((category) => (
-                <Menu.Item>
+                <Menu.Item key={category}>
                   {({ active }) => (
                     <div
                       className={classNames(
@@ -138,8 +127,9 @@ export default function DropDownn() {
                         "block px-4 py-2 text-sm"
                       )}
                       onClick={() => (
-                        dispatch(fetchProductsAction(pageno - 1, category.id)),
-                        dispatch(paginateProductsAction("", category.id)),
+                        dispatch(
+                          fetchProductsAction(pageno - 1, category.id, "", "")
+                        ),
                         localStorage.setItem(lsKeyCategory, category.id),
                         localStorage.setItem(lsKeyFilter, ""),
                         history.push(
@@ -159,7 +149,7 @@ export default function DropDownn() {
             {categories
               .filter((category) => category.code[0] == "k")
               .map((category) => (
-                <Menu.Item>
+                <Menu.Item key={category}>
                   {({ active }) => (
                     <div
                       className={classNames(
@@ -167,8 +157,9 @@ export default function DropDownn() {
                         "block px-4 py-2 text-sm"
                       )}
                       onClick={() => (
-                        dispatch(fetchProductsAction(pageno - 1, category.id)),
-                        dispatch(paginateProductsAction("", category.id)),
+                        dispatch(
+                          fetchProductsAction(pageno - 1, category.id, "", "")
+                        ),
                         localStorage.setItem(lsKeyCategory, category.id),
                         localStorage.setItem(lsKeyFilter, ""),
                         history.push(

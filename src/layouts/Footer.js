@@ -11,8 +11,13 @@ const Footer = () => {
             {data.header2.brand}
           </span>
           <span className="text-primaryColor flex w-32 justify-between max-sm:mt-3">
-            {data.header1.socials.icons.map((icon) => (
-              <a target="_blank" className="text-2xl" href={icon.path}>
+            {data.header1.socials.icons.map((icon, index) => (
+              <a
+                key={index}
+                target="_blank"
+                className="text-2xl"
+                href={icon.path}
+              >
                 {icon.icon}
               </a>
             ))}
@@ -24,14 +29,18 @@ const Footer = () => {
       <div className="w-3/4 max-sm:w-11/12 mx-auto">
         <div className="flex max-sm:flex-col justify-between py-12">
           <div className="flex max-sm:flex-col justify-between w-[70%]">
-            {data.footer.blocks.map((block) => (
-              <div>
+            {data.footer.blocks.map((block, index) => (
+              <div key={index}>
                 <h2 className="text-base text-general font-bold mb-5">
                   {block.header}
                 </h2>
                 <div className="flex flex-col ">
-                  {block.contents.map((content) => (
-                    <Link className="text-sm leading-6 font-bold text-secondaryColor">
+                  {block.contents.map((content, index) => (
+                    <Link
+                      key={index}
+                      to="/#"
+                      className="text-sm leading-6 font-bold text-secondaryColor"
+                    >
                       {content}
                     </Link>
                   ))}

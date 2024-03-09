@@ -10,7 +10,6 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Category from "./pages/Category";
 import Deneme from "./deneme/Deneme";
-import PageContentCategory from "./layouts/PageContentCategory";
 
 function App() {
   return (

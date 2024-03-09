@@ -1,11 +1,6 @@
 import {
   CHANGE_PAGE_PRODUCTS,
-  FETCH_FILTER_PRODUCTS,
   FETCH_PRODUCTS,
-  PAGINATE_PRODUCTS,
-  PAGINATE_PRODUCTS_FILTER,
-  SORT_PRODUCTS,
-  SORT_PRODUCTS_PAGINATE,
 } from "../actions/productActions";
 
 const initialState = {
@@ -21,40 +16,13 @@ const productReducer = (state = initialState, action) => {
     case FETCH_PRODUCTS:
       return {
         ...state,
-        productList: action.payload,
-      };
-    case PAGINATE_PRODUCTS:
-      return {
-        ...state,
-        totalProductCount: action.payload.length,
-        pageCount: action.payload.length / 24,
-      };
-    case PAGINATE_PRODUCTS_FILTER:
-      return {
-        ...state,
-        totalProductCount: action.payload.length,
-        pageCount: action.payload.length / 24,
+        productList: action.payload.products,
+        pageCount: Math.ceil(action.payload.total / 24),
       };
     case CHANGE_PAGE_PRODUCTS:
       return {
         ...state,
         activePage: action.payload,
-      };
-    case FETCH_FILTER_PRODUCTS:
-      return {
-        ...state,
-        productList: action.payload,
-      };
-    case SORT_PRODUCTS:
-      return {
-        ...state,
-        productList: action.payload,
-      };
-    case SORT_PRODUCTS_PAGINATE:
-      return {
-        ...state,
-        totalProductCount: action.payload.length,
-        pageCount: action.payload.length / 24,
       };
     default:
       return state;

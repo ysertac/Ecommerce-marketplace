@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useDispatch, useSelector } from "react-redux";
-import { sortProductsAction } from "../store/actions/productActions";
+import { fetchProductsAction } from "../store/actions/productActions";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -14,10 +14,10 @@ export default function DropDownSort() {
       localStorage.getItem(lsKeyCategory) == ""
     ) {
       dispatch(
-        sortProductsAction(
+        fetchProductsAction(
           activePage,
-          localStorage.getItem(lsKeyFilter),
           "",
+          localStorage.getItem(lsKeyFilter),
           e.target.innerText
         )
       );
@@ -26,15 +26,15 @@ export default function DropDownSort() {
       localStorage.getItem(lsKeyFilter) == ""
     ) {
       dispatch(
-        sortProductsAction(
+        fetchProductsAction(
           activePage,
-          "",
           localStorage.getItem(lsKeyCategory),
+          "",
           e.target.innerText
         )
       );
     } else {
-      dispatch(sortProductsAction(activePage, "", "", e.target.innerText));
+      dispatch(fetchProductsAction(activePage, "", "", e.target.innerText));
     }
     localStorage.setItem(lsKeySort, e.target.innerText);
   };
@@ -77,7 +77,7 @@ export default function DropDownSort() {
                     "block px-4 py-2 text-sm"
                   )}
                 >
-                  price:asc
+                  Fiyat artan
                 </div>
               )}
             </Menu.Item>
@@ -90,7 +90,7 @@ export default function DropDownSort() {
                     "block px-4 py-2 text-sm"
                   )}
                 >
-                  price:desc
+                  Fiyat azalan
                 </div>
               )}
             </Menu.Item>
@@ -103,7 +103,7 @@ export default function DropDownSort() {
                     "block px-4 py-2 text-sm"
                   )}
                 >
-                  rating:asc
+                  Puan artan
                 </div>
               )}
             </Menu.Item>
@@ -116,7 +116,7 @@ export default function DropDownSort() {
                     "block px-4 py-2 text-sm"
                   )}
                 >
-                  rating:desc
+                  Puan azalan
                 </div>
               )}
             </Menu.Item>

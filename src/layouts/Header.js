@@ -6,16 +6,18 @@ import { Link } from "react-router-dom";
 import Gravatar from "../components/Gravatar";
 import { useDispatch, useSelector } from "react-redux";
 import { verifyUser } from "../store/actions/userActions";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchCategoriesAction } from "../store/actions/globalActions";
+import Cart from "../components/Cart";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
 const Header = () => {
   const user = useSelector((store) => store.user.user);
   const categories = useSelector((store) => store.global.categories);
+  const cart = useSelector((store) => store.shopping.cart);
+  const [cartQuantity, setCartQuantity] = useState(0);
   const dispatch = useDispatch();
   const lsKeyCategory = "categoryParam";
   const lsKeyFilter = "filterParam";
@@ -24,7 +26,19 @@ const Header = () => {
     dispatch(verifyUser(localStorage.getItem("token")));
     dispatch(fetchCategoriesAction());
   }, []);
-  console.log(categories);
+  const [open, setOpen] = useState(false);
+  const openValues = {
+    open,
+    setOpen,
+  };
+  const totalCart = () => {
+    let total = 0;
+    for (let i = 0; i < cart.length; i++) {
+      total += cart[i].count;
+    }
+    return total;
+  };
+
   return (
     <>
       {/* Üst Header */}
@@ -44,8 +58,8 @@ const Header = () => {
           <div className="font-bold text-sm leading-6 max-sm:hidden flex">
             <span className="mr-2">{data.header1.socials.text}</span>
             <span className="flex w-32 justify-between">
-              {data.header1.socials.icons.map((icon) => (
-                <a target="_blank" href={icon.path}>
+              {data.header1.socials.icons.map((icon, index) => (
+                <a key={index} target="_blank" href={icon.path}>
                   {icon.icon}
                 </a>
               ))}
@@ -132,8 +146,12 @@ const Header = () => {
                     <span className="pl-5">
                       <i class="fa-solid fa-magnifying-glass"></i>0
                     </span>
-                    <span className="pl-5">
-                      <i class="fa-solid fa-cart-shopping"></i>0
+                    <span
+                      className="pl-5 cursor-pointer"
+                      onClick={() => setOpen(true)}
+                    >
+                      <i class="fa-solid fa-cart-shopping"></i>
+                      {totalCart()}
                     </span>
                     <span className="pl-5">
                       <i class="fa-regular fa-heart"></i>0
@@ -185,6 +203,7 @@ const Header = () => {
           </>
         )}
       </Disclosure>
+      <Cart openValues={openValues} />
     </>
   );
 };

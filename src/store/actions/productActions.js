@@ -1,84 +1,18 @@
-import axios from "axios";
-import { api } from "../../api/api";
-
+import API from "../../api/api";
 export const FETCH_PRODUCTS = "fetch products";
-export const PAGINATE_PRODUCTS = "paginate products";
-export const PAGINATE_PRODUCTS_FILTER = "paginate products as filter";
 export const CHANGE_PAGE_PRODUCTS = "change page";
-export const CATEGORY_PRODUCTS = "filter by category";
-export const FETCH_FILTER_PRODUCTS = "searching filter";
-export const SORT_PRODUCTS = "sorting";
-export const SORT_PRODUCTS_PAGINATE = "sorting pagination";
 
-export const fetchProductsAction = (param, categoryParam) => (dispatch) => {
-  axios
-    .get(
-      `${api}products/?limit=${24}&offset=${
+export const fetchProductsAction =
+  (param, categoryParam, filterParam, sortParam) => (dispatch) => {
+    API.get(
+      `products/?limit=24&offset=${
         param * 24
-      }&category=${categoryParam}`
+      }&category=${categoryParam}&filter=${filterParam}&sort=${sortParam}`
     )
-    .then((res) => {
-      dispatch({ type: FETCH_PRODUCTS, payload: res.data.products });
-    })
-    .catch((error) => console.error(error));
-};
-
-export const paginateProductsAction = (param, categoryParam) => (dispatch) => {
-  axios
-    .get(`${api}products/?limit=${null}&category=${categoryParam}`)
-    .then((res) => {
-      dispatch({ type: PAGINATE_PRODUCTS, payload: res.data.products });
-    })
-    .catch((error) => console.error(error));
-};
-
-export const paginateProductsActionFilter = (filterParam) => (dispatch) => {
-  axios
-    .get(`${api}products/?limit=${null}&filter=${filterParam}`)
-    .then((res) => {
-      dispatch({
-        type: PAGINATE_PRODUCTS_FILTER,
-        payload: res.data.products,
-      });
-    })
-    .catch((error) => console.error(error));
-};
-
-export const fetchFilterProductsAction = (param, filterParam) => (dispatch) => {
-  axios
-    .get(
-      `${api}products/?limit=${24}&offset=${param * 24}&filter=${filterParam}`
-    )
-    .then((res) => {
-      dispatch({ type: FETCH_FILTER_PRODUCTS, payload: res.data.products });
-    })
-    .catch((error) => console.error(error));
-};
-
-export const sortProductsAction =
-  (param, filterParam, categoryParam, sortParam) => (dispatch) => {
-    axios
-      .get(
-        `${api}products/?limit=24&offset=${
-          param * 24
-        }&filter=${filterParam}&category=${categoryParam}&sort=${sortParam}`
-      )
       .then((res) => {
-        dispatch({ type: SORT_PRODUCTS, payload: res.data.products });
+        dispatch({ type: FETCH_PRODUCTS, payload: res.data });
       })
-      .catch((err) => console.error(err));
-  };
-
-export const sortProductsPaginateAction =
-  (filterParam, categoryParam) => (dispatch) => {
-    axios
-      .get(
-        `${api}products/?limit=null&filter=${filterParam}&category=${categoryParam}`
-      )
-      .then((res) => {
-        dispatch({ type: SORT_PRODUCTS_PAGINATE, payload: res.data.products });
-      })
-      .catch((err) => console.error(err));
+      .catch((error) => console.error(error));
   };
 
 export const changePageAction = (param) => {

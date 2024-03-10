@@ -4,15 +4,12 @@ import { productListData, teamData } from "../data";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsAction } from "../store/actions/productActions";
 import { useEffect, useState } from "react";
-
-import {
-  useHistory,
-  useParams,
-} from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useParams } from "react-router-dom";
 import DropDownSort from "../components/DropDownSort";
 
 const PageContentProducts = () => {
   const { pageno } = useParams();
+
   const history = useHistory();
   const dispatch = useDispatch();
   const categories = useSelector((store) => store.global.categories);
@@ -33,97 +30,24 @@ const PageContentProducts = () => {
     setFilterFormData({ ...filterFormData, [name]: value });
   };
   const filterHandler = () => {
-    dispatch(fetchProductsAction(0, "", filterFormData.filter, ""));
+    dispatch(
+      fetchProductsAction(
+        0,
+        localStorage.getItem(lsKeyCategory),
+        filterFormData.filter,
+        localStorage.getItem(lsKeySort)
+      )
+    );
     localStorage.setItem(lsKeyFilter, filterFormData.filter);
-    localStorage.setItem(lsKeyCategory, "");
-    history.push(`/shop/${filterFormData.filter}`);
+    setUrl(`${url}/${filterFormData.filter}`);
   };
   for (let i = 1; i <= Math.ceil(pageCount); i++) {
     paginationNumbers.push(i);
   }
-  /* useEffect(() => {
-    dispatch(paginateProductsAction("", localStorage.getItem(lsKey)));
-  }, [localStorage.getItem(lsKey)]); */
-
-  /* useEffect(() => {
-    localStorage.setItem(lsKey, localStorage.getItem(lsKey));
-    localStorage.setItem(lsKeySort, localStorage.getItem(lsKeySort));
-  }, []); */
-
+  const [url, setUrl] = useState("/shop");
   useEffect(() => {
-    if (localStorage.getItem(lsKeySort) == "") {
-      if (
-        localStorage.getItem(lsKeyCategory) == "" &&
-        localStorage.getItem(lsKeyFilter) == ""
-      ) {
-        dispatch(
-          fetchProductsAction(
-            pageno - 1,
-            localStorage.getItem(lsKeyCategory),
-            "",
-            ""
-          )
-        );
-      } else {
-        if (
-          localStorage.getItem(lsKeyCategory) !== "" &&
-          localStorage.getItem(lsKeyFilter) == ""
-        ) {
-          dispatch(
-            fetchProductsAction(
-              pageno - 1,
-              localStorage.getItem(lsKeyCategory),
-              "",
-              ""
-            )
-          );
-        } else {
-          dispatch(
-            fetchProductsAction(
-              pageno - 1,
-              "",
-              localStorage.getItem(lsKeyFilter),
-              ""
-            )
-          );
-        }
-      }
-    } else {
-      if (
-        localStorage.getItem(lsKeyCategory) == "" &&
-        localStorage.getItem(lsKeyFilter) == ""
-      ) {
-        dispatch(
-          fetchProductsAction(
-            pageno - 1,
-            "",
-            "",
-            localStorage.getItem(lsKeySort)
-          )
-        );
-      } else {
-        if (localStorage.getItem(lsKeyCategory) !== "") {
-          dispatch(
-            fetchProductsAction(
-              pageno - 1,
-              localStorage.getItem(lsKeyCategory),
-              "",
-              localStorage.getItem(lsKeySort)
-            )
-          );
-        } else {
-          dispatch(
-            fetchProductsAction(
-              pageno - 1,
-              "",
-              localStorage.getItem(lsKeyFilter),
-              localStorage.getItem(lsKeySort)
-            )
-          );
-        }
-      }
-    }
-  }, [activePage]);
+    history.push(`${url}/${activePage}`);
+  }, [url]);
   return (
     <div>
       {/* First Part */}
@@ -153,8 +77,7 @@ const PageContentProducts = () => {
                     fetchProductsAction(pageno - 1, category.id, "", "")
                   ),
                   localStorage.setItem(lsKeyCategory, category.id),
-                  localStorage.setItem(lsKeyFilter, ""),
-                  history.push(
+                  setUrl(
                     `/shop/${category.gender}/${category.title.toLowerCase()}`
                   )
                 )}

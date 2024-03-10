@@ -7,7 +7,7 @@ const initialState = {
   productList: [],
   totalProductCount: 0,
   pageCount: 0,
-  activePage: 0,
+  activePage: 1,
   fetchState: "",
 };
 
